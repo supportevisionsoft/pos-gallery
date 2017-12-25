@@ -1,0 +1,570 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='ITTESTPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 10:35:10.997000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 17-09-2014 10:41:40.932000
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5101
+================================================
+
+================================================
+Title:    at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5361
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 10:48:53.027000
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 10:48:53.887000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 17-09-2014 10:54:03.327000
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 11:13:37.194000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 17-09-2014 11:16:01.669000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190411
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-00-0319
+================================================
+
+================================================
+Title: Error
+Message: ORA-20001: FP-10089-Check Base currency is defined for the logged in company.ERR1: ERR2: ERR3: ERR4: ERR5: ERR6: ERR7: ERR8:
+ORA-06512: at "JNOVELTY107.RAISE_APPLICATION", line 34
+ORA-06512: at "JNOVELTY107.F_GET_BASE_INT_CON_CURR", line 27
+ORA-06512: at "JNOVELTY107.F_GET_BASE_CURR", line 8
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 147
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 446
+ORA-06512: at "JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM", line 15
+ORA-04088: error during execution of trigger 'JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM'
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5209
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================Error
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 11:20:40.918000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 17-09-2014 11:21:46.568000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190412
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-00-0319
+================================================
+
+================================================
+Title: Error
+Message: ORA-20001: FP-10089-Check Base currency is defined for the logged in company.ERR1: ERR2: ERR3: ERR4: ERR5: ERR6: ERR7: ERR8:
+ORA-06512: at "JNOVELTY107.RAISE_APPLICATION", line 34
+ORA-06512: at "JNOVELTY107.F_GET_BASE_INT_CON_CURR", line 27
+ORA-06512: at "JNOVELTY107.F_GET_BASE_CURR", line 8
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 147
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 446
+ORA-06512: at "JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM", line 15
+ORA-04088: error during execution of trigger 'JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM'
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5209
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 17-09-2014 11:28:20.836000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190412
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-00-0319
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 11:41:54.489000
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 11:45:50.247000
+================================================
+
+================================================
+Title: 
+Message: SR Filter
+StackTrace: SELECT C.INVH_NO,to_char(C.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B, OT_INVOICE_HEAD C WHERE A.INVI_INVH_SYS_ID = C.INVH_SYS_ID  AND  C.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND C.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = C.INVH_NO) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = C.INVH_NO) GROUP BY C.INVH_NO,C.INVH_DT, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT B.INVH_NO,to_char(B.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, INVI_QTY_BU QTY FROM OT_INVOICE_ITEM A,OT_INVOICE_HEAD B WHERE A.INVI_INVH_SYS_ID=B.INVH_SYS_ID AND B.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy')AND B.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =B.INVH_NO)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = B.INVH_NO AND INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy')) 
+================================================
+
+================================================
+Title: 
+Message: SR Filter
+StackTrace: SELECT C.INVH_NO,to_char(C.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B, OT_INVOICE_HEAD C WHERE A.INVI_INVH_SYS_ID = C.INVH_SYS_ID  AND  C.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND C.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = C.INVH_NO) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = C.INVH_NO) GROUP BY C.INVH_NO,C.INVH_DT, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT B.INVH_NO,to_char(B.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, INVI_QTY_BU QTY FROM OT_INVOICE_ITEM A,OT_INVOICE_HEAD B WHERE A.INVI_INVH_SYS_ID=B.INVH_SYS_ID AND B.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy')AND B.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =B.INVH_NO)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = B.INVH_NO AND INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy')) 
+================================================
+
+================================================
+Title: 
+Message: SR Filter
+StackTrace: SELECT C.INVH_NO,to_char(C.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B, OT_INVOICE_HEAD C WHERE A.INVI_INVH_SYS_ID = C.INVH_SYS_ID  AND  C.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND C.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = C.INVH_NO) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = C.INVH_NO) GROUP BY C.INVH_NO,C.INVH_DT, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT B.INVH_NO,to_char(B.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, INVI_QTY_BU QTY FROM OT_INVOICE_ITEM A,OT_INVOICE_HEAD B WHERE A.INVI_INVH_SYS_ID=B.INVH_SYS_ID AND B.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy')AND B.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =B.INVH_NO)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = B.INVH_NO AND INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy')) 
+================================================
+
+================================================
+Title: 
+Message: SR Filter
+StackTrace: SELECT C.INVH_NO,to_char(C.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B, OT_INVOICE_HEAD C WHERE A.INVI_INVH_SYS_ID = C.INVH_SYS_ID  AND  C.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND C.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = C.INVH_NO) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = C.INVH_NO) GROUP BY C.INVH_NO,C.INVH_DT, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT B.INVH_NO,to_char(B.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, INVI_QTY_BU QTY FROM OT_INVOICE_ITEM A,OT_INVOICE_HEAD B WHERE A.INVI_INVH_SYS_ID=B.INVH_SYS_ID AND B.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy')AND B.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =B.INVH_NO)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = B.INVH_NO AND INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy')) 
+================================================
+
+================================================
+Title: 
+Message: SR Filter
+StackTrace: SELECT C.INVH_NO,to_char(C.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B, OT_INVOICE_HEAD C WHERE A.INVI_INVH_SYS_ID = C.INVH_SYS_ID  AND  C.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND C.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = C.INVH_NO) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = C.INVH_NO) GROUP BY C.INVH_NO,C.INVH_DT, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT B.INVH_NO,to_char(B.INVH_DT,'dd-MM-YY'), INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, INVI_QTY_BU QTY FROM OT_INVOICE_ITEM A,OT_INVOICE_HEAD B WHERE A.INVI_INVH_SYS_ID=B.INVH_SYS_ID AND B.INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy')AND B.INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy') AND A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =B.INVH_NO)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='006' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = B.INVH_NO AND INVH_DT >= TO_DATE('01-08-2014','dd-MM-yyyy') AND INVH_DT <= TO_DATE('17-09-2014','dd-MM-yyyy')) 
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 12:06:10.753000
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 12:17:59.762000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 17-09-2014 12:24:38.542000
+================================================
+
+================================================
+Title: OM_SALESMAN
+Message: SELECT SM_CODE as salemancode, SM_CODE  FROM OM_SALESMAN WHERE SM_FRZ_FLAG_NUM = 2 AND SM_CODE IN (SELECT SMC_CODE FROM OM_SALESMAN_COMP WHERE SMC_COMP_CODE = '001' AND SMC_FRZ_FLAG_NUM = 2) AND SM_CODE IN (SELECT SMC_CODE FROM OM_POS_SALESMAN_COUNTER WHERE SMC_LOCN_CODE = '001'  AND SMC_FRZ_FLAG_NUM = 2) ORDER BY SM_CODE
+StackTrace: 
+================================================
+
+================================================
+Title: OM_SALESMAN
+Message: SELECT SM_CODE as salemancode, SM_CODE  FROM OM_SALESMAN WHERE SM_FRZ_FLAG_NUM = 2 AND SM_CODE IN (SELECT SMC_CODE FROM OM_SALESMAN_COMP WHERE SMC_COMP_CODE = '001' AND SMC_FRZ_FLAG_NUM = 2) AND SM_CODE IN (SELECT SMC_CODE FROM OM_POS_SALESMAN_COUNTER WHERE SMC_LOCN_CODE = '006'  AND SMC_FRZ_FLAG_NUM = 2) ORDER BY SM_CODE
+StackTrace: 
+================================================
+
+================================================
+Title: OM_SALESMAN
+Message: SELECT SM_CODE as salemancode, SM_CODE  FROM OM_SALESMAN WHERE SM_FRZ_FLAG_NUM = 2 AND SM_CODE IN (SELECT SMC_CODE FROM OM_SALESMAN_COMP WHERE SMC_COMP_CODE = '001' AND SMC_FRZ_FLAG_NUM = 2) AND SM_CODE IN (SELECT SMC_CODE FROM OM_POS_SALESMAN_COUNTER WHERE SMC_LOCN_CODE = '006'  AND SMC_FRZ_FLAG_NUM = 2) ORDER BY SM_CODE
+StackTrace: 
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code,locn_name Location_Name, om_item.item_uom_code UOM_Code, lcs_grade_code_1 GradeCode_1, lcs_grade_code_2  GradeCode_2, A.item_pli_pl_code  AS PL_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, lcs_stk_qty_bu Conf_Stock_Qty, lcs_rcvd_qty_bu Unconf_Rec_Qty, lcs_issd_qty_bu UnConf_Iss_Qty, lcs_hold_qty_bu Hold_Qty, lcs_reject_qty_bu Rejected_Qty, lcs_overres_qty_bu OverReserve_Qty, lcs_pick_qty_bu  Pick_Qty,  lcs_pack_qty_bu  Pack_Qty, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty, lcs_resv_qty_bu Reserve_Qty,((lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - (lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu + lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu ) - lcs_resv_qty_bu ) Free_Stock_Qty,  om_item.ITEM_ANLY_CODE_01, om_item.ITEM_ANLY_CODE_02 FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name
+================================================
+

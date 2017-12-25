@@ -1,0 +1,12 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='095' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GDISCOVERPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '095' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+

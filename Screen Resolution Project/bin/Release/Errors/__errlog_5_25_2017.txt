@@ -1,0 +1,396 @@
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:27:19 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 9:27:19 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:27:42 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 165
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 9:27:42 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:29:43 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 9:29:43 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:37:51 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 9:37:51 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:38:15 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 165
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 9:38:15 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:38:36 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtPassword_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 216
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 9:38:36 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:39:00 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 9:39:00 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:39:56 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 165
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 9:39:56 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:45:10 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 9:45:10 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:58:42 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 9:58:42 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:59:08 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 165
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 9:59:08 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 9:59:35 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtPassword_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 216
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 9:59:35 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:00:05 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.cmbCompanyCode_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 272
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:00:05 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:00:26 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.cmbLocationCode_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 374
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:00:26 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:01:37 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 10:01:37 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:02:02 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 165
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:02:02 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:02:28 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtPassword_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 216
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:02:28 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:03:22 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.cmbCompanyCode_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 272
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:03:22 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:06:24 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 10:06:24 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:06:59 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 10:06:59 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:09:18 PM
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 97
+Date/Time: 5/25/2017 10:09:18 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:09:44 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 165
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:09:44 PM
+================================================
+

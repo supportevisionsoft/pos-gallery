@@ -1,0 +1,72 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='TESTSERVER' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='TESTSERVER' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-06-2015 20:32:47.946000
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,3948949,'MC-26-5404','MC BRACELET    HFJ-NP10079-396-0560','PCS',1,29,'6290266400377',29,0,0,0,'','NA','NA','GPL',29,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','006','N',29,0,0,'I','',0)
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,3948949,'MC-26-5402','MC BRACELET GLS BEADS W/CML GHTC-','PCS',1,25,'6290266375088',25,0,0,0,'','NA','NA','GPL',25,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','006','N',25,0,0,'I','',0)
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,3948949,'MC-26-5402','MC BRACELET GLS BEADS W/CML GHTC-','PCS',1,25,'6290266375088',25,0,0,0,'','NA','NA','GPL',25,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','006','N',25,0,0,'I','',0)
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-06-2015 20:34:29.555000
+================================================
+

@@ -1,0 +1,36 @@
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 10-01-2006 20:49:15.750000
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 10-01-2006 20:53:12.359000
+================================================
+

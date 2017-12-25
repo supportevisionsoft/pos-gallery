@@ -1,0 +1,18 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+

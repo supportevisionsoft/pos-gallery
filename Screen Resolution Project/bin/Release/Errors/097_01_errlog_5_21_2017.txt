@@ -1,0 +1,1484 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 2:27:32 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 2:27:32 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 2:27:32 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 2:27:33 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 2:27:33 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 2:27:35 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 12:57:30.383000
+Date/Time: 5/21/2017 2:27:35 PM
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,6133752,'MC-00-4685','MC POST CARD ASST','PCS',1,2,'0',2,0,0,0,'','NA','NA','GPL',2,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','097','N',2,0,0,'I','',0)
+Date/Time: 5/21/2017 2:28:32 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked TXN_CODE as POSINV and then will check for payments.
+Date/Time: 5/21/2017 2:28:41 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked card payment.
+Date/Time: 5/21/2017 2:28:41 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 21-05-2017 12:58:36.681000
+Date/Time: 5/21/2017 2:28:41 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 97033105
+Date/Time: 5/21/2017 2:28:43 PM
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: MC-00-4685
+Date/Time: 5/21/2017 2:28:43 PM
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(28390412,58005935,'097','097','MC-00-4685',1,'MC POST CARD ASST','PCS','01','GPL',2,'Y',1,0,1,0,0,0,0,0,0,0,2,0,2,2,2,'N',0,0,'NA','NA',0,0,'GMJSOUK',sysdate,'0','N')
+Date/Time: 5/21/2017 2:28:43 PM
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =6133752 AND PRODCODE='MC-00-4685'
+Date/Time: 5/21/2017 2:28:43 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(47951660,28390412,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'GMJSOUK')
+Date/Time: 5/21/2017 2:28:43 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY Payment Insertion
+StackTrace: Payment Type 1: CASH
+Date/Time: 5/21/2017 2:28:44 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Completed Time:
+StackTrace: 21-05-2017 12:58:39.495000
+Date/Time: 5/21/2017 2:28:44 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Ends Here
+StackTrace: ENDING POINT OF TRANSACTION
+Date/Time: 5/21/2017 2:28:44 PM
+================================================
+
+================================================
+Title: 
+Message: End Time:
+StackTrace: 21-05-2017 12:58:39.588000
+Date/Time: 5/21/2017 2:28:44 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 2:29:47 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 12:59:43.020000
+Date/Time: 5/21/2017 2:29:48 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 2:41:19 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 2:41:19 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 2:41:20 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 2:41:20 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 2:41:20 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 2:41:22 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 13:11:17.453000
+Date/Time: 5/21/2017 2:41:22 PM
+================================================
+
+================================================
+Title: 
+Message: Sales Return Add Query 
+StackTrace: SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC((A.INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=A.INVI_ITEM_CODE)),3) - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B WHERE A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033105) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = 97033105)  GROUP BY INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC(INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=INVI_ITEM_CODE) ,3) QTY FROM OT_INVOICE_ITEM A WHERE A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =97033105)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033105)
+Date/Time: 5/21/2017 2:41:58 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033105
+Date/Time: 5/21/2017 2:42:00 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033105
+Date/Time: 5/21/2017 2:42:00 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_HEAD
+StackTrace: INSERT INTO OT_CUST_SALE_RET_HEAD (CSRH_SYS_ID,CSRH_COMP_CODE,CSRH_TXN_CODE,CSRH_NO,CSRH_DT,CSRH_ACNT_YEAR,CSRH_CAL_YEAR,CSRH_CAL_PERIOD,CSRH_DOC_SRC_LOCN_CODE,CSRH_REF_FROM,CSRH_REF_FROM_NUM,CSRH_REF_TXN_CODE,CSRH_REF_NO,CSRH_REF_SYS_ID,CSRH_LOCN_CODE,CSRH_DEL_LOCN_CODE,CSRH_CUST_CODE,CSRH_CURR_CODE,CSRH_SHIP_TO_ADDR_CODE,CSRH_BILL_TO_ADDR_CODE,CSRH_EXGE_RATE,CSRH_DISC_PERC,CSRH_FC_DISC_VAL,CSRH_SM_CODE,CSRH_STATUS,CSRH_PRINT_STATUS,CSRH_APPR_STATUS,CSRH_APPR_UID,CSRH_COS_FIN_STATUS,CSRH_ANNOTATION,CSRH_FLEX_10,CSRH_FLEX_14,CSRH_FLEX_15,CSRH_FLEX_16,CSRH_FLEX_17,CSRH_FLEX_18,CSRH_FLEX_19,CSRH_FLEX_20,CSRH_CUST_NAME,CSRH_BILL_ADDR_LINE_1,CSRH_BILL_ADDR_LINE_2,CSRH_BILL_ADDR_LINE_3,CSRH_BILL_ADDR_LINE_4, CSRH_BILL_ADDR_LINE_5,CSRH_BILL_CITY_CODE,CSRH_BILL_COUNTY_CODE,CSRH_BILL_STATE_CODE,CSRH_BILL_POSTAL_CODE,CSRH_BILL_COUNTRY_CODE,CSRH_BILL_CONTACT ,CSRH_BILL_EMAIL,CSRH_BILL_FAX,CSRH_BILL_TEL,CSRH_BILL_MOBILE,CSRH_CR_UID,CSRH_CR_DT,CSRH_FLEX_03,CSRH_FLEX_04) VALUES(58006163,'001','SARTN',97001066,'21-May-17',14,2017,5,'097','IN',15,'POSINV',97033105,58005935,'097','097','SH097','AED','JABADD01','JABADD01',1,0,0,'01','',1,0,'GMJSOUK','','','N','N','','','','','01','01','I LOVE DUBAI  MADINAT JUM -UNIT43','P.O. BOX 1940','DUBAI','','','','010','MEA','0','','UAE','MR. MOHANDAS','gallery@aljaber.ae','04 - 2689268','04 - 2667700, 04 - 2667722','','GMJSOUK',to_date(sysdate,'DD-MM-YY'),'','')
+Date/Time: 5/21/2017 2:42:17 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_REF
+StackTrace: INSERT INTO OT_CUST_SALE_RET_REF (CSRR_SYS_ID,CSRR_CSRH_SYS_ID,CSRR_REF_TXN_CODE,CSRR_REF_NO,CSRR_REF_SYS_ID,CSRR_CR_DT,CSRR_CR_UID) VALUES (135307,58006163,'POSINV',97033105,58005935,current_timestamp,'GMJSOUK')
+Date/Time: 5/21/2017 2:42:18 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 2:42:28 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 13:12:23.651000
+Date/Time: 5/21/2017 2:42:28 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 4:26:55 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 4:26:55 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 4:26:55 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 4:26:56 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 4:26:56 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 4:26:57 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 14:56:53.681000
+Date/Time: 5/21/2017 4:26:58 PM
+================================================
+
+================================================
+Title: 
+Message: Direct Invoice Report Query
+StackTrace:  select rownum,b.invh_no ,to_char( b.invh_cr_dt,'DD/MM/YYYY HH12:MI AM') as InvoiceDate,  d.ADDR_LINE_1 as locn_name, d.ADDR_LINE_2|| ' ' || d.ADDR_LINE_3 as Location_Address, d.addr_tel as Phone,d.addr_email as Email, (select cust_name from om_customer where cust_code = b.invh_cust_code) as CustName, b.invh_BILL_ADDR_LINE_1||' '||b.invh_BILL_ADDR_LINE_2||' '||b.invh_BILL_COUNTRY_CODE as billing_addr, b.INVH_BILL_TEL as billing_phone, b.invh_BILL_EMAIL as billing_email, b.invh_SHIP_ADDR_LINE_1||' '||b.invh_SHIP_ADDR_LINE_2||' '||b.invh_SHIP_COUNTRY_CODE as shipping_addr, a.INVI_ITEM_CODE as ItemCode,a.INVI_ITEM_DESC as ItemDesc, a.INVI_UOM_CODE as ItmUOM, a.INVI_PL_RATE as ItmPrice , a.INVI_QTY as ItmQty, a.INVI_FC_VAL as ItmAmt, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress  from  ot_invoice_head b,ot_invoice_item a,om_location c,om_address d where b.invh_no = 97033105 and b.invh_sys_id = a.invi_invh_sys_id and b.invh_locn_code = c.locn_code and c.locn_addr_code = d.addr_code and  INVH_TXN_CODE='POSINV'
+Date/Time: 5/21/2017 4:27:16 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 4:27:22 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 14:57:18.249000
+Date/Time: 5/21/2017 4:27:22 PM
+================================================
+
+================================================
+Title: 
+Message: Direct Invoice Report Query
+StackTrace:  select rownum,b.CSRH_NO ,to_char( b.CSRH_CR_DT,'DD/MM/YYYY HH12:MI AM') as InvoiceDate,  d.ADDR_LINE_1 as locn_name, d.ADDR_LINE_2|| ' ' || d.ADDR_LINE_3 as Location_Address, d.addr_tel as Phone,d.addr_email as Email, (select cust_name from om_customer where cust_code = b.CSRH_CUST_CODE)  as CustName, b.CSRH_BILL_ADDR_LINE_1||' '||b.CSRH_BILL_ADDR_LINE_2||' '||b.CSRH_BILL_COUNTRY_CODE as billing_addr, b.CSRH_BILL_TEL as billing_phone, b.CSRH_BILL_EMAIL as billing_email, b.CSRH_SHIP_ADDR_LINE_1||' '||b.CSRH_SHIP_ADDR_LINE_2||' '||b.CSRH_SHIP_COUNTRY_CODE as shipping_addr, a.CSRI_ITEM_CODE as ItemCode,a.CSRI_ITEM_DESC as ItemDesc, a.CSRI_UOM_CODE as ItmUOM, a.CSRI_RATE as ItmPrice , a.CSRI_QTY as ItmQty, a.CSRI_FC_VAL as ItmAmt, nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt, nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,CSRH_SM_CODE as salesman,CSRH_FLEX_03 as pm_cust_no, nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress  from  OT_CUST_SALE_RET_HEAD b,OT_CUST_SALE_RET_ITEM a,om_location c,om_address d where b.CSRH_NO = 97001066 and b.CSRH_SYS_ID = a.CSRI_CSRH_SYS_ID and b.CSRH_LOCN_CODE = c.locn_code and c.locn_addr_code = d.addr_code
+Date/Time: 5/21/2017 4:27:41 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 4:27:55 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 14:57:50.741000
+Date/Time: 5/21/2017 4:27:55 PM
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,6134075,'MC-00-4685','MC POST CARD ASST','PCS',1,2,'0',2,0,0,0,'','NA','NA','GPL',2,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','097','N',2,0,0,'I','',0)
+Date/Time: 5/21/2017 4:28:29 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked TXN_CODE as POSINV and then will check for payments.
+Date/Time: 5/21/2017 4:28:32 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked card payment.
+Date/Time: 5/21/2017 4:28:32 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 21-05-2017 14:58:28.706000
+Date/Time: 5/21/2017 4:28:33 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 97033113
+Date/Time: 5/21/2017 4:28:34 PM
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: MC-00-4685
+Date/Time: 5/21/2017 4:28:35 PM
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(28391935,58008589,'097','097','MC-00-4685',1,'MC POST CARD ASST','PCS','01','GPL',2,'Y',1,0,1,0,0,0,0,0,0,0,2,0,2,2,2,'N',0,0,'NA','NA',0,0,'GMJSOUK',sysdate,'0','N')
+Date/Time: 5/21/2017 4:28:35 PM
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =6134075 AND PRODCODE='MC-00-4685'
+Date/Time: 5/21/2017 4:28:35 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(47952649,28391935,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'GMJSOUK')
+Date/Time: 5/21/2017 4:28:35 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY Payment Insertion
+StackTrace: Payment Type 1: CASH
+Date/Time: 5/21/2017 4:28:35 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Completed Time:
+StackTrace: 21-05-2017 14:58:31.518000
+Date/Time: 5/21/2017 4:28:35 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Ends Here
+StackTrace: ENDING POINT OF TRANSACTION
+Date/Time: 5/21/2017 4:28:35 PM
+================================================
+
+================================================
+Title: 
+Message: End Time:
+StackTrace: 21-05-2017 14:58:31.612000
+Date/Time: 5/21/2017 4:28:36 PM
+================================================
+
+================================================
+Title:    at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at POS.Transactions.GetDocumentImageDirectPrint() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13004
+Message: Error Occured4
+StackTrace: There is no row at position 0.
+Date/Time: 5/21/2017 4:29:45 PM
+================================================
+
+================================================
+Title:    at POS.Transactions.Print(String printerName, Byte[] document) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13351
+   at POS.Transactions.PrintDocument1_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 14222
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/21/2017 4:29:45 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 4:34:51 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 4:34:51 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 4:34:51 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 4:34:52 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 4:34:52 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 4:34:57 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 15:04:53.587000
+Date/Time: 5/21/2017 4:34:57 PM
+================================================
+
+================================================
+Title: 
+Message: Sales Return Add Query 
+StackTrace: SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC((A.INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=A.INVI_ITEM_CODE)),3) - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B WHERE A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033113) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = 97033113)  GROUP BY INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC(INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=INVI_ITEM_CODE) ,3) QTY FROM OT_INVOICE_ITEM A WHERE A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =97033113)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033113)
+Date/Time: 5/21/2017 4:35:14 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033113
+Date/Time: 5/21/2017 4:35:16 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033113
+Date/Time: 5/21/2017 4:35:17 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_HEAD
+StackTrace: INSERT INTO OT_CUST_SALE_RET_HEAD (CSRH_SYS_ID,CSRH_COMP_CODE,CSRH_TXN_CODE,CSRH_NO,CSRH_DT,CSRH_ACNT_YEAR,CSRH_CAL_YEAR,CSRH_CAL_PERIOD,CSRH_DOC_SRC_LOCN_CODE,CSRH_REF_FROM,CSRH_REF_FROM_NUM,CSRH_REF_TXN_CODE,CSRH_REF_NO,CSRH_REF_SYS_ID,CSRH_LOCN_CODE,CSRH_DEL_LOCN_CODE,CSRH_CUST_CODE,CSRH_CURR_CODE,CSRH_SHIP_TO_ADDR_CODE,CSRH_BILL_TO_ADDR_CODE,CSRH_EXGE_RATE,CSRH_DISC_PERC,CSRH_FC_DISC_VAL,CSRH_SM_CODE,CSRH_STATUS,CSRH_PRINT_STATUS,CSRH_APPR_STATUS,CSRH_APPR_UID,CSRH_COS_FIN_STATUS,CSRH_ANNOTATION,CSRH_FLEX_10,CSRH_FLEX_14,CSRH_FLEX_15,CSRH_FLEX_16,CSRH_FLEX_17,CSRH_FLEX_18,CSRH_FLEX_19,CSRH_FLEX_20,CSRH_CUST_NAME,CSRH_BILL_ADDR_LINE_1,CSRH_BILL_ADDR_LINE_2,CSRH_BILL_ADDR_LINE_3,CSRH_BILL_ADDR_LINE_4, CSRH_BILL_ADDR_LINE_5,CSRH_BILL_CITY_CODE,CSRH_BILL_COUNTY_CODE,CSRH_BILL_STATE_CODE,CSRH_BILL_POSTAL_CODE,CSRH_BILL_COUNTRY_CODE,CSRH_BILL_CONTACT ,CSRH_BILL_EMAIL,CSRH_BILL_FAX,CSRH_BILL_TEL,CSRH_BILL_MOBILE,CSRH_CR_UID,CSRH_CR_DT,CSRH_FLEX_03,CSRH_FLEX_04) VALUES(58008909,'001','SARTN',97001067,'21-May-17',14,2017,5,'097','IN',15,'POSINV',97033113,58008589,'097','097','SH097','AED','JABADD01','JABADD01',1,0,0,'01','',1,0,'GMJSOUK','','','N','N','','','','','01','01','I LOVE DUBAI  MADINAT JUM -UNIT43','P.O. BOX 1940','DUBAI','','','','010','MEA','0','','UAE','MR. MOHANDAS','gallery@aljaber.ae','04 - 2689268','04 - 2667700, 04 - 2667722','','GMJSOUK',to_date(sysdate,'DD-MM-YY'),'','')
+Date/Time: 5/21/2017 4:35:26 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_REF
+StackTrace: INSERT INTO OT_CUST_SALE_RET_REF (CSRR_SYS_ID,CSRR_CSRH_SYS_ID,CSRR_REF_TXN_CODE,CSRR_REF_NO,CSRR_REF_SYS_ID,CSRR_CR_DT,CSRR_CR_UID) VALUES (135312,58008909,'POSINV',97033113,58008589,current_timestamp,'GMJSOUK')
+Date/Time: 5/21/2017 4:35:27 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 4:38:07 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 15:08:03.040000
+Date/Time: 5/21/2017 4:38:07 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 6:29:25 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 6:29:26 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 6:29:26 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:29:26 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:29:27 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:29:28 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 16:59:24.380000
+Date/Time: 5/21/2017 6:29:28 PM
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,6134496,'MC-00-4685','MC POST CARD ASST','PCS',1,2,'0',2,0,0,0,'','NA','NA','GPL',2,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','097','N',2,0,0,'I','',0)
+Date/Time: 5/21/2017 6:29:46 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 6:32:40 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 6:32:40 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 6:32:40 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:32:41 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:32:41 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:32:42 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:02:38.527000
+Date/Time: 5/21/2017 6:32:43 PM
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,6134508,'MC-00-4685','MC POST CARD ASST','PCS',1,2,'0',2,0,0,0,'','NA','NA','GPL',2,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','097','N',2,0,0,'I','',0)
+Date/Time: 5/21/2017 6:32:55 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:34:32 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:04:27.983000
+Date/Time: 5/21/2017 6:34:32 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:34:34 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:04:30.546000
+Date/Time: 5/21/2017 6:34:35 PM
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,6134525,'MC-00-4685','MC POST CARD ASST','PCS',1,2,'0',2,0,0,0,'','NA','NA','GPL',2,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','097','N',2,0,0,'I','',0)
+Date/Time: 5/21/2017 6:36:51 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked TXN_CODE as POSINV and then will check for payments.
+Date/Time: 5/21/2017 6:37:02 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked card payment.
+Date/Time: 5/21/2017 6:37:02 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 21-05-2017 17:06:58.220000
+Date/Time: 5/21/2017 6:37:02 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 97033142
+Date/Time: 5/21/2017 6:37:05 PM
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: MC-00-4685
+Date/Time: 5/21/2017 6:37:06 PM
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(28393674,58010896,'097','097','MC-00-4685',1,'MC POST CARD ASST','PCS','01','GPL',2,'Y',1,0,1,0,0,0,0,0,0,0,2,0,2,2,2,'N',0,0,'NA','NA',0,0,'GMJSOUK',sysdate,'0','N')
+Date/Time: 5/21/2017 6:37:06 PM
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =6134525 AND PRODCODE='MC-00-4685'
+Date/Time: 5/21/2017 6:37:06 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(47954047,28393674,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'GMJSOUK')
+Date/Time: 5/21/2017 6:37:06 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY Payment Insertion
+StackTrace: Payment Type 1: CASH
+Date/Time: 5/21/2017 6:37:07 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Completed Time:
+StackTrace: 21-05-2017 17:07:03.455000
+Date/Time: 5/21/2017 6:37:07 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Ends Here
+StackTrace: ENDING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:37:07 PM
+================================================
+
+================================================
+Title: 
+Message: End Time:
+StackTrace: 21-05-2017 17:07:03.549000
+Date/Time: 5/21/2017 6:37:08 PM
+================================================
+
+================================================
+Title:    at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at POS.Transactions.GetDocumentImageDirectPrint() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13006
+Message: Error Occured4
+StackTrace: There is no row at position 0.
+Date/Time: 5/21/2017 6:37:32 PM
+================================================
+
+================================================
+Title:    at POS.Transactions.Print(String printerName, Byte[] document) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13353
+   at POS.Transactions.PrintDocument1_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 14224
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/21/2017 6:37:33 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 6:46:23 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 6:46:23 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 6:46:23 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:46:24 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:46:24 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:46:42 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:16:38.547000
+Date/Time: 5/21/2017 6:46:43 PM
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,6134557,'MC-00-4685','MC POST CARD ASST','PCS',1,2,'0',2,0,0,0,'','NA','NA','GPL',2,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','097','N',2,0,0,'I','',0)
+Date/Time: 5/21/2017 6:46:52 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked TXN_CODE as POSINV and then will check for payments.
+Date/Time: 5/21/2017 6:46:57 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked card payment.
+Date/Time: 5/21/2017 6:46:57 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 21-05-2017 17:16:53.379000
+Date/Time: 5/21/2017 6:46:57 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 97033144
+Date/Time: 5/21/2017 6:46:59 PM
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: MC-00-4685
+Date/Time: 5/21/2017 6:47:00 PM
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(28394142,58010960,'097','097','MC-00-4685',1,'MC POST CARD ASST','PCS','01','GPL',2,'Y',1,0,1,0,0,0,0,0,0,0,2,0,2,2,2,'N',0,0,'NA','NA',0,0,'GMJSOUK',sysdate,'0','N')
+Date/Time: 5/21/2017 6:47:00 PM
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =6134557 AND PRODCODE='MC-00-4685'
+Date/Time: 5/21/2017 6:47:00 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(47954340,28394142,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'GMJSOUK')
+Date/Time: 5/21/2017 6:47:00 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY Payment Insertion
+StackTrace: Payment Type 1: CASH
+Date/Time: 5/21/2017 6:47:00 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Completed Time:
+StackTrace: 21-05-2017 17:16:56.473000
+Date/Time: 5/21/2017 6:47:00 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Ends Here
+StackTrace: ENDING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:47:00 PM
+================================================
+
+================================================
+Title: 
+Message: End Time:
+StackTrace: 21-05-2017 17:16:56.567000
+Date/Time: 5/21/2017 6:47:01 PM
+================================================
+
+================================================
+Title:    at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at POS.Transactions.GetDocumentImageDirectPrint() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13008
+Message: Error Occured4
+StackTrace: There is no row at position 0.
+Date/Time: 5/21/2017 6:47:16 PM
+================================================
+
+================================================
+Title:    at POS.Transactions.Print(String printerName, Byte[] document) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13355
+   at POS.Transactions.PrintDocument1_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 14226
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/21/2017 6:47:17 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 6:50:01 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 6:50:01 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 6:50:01 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:50:02 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:50:02 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:50:04 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:20:00.427000
+Date/Time: 5/21/2017 6:50:04 PM
+================================================
+
+================================================
+Title: 
+Message: Sales Return Add Query 
+StackTrace: SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC((A.INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=A.INVI_ITEM_CODE)),3) - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B WHERE A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033142) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = 97033142)  GROUP BY INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC(INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=INVI_ITEM_CODE) ,3) QTY FROM OT_INVOICE_ITEM A WHERE A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =97033142)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033142)
+Date/Time: 5/21/2017 6:50:21 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033142
+Date/Time: 5/21/2017 6:50:23 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033142
+Date/Time: 5/21/2017 6:50:23 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_HEAD
+StackTrace: INSERT INTO OT_CUST_SALE_RET_HEAD (CSRH_SYS_ID,CSRH_COMP_CODE,CSRH_TXN_CODE,CSRH_NO,CSRH_DT,CSRH_ACNT_YEAR,CSRH_CAL_YEAR,CSRH_CAL_PERIOD,CSRH_DOC_SRC_LOCN_CODE,CSRH_REF_FROM,CSRH_REF_FROM_NUM,CSRH_REF_TXN_CODE,CSRH_REF_NO,CSRH_REF_SYS_ID,CSRH_LOCN_CODE,CSRH_DEL_LOCN_CODE,CSRH_CUST_CODE,CSRH_CURR_CODE,CSRH_SHIP_TO_ADDR_CODE,CSRH_BILL_TO_ADDR_CODE,CSRH_EXGE_RATE,CSRH_DISC_PERC,CSRH_FC_DISC_VAL,CSRH_SM_CODE,CSRH_STATUS,CSRH_PRINT_STATUS,CSRH_APPR_STATUS,CSRH_APPR_UID,CSRH_COS_FIN_STATUS,CSRH_ANNOTATION,CSRH_FLEX_10,CSRH_FLEX_14,CSRH_FLEX_15,CSRH_FLEX_16,CSRH_FLEX_17,CSRH_FLEX_18,CSRH_FLEX_19,CSRH_FLEX_20,CSRH_CUST_NAME,CSRH_BILL_ADDR_LINE_1,CSRH_BILL_ADDR_LINE_2,CSRH_BILL_ADDR_LINE_3,CSRH_BILL_ADDR_LINE_4, CSRH_BILL_ADDR_LINE_5,CSRH_BILL_CITY_CODE,CSRH_BILL_COUNTY_CODE,CSRH_BILL_STATE_CODE,CSRH_BILL_POSTAL_CODE,CSRH_BILL_COUNTRY_CODE,CSRH_BILL_CONTACT ,CSRH_BILL_EMAIL,CSRH_BILL_FAX,CSRH_BILL_TEL,CSRH_BILL_MOBILE,CSRH_CR_UID,CSRH_CR_DT,CSRH_FLEX_03,CSRH_FLEX_04) VALUES(58010977,'001','SARTN',97001068,'21-May-17',14,2017,5,'097','IN',15,'POSINV',97033142,58010896,'097','097','SH097','AED','JABADD01','JABADD01',1,0,0,'01','',1,0,'GMJSOUK','','','N','N','','','','','01','01','I LOVE DUBAI  MADINAT JUM -UNIT43','P.O. BOX 1940','DUBAI','','','','010','MEA','0','','UAE','MR. MOHANDAS','gallery@aljaber.ae','04 - 2689268','04 - 2667700, 04 - 2667722','','GMJSOUK',to_date(sysdate,'DD-MM-YY'),'','')
+Date/Time: 5/21/2017 6:50:29 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_REF
+StackTrace: INSERT INTO OT_CUST_SALE_RET_REF (CSRR_SYS_ID,CSRR_CSRH_SYS_ID,CSRR_REF_TXN_CODE,CSRR_REF_NO,CSRR_REF_SYS_ID,CSRR_CR_DT,CSRR_CR_UID) VALUES (135323,58010977,'POSINV',97033142,58010896,current_timestamp,'GMJSOUK')
+Date/Time: 5/21/2017 6:50:30 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 6:56:52 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 6:56:52 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 6:56:52 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:56:53 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 6:56:53 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 6:56:55 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:26:50.773000
+Date/Time: 5/21/2017 6:56:55 PM
+================================================
+
+================================================
+Title: 
+Message: Sales Return Add Query 
+StackTrace: SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC((A.INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=A.INVI_ITEM_CODE)),3) - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B WHERE A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033144) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = 97033144)  GROUP BY INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC(INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=INVI_ITEM_CODE) ,3) QTY FROM OT_INVOICE_ITEM A WHERE A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =97033144)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033144)
+Date/Time: 5/21/2017 6:57:13 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033144
+Date/Time: 5/21/2017 6:57:15 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033144
+Date/Time: 5/21/2017 6:57:15 PM
+================================================
+
+================================================
+Title: Trace Logs Only
+Message: Proceed Button Clicked
+StackTrace: Info: 
+Date/Time: 5/21/2017 6:57:18 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_HEAD
+StackTrace: INSERT INTO OT_CUST_SALE_RET_HEAD (CSRH_SYS_ID,CSRH_COMP_CODE,CSRH_TXN_CODE,CSRH_NO,CSRH_DT,CSRH_ACNT_YEAR,CSRH_CAL_YEAR,CSRH_CAL_PERIOD,CSRH_DOC_SRC_LOCN_CODE,CSRH_REF_FROM,CSRH_REF_FROM_NUM,CSRH_REF_TXN_CODE,CSRH_REF_NO,CSRH_REF_SYS_ID,CSRH_LOCN_CODE,CSRH_DEL_LOCN_CODE,CSRH_CUST_CODE,CSRH_CURR_CODE,CSRH_SHIP_TO_ADDR_CODE,CSRH_BILL_TO_ADDR_CODE,CSRH_EXGE_RATE,CSRH_DISC_PERC,CSRH_FC_DISC_VAL,CSRH_SM_CODE,CSRH_STATUS,CSRH_PRINT_STATUS,CSRH_APPR_STATUS,CSRH_APPR_UID,CSRH_COS_FIN_STATUS,CSRH_ANNOTATION,CSRH_FLEX_10,CSRH_FLEX_14,CSRH_FLEX_15,CSRH_FLEX_16,CSRH_FLEX_17,CSRH_FLEX_18,CSRH_FLEX_19,CSRH_FLEX_20,CSRH_CUST_NAME,CSRH_BILL_ADDR_LINE_1,CSRH_BILL_ADDR_LINE_2,CSRH_BILL_ADDR_LINE_3,CSRH_BILL_ADDR_LINE_4, CSRH_BILL_ADDR_LINE_5,CSRH_BILL_CITY_CODE,CSRH_BILL_COUNTY_CODE,CSRH_BILL_STATE_CODE,CSRH_BILL_POSTAL_CODE,CSRH_BILL_COUNTRY_CODE,CSRH_BILL_CONTACT ,CSRH_BILL_EMAIL,CSRH_BILL_FAX,CSRH_BILL_TEL,CSRH_BILL_MOBILE,CSRH_CR_UID,CSRH_CR_DT,CSRH_FLEX_03,CSRH_FLEX_04) VALUES(58010996,'001','SARTN',97001069,'21-May-17',14,2017,5,'097','IN',15,'POSINV',97033144,58010960,'097','097','SH097','AED','JABADD01','JABADD01',1,0,0,'01','',1,0,'GMJSOUK','','','N','N','','','','','01','01','I LOVE DUBAI  MADINAT JUM -UNIT43','P.O. BOX 1940','DUBAI','','','','010','MEA','0','','UAE','MR. MOHANDAS','gallery@aljaber.ae','04 - 2689268','04 - 2667700, 04 - 2667722','','GMJSOUK',to_date(sysdate,'DD-MM-YY'),'','')
+Date/Time: 5/21/2017 6:57:20 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_REF
+StackTrace: INSERT INTO OT_CUST_SALE_RET_REF (CSRR_SYS_ID,CSRR_CSRH_SYS_ID,CSRR_REF_TXN_CODE,CSRR_REF_NO,CSRR_REF_SYS_ID,CSRR_CR_DT,CSRR_CR_UID) VALUES (135324,58010996,'POSINV',97033144,58010960,current_timestamp,'GMJSOUK')
+Date/Time: 5/21/2017 6:57:20 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 7:11:29 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 7:11:29 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 7:11:29 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 7:11:30 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 7:11:30 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 7:11:41 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:41:36.810000
+Date/Time: 5/21/2017 7:11:41 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 7:12:37 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 7:12:38 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 7:12:38 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 7:12:40 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 7:12:40 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 7:12:42 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:42:38.642000
+Date/Time: 5/21/2017 7:12:43 PM
+================================================
+
+================================================
+Title: 
+Message: Query OT_POS_INVOICE_ITEM_LOG
+StackTrace: INSERT INTO OT_POS_INVOICE_ITEM_LOG(PROD_INVI_SYS_ID,PROD_INVI_INVH_SYS_ID,PRODCODE,PRODDESC,PRODITEMUOM,PRODQTY,PRODPRICE,PRODBARCODE,PRODRATE,PRODMINRATE,PRODDISCPER,PRODDISCAMT,PRODIGCODE,PRODGRADECODE_1,PRODGRADECODE_2,PRODPLCODE,PRODPLRATE,PRODBATCHNO,PRODSRNO,PRODRI,PRODDISCCODE,PRODVATCODE,PRODVATAMT,PRODEXPCODE,PRODEXPAMT,PRODBONUSCODE,PRODREASONCODE,PRODFOCITEM,PRODWARRANTYDT,PRODWARRANTYNO,PRODSTKITEM,PRODLOCNCODE,PRODSTOCKRESERV,PRODAFTHEADERDISC,PRODTAXABLEAMT,PRODUSERID,PRODITEMSTATUS,PRODWARRANTYTYPE,PRODWARRANTYDAYS)VALUES(POS_INVOICE_ITEM_LOG.NEXTVAL,6134618,'MC-00-4685','MC POST CARD ASST','PCS',1,2,'0',2,0,0,0,'','NA','NA','GPL',2,'2','2','+','','',0,'',0,'','','N',to_date(sysdate,'DD-MM-YY'),'','Y','097','N',2,0,0,'I','',0)
+Date/Time: 5/21/2017 7:13:06 PM
+================================================
+
+================================================
+Title: Trace Logs Only
+Message: Proceed Button Clicked
+StackTrace: Info: 
+Date/Time: 5/21/2017 7:13:15 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked TXN_CODE as POSINV and then will check for payments.
+Date/Time: 5/21/2017 7:13:16 PM
+================================================
+
+================================================
+Title: 
+Message: Logged: 
+StackTrace: Checked card payment.
+Date/Time: 5/21/2017 7:13:16 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 21-05-2017 17:43:12.394000
+Date/Time: 5/21/2017 7:13:16 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 97033148
+Date/Time: 5/21/2017 7:13:22 PM
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: MC-00-4685
+Date/Time: 5/21/2017 7:13:23 PM
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(28394405,58011071,'097','097','MC-00-4685',1,'MC POST CARD ASST','PCS','01','GPL',2,'Y',1,0,1,0,0,0,0,0,0,0,2,0,2,2,2,'N',0,0,'NA','NA',0,0,'GMJSOUK',sysdate,'0','N')
+Date/Time: 5/21/2017 7:13:23 PM
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =6134618 AND PRODCODE='MC-00-4685'
+Date/Time: 5/21/2017 7:13:23 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(47954525,28394405,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'GMJSOUK')
+Date/Time: 5/21/2017 7:13:23 PM
+================================================
+
+================================================
+Title: 
+Message: QUERY Payment Insertion
+StackTrace: Payment Type 1: CASH
+Date/Time: 5/21/2017 7:13:23 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Completed Time:
+StackTrace: 21-05-2017 17:43:20.160000
+Date/Time: 5/21/2017 7:13:24 PM
+================================================
+
+================================================
+Title: 
+Message: Transaction Ends Here
+StackTrace: ENDING POINT OF TRANSACTION
+Date/Time: 5/21/2017 7:13:24 PM
+================================================
+
+================================================
+Title: 
+Message: End Time:
+StackTrace: 21-05-2017 17:43:20.363000
+Date/Time: 5/21/2017 7:13:24 PM
+================================================
+
+================================================
+Title:    at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at POS.Transactions.GetDocumentImageDirectPrint() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13009
+Message: Error Occured4
+StackTrace: There is no row at position 0.
+Date/Time: 5/21/2017 7:13:40 PM
+================================================
+
+================================================
+Title:    at POS.Transactions.Print(String printerName, Byte[] document) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 13356
+   at POS.Transactions.PrintDocument1_PrintPage(Object sender, PrintPageEventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 14227
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/21/2017 7:13:41 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='097' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMJSOUKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/21/2017 7:18:00 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='GMJSOUK' and USER_FIELD_05 = 'GMJSOUK' and '097' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'GMJSOUK' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/21/2017 7:18:01 PM
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'GMJSOUK') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+Date/Time: 5/21/2017 7:18:02 PM
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '097'
+Date/Time: 5/21/2017 7:18:04 PM
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '097'
+Date/Time: 5/21/2017 7:18:06 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 7:18:15 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:48:11.382000
+Date/Time: 5/21/2017 7:18:15 PM
+================================================
+
+================================================
+Title: 
+Message: Sales Return Add Query 
+StackTrace: SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC((A.INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=A.INVI_ITEM_CODE)),3) - A.INVI_CSRI_QTY_BU QTY FROM OT_INVOICE_ITEM A, OT_CUST_SALE_RET_ITEM B WHERE A.INVI_ITEM_CODE = B.CSRI_ITEM_CODE AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033148) AND CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO = 97033148)  GROUP BY INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE,A.INVI_QTY_BU,A.INVI_CSRI_QTY_BU HAVING A.INVI_QTY_BU - A.INVI_CSRI_QTY_BU > 0 UNION SELECT INVI_SYS_ID, INVI_ITEM_CODE, INVI_ITEM_DESC, INVI_PL_RATE, TRUNC(INVI_QTY_BU / (SELECT IU_MAX_LOOSE_1 FROM OM_ITEM_UOM WHERE IU_ITEM_CODE=INVI_ITEM_CODE) ,3) QTY FROM OT_INVOICE_ITEM A WHERE A.INVI_ITEM_CODE NOT IN (SELECT CSRI_ITEM_CODE FROM OT_CUST_SALE_RET_ITEM B WHERE CSRI_CSRH_SYS_ID IN (SELECT CSRR_CSRH_SYS_ID FROM OT_CUST_SALE_RET_REF WHERE CSRR_REF_TXN_CODE = 'POSINV' AND CSRR_REF_NO =97033148)) AND INVI_QTY_BU > 0 AND INVI_INVH_SYS_ID IN (SELECT INVH_SYS_ID FROM OT_INVOICE_HEAD WHERE INVH_COMP_CODE = '001' AND INVH_LOCN_CODE ='097' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033148)
+Date/Time: 5/21/2017 7:18:35 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033148
+Date/Time: 5/21/2017 7:18:37 PM
+================================================
+
+================================================
+Title: 
+Message: SARTN TEDHEADDIS
+StackTrace: SELECT ITED_TED_CODE,DISC_DESC,ITED_TED_CURR_CODE,ITED_FC_AMT,ITED_TED_RATE FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B,OM_DISCOUNT C WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND B.ITED_TED_CODE=C.DISC_CODE AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '001' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = 97033148
+Date/Time: 5/21/2017 7:18:37 PM
+================================================
+
+================================================
+Title: Trace Logs Only
+Message: Proceed Button Clicked
+StackTrace: Info: 
+Date/Time: 5/21/2017 7:18:40 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_HEAD
+StackTrace: INSERT INTO OT_CUST_SALE_RET_HEAD (CSRH_SYS_ID,CSRH_COMP_CODE,CSRH_TXN_CODE,CSRH_NO,CSRH_DT,CSRH_ACNT_YEAR,CSRH_CAL_YEAR,CSRH_CAL_PERIOD,CSRH_DOC_SRC_LOCN_CODE,CSRH_REF_FROM,CSRH_REF_FROM_NUM,CSRH_REF_TXN_CODE,CSRH_REF_NO,CSRH_REF_SYS_ID,CSRH_LOCN_CODE,CSRH_DEL_LOCN_CODE,CSRH_CUST_CODE,CSRH_CURR_CODE,CSRH_SHIP_TO_ADDR_CODE,CSRH_BILL_TO_ADDR_CODE,CSRH_EXGE_RATE,CSRH_DISC_PERC,CSRH_FC_DISC_VAL,CSRH_SM_CODE,CSRH_STATUS,CSRH_PRINT_STATUS,CSRH_APPR_STATUS,CSRH_APPR_UID,CSRH_COS_FIN_STATUS,CSRH_ANNOTATION,CSRH_FLEX_10,CSRH_FLEX_14,CSRH_FLEX_15,CSRH_FLEX_16,CSRH_FLEX_17,CSRH_FLEX_18,CSRH_FLEX_19,CSRH_FLEX_20,CSRH_CUST_NAME,CSRH_BILL_ADDR_LINE_1,CSRH_BILL_ADDR_LINE_2,CSRH_BILL_ADDR_LINE_3,CSRH_BILL_ADDR_LINE_4, CSRH_BILL_ADDR_LINE_5,CSRH_BILL_CITY_CODE,CSRH_BILL_COUNTY_CODE,CSRH_BILL_STATE_CODE,CSRH_BILL_POSTAL_CODE,CSRH_BILL_COUNTRY_CODE,CSRH_BILL_CONTACT ,CSRH_BILL_EMAIL,CSRH_BILL_FAX,CSRH_BILL_TEL,CSRH_BILL_MOBILE,CSRH_CR_UID,CSRH_CR_DT,CSRH_FLEX_03,CSRH_FLEX_04) VALUES(58011085,'001','SARTN',97001070,'21-May-17',14,2017,5,'097','IN',15,'POSINV',97033148,58011071,'097','097','SH097','AED','JABADD01','JABADD01',1,0,0,'01','',1,0,'GMJSOUK','','','N','N','','','','','01','01','I LOVE DUBAI  MADINAT JUM -UNIT43','P.O. BOX 1940','DUBAI','','','','010','MEA','0','','UAE','MR. MOHANDAS','gallery@aljaber.ae','04 - 2689268','04 - 2667700, 04 - 2667722','','GMJSOUK',to_date(sysdate,'DD-MM-YY'),'','')
+Date/Time: 5/21/2017 7:18:42 PM
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY OT_CUST_SALE_RET_REF
+StackTrace: INSERT INTO OT_CUST_SALE_RET_REF (CSRR_SYS_ID,CSRR_CSRH_SYS_ID,CSRR_REF_TXN_CODE,CSRR_REF_NO,CSRR_REF_SYS_ID,CSRR_CR_DT,CSRR_CR_UID) VALUES (135325,58011085,'POSINV',97033148,58011071,current_timestamp,'GMJSOUK')
+Date/Time: 5/21/2017 7:18:42 PM
+================================================
+
+================================================
+Title: Error
+Message: Value Close() cannot be called while doing CreateHandle().
+StackTrace:    at System.Windows.Forms.Form.Close()
+   at POS.Transactions.ViewReport() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 8717
+   at POS.CustomMsgBox.btnReport_Click(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\CustomMsgBox.vb:line 72
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.PerformClick()
+   at System.Windows.Forms.Form.ProcessDialogKey(Keys keyData)
+   at System.Windows.Forms.Control.ProcessDialogKey(Keys keyData)
+   at System.Windows.Forms.Control.PreProcessMessage(Message& msg)
+   at System.Windows.Forms.Control.PreProcessControlMessageInternal(Control target, Message& msg)
+   at System.Windows.Forms.Application.ThreadContext.PreTranslateMessage(MSG& msg)
+   at System.Windows.Forms.Application.ThreadContext.System.Windows.Forms.UnsafeNativeMethods.IMsoComponent.FPreTranslateMessage(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.DoEvents()
+   at POS.Transactions.SetResolution() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\Transactions.vb:line 3446
+Date/Time: 5/21/2017 7:18:54 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 7:18:54 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:48:50.453000
+Date/Time: 5/21/2017 7:18:54 PM
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+Date/Time: 5/21/2017 7:20:20 PM
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 21-05-2017 17:50:16.870000
+Date/Time: 5/21/2017 7:20:21 PM
+================================================
+

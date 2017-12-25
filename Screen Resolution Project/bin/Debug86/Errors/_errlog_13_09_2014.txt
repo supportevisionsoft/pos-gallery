@@ -1,0 +1,105 @@
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+

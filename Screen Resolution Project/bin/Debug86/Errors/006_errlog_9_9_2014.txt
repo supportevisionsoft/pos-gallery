@@ -1,0 +1,402 @@
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 09-09-2014 14:46:22.281000
+================================================
+
+================================================
+Title: 
+Message: Direct Invoice Report Query
+StackTrace:  select rownum,b.invh_no ,to_char( b.invh_dt,'DD/MM/YYYY') as InvoiceDate,  d.ADDR_LINE_1 as locn_name, d.ADDR_LINE_2|| ' ' || d.ADDR_LINE_3 as Location_Address, d.addr_tel as Phone,d.addr_email as Email, (select cust_name from om_customer where cust_code = b.invh_cust_code) as CustName, b.invh_BILL_ADDR_LINE_1||' '||b.invh_BILL_ADDR_LINE_2||' '||b.invh_BILL_COUNTRY_CODE as billing_addr, b.INVH_BILL_TEL as billing_phone, b.invh_BILL_EMAIL as billing_email, b.invh_SHIP_ADDR_LINE_1||' '||b.invh_SHIP_ADDR_LINE_2||' '||b.invh_SHIP_COUNTRY_CODE as shipping_addr, a.INVI_ITEM_CODE as ItemCode,a.INVI_ITEM_DESC as ItemDesc, a.INVI_UOM_CODE as ItmUOM, a.INVI_PL_RATE as ItmPrice , a.INVI_QTY as ItmQty, a.INVI_FC_VAL as ItmAmt, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt  from  ot_invoice_head b,ot_invoice_item a,om_location c,om_address d where b.invh_no = 6190570 and b.invh_sys_id = a.invi_invh_sys_id and b.invh_locn_code = c.locn_code and c.locn_addr_code = d.addr_code and  INVH_TXN_CODE='POSINV'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 09-09-2014 14:46:38.125000
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 09-09-2014 16:44:57.734000
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'AL%'
+================================================
+
+================================================
+Title: 
+Message: SUBGRP TEXTCHANGED
+StackTrace: select ITEM_CODE as itemcode, ITEM_NAME as itemdisplay from OM_ITEM where ITEM_CODE is not null  and ITEM_ANLY_CODE_01 like 'AL%' and ITEM_ANLY_CODE_02 like 'BOX%'
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'CE%'
+================================================
+
+================================================
+Title: 
+Message: SUBGRP TEXTCHANGED
+StackTrace: select ITEM_CODE as itemcode, ITEM_NAME as itemdisplay from OM_ITEM where ITEM_CODE is not null  and ITEM_ANLY_CODE_01 like 'CE%'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 09-09-2014 16:45:07.031000
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'BN%'
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'CP%'
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'GL%'
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'MC%'
+================================================
+
+================================================
+Title: 
+Message: SUBGRP TEXTCHANGED
+StackTrace: select ITEM_CODE as itemcode, ITEM_NAME as itemdisplay from OM_ITEM where ITEM_CODE is not null  and ITEM_ANLY_CODE_01 like 'MC%' and ITEM_ANLY_CODE_02 like 'KHJ%'
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'PM%'
+================================================
+
+================================================
+Title: 
+Message: SUBGRP TEXTCHANGED
+StackTrace: select ITEM_CODE as itemcode, ITEM_NAME as itemdisplay from OM_ITEM where ITEM_CODE is not null  and ITEM_ANLY_CODE_01 like 'PM%'
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'SS%'
+================================================
+
+================================================
+Title: 
+Message: SUBGRP TEXTCHANGED
+StackTrace: select ITEM_CODE as itemcode, ITEM_NAME as itemdisplay from OM_ITEM where ITEM_CODE is not null  and ITEM_ANLY_CODE_01 like 'SS%' and ITEM_ANLY_CODE_02 like 'BOX%'
+================================================
+
+================================================
+Title: 
+Message: Sub Group Query
+StackTrace: select distinct ITEM_ANLY_CODE_02 from om_item where ITEM_ANLY_CODE_01 like 'WD%'
+================================================
+
+================================================
+Title: 
+Message: SUBGRP TEXTCHANGED
+StackTrace: select ITEM_CODE as itemcode, ITEM_NAME as itemdisplay from OM_ITEM where ITEM_CODE is not null  and ITEM_ANLY_CODE_01 like 'WD%'
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 09-09-2014 17:13:51.390000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Azzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Azzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Bzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'C'  and om_item.item_code <= 'Czzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'D'  and om_item.item_code <= 'Dzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Ezzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'C'  and om_item.item_code <= 'Czzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'D'  and om_item.item_code <= 'Dzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'G'  and om_item.item_code <= 'Gzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'H'  and om_item.item_code <= 'Hzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'I'  and om_item.item_code <= 'Izzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '015' and  POLS_KEY='SHIFT_ALERT_BEFORE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '015' and  POLS_KEY='SHIFT_ALERT_INTERVAL'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '015' and  POLS_KEY='BUSINESS_HOUR_FROM'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '015' and  POLS_KEY='BUSINESS_HOUR_TO'
+================================================
+
+================================================
+Title: 
+Message: Rowid BackDate
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '015' and  POLS_KEY='A_BK_DATE'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_LOCATION_SETUP SET POLS_VALUE = '0' where POLS_KEY ='A_BK_DATE' AND POLS_LOCN_CODE = '015'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_LOCATION_SETUP SET POLS_VALUE = TO_CHAR(sysdate, 'DD/MM/YYYY') || ' 08:00:00 AM' where POLS_KEY ='BUSINESS_HOUR_FROM' AND POLS_LOCN_CODE = '015'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_LOCATION_SETUP SET POLS_VALUE = TO_CHAR(sysdate, 'DD/MM/YYYY') || ' 08:00:00 AM' where POLS_KEY ='BUSINESS_HOUR_TO' AND POLS_LOCN_CODE = '015'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_LOCATION_SETUP SET POLS_VALUE = '0' where POLS_KEY ='SHIFT_ALERT_BEFORE' AND POLS_LOCN_CODE = '015'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_LOCATION_SETUP SET POLS_VALUE = '0' where POLS_KEY ='SHIFT_ALERT_INTERVAL' AND POLS_LOCN_CODE = '015'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '009' and  POLS_KEY='SHIFT_ALERT_BEFORE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '009' and  POLS_KEY='SHIFT_ALERT_INTERVAL'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '009' and  POLS_KEY='BUSINESS_HOUR_FROM'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '009' and  POLS_KEY='BUSINESS_HOUR_TO'
+================================================
+
+================================================
+Title: 
+Message: Rowid BackDate
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '009' and  POLS_KEY='A_BK_DATE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '068' and  POLS_KEY='SHIFT_ALERT_BEFORE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '068' and  POLS_KEY='SHIFT_ALERT_INTERVAL'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '068' and  POLS_KEY='BUSINESS_HOUR_FROM'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '068' and  POLS_KEY='BUSINESS_HOUR_TO'
+================================================
+
+================================================
+Title: 
+Message: Rowid BackDate
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '068' and  POLS_KEY='A_BK_DATE'
+================================================
+

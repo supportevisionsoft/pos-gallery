@@ -1,0 +1,1537 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 11:10:52.043000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 11:12:45.211000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190418
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-21-0122
+================================================
+
+================================================
+Title: Error
+Message: ORA-20001: FP-10089-Check Base currency is defined for the logged in company.ERR1: ERR2: ERR3: ERR4: ERR5: ERR6: ERR7: ERR8:
+ORA-06512: at "JNOVELTY107.RAISE_APPLICATION", line 34
+ORA-06512: at "JNOVELTY107.F_GET_BASE_INT_CON_CURR", line 27
+ORA-06512: at "JNOVELTY107.F_GET_BASE_CURR", line 8
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 147
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 446
+ORA-06512: at "JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM", line 15
+ORA-04088: error during execution of trigger 'JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM'
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5209
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 11:20:50.811000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 11:21:27.432000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190419
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-21-0122
+================================================
+
+================================================
+Title: Error
+Message: ORA-20001: FP-10089-Check Base currency is defined for the logged in company.ERR1: ERR2: ERR3: ERR4: ERR5: ERR6: ERR7: ERR8:
+ORA-06512: at "JNOVELTY107.RAISE_APPLICATION", line 34
+ORA-06512: at "JNOVELTY107.F_GET_BASE_INT_CON_CURR", line 27
+ORA-06512: at "JNOVELTY107.F_GET_BASE_CURR", line 8
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 147
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 446
+ORA-06512: at "JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM", line 15
+ORA-04088: error during execution of trigger 'JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM'
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5209
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 11:24:32.993000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 11:25:27.933000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190420
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-00-0527
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 11:28:07.919000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 11:30:58.208000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190421
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-00-0527
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =3431171 AND PRODCODE='AE-00-0527'
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(27923860,15956651,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'ESHACK1')
+================================================
+
+================================================
+Title: Error
+Message: ORA-02291: integrity constraint (JNOVELTY107.OT_INVOICE_ITEM_DEL_FK_INVI) violated - parent key not found
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone()
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 11:43:57.241000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 11:44:31.917000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190422
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-21-0109
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =3431172 AND PRODCODE='AE-21-0109'
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(27923861,15956652,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'ESHACK1')
+================================================
+
+================================================
+Title: 
+Message: QUERY Payment Insertion
+StackTrace: Payment Type 1: CASH
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Completed Time:
+StackTrace: 19-09-2014 11:48:34.833000
+================================================
+
+================================================
+Title: 
+Message: Transaction Ends Here
+StackTrace: ENDING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: End Time:
+StackTrace: 19-09-2014 11:49:56.556000
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 11:55:15.627000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 11:55:50.289000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190423
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-21-0122
+================================================
+
+================================================
+Title: 
+Message: DELETE QUERY ITEM LOG
+StackTrace: DELETE FROM OT_POS_INVOICE_ITEM_LOG WHERE PRODITEMSTATUS <> 'D' AND PROD_INVI_INVH_SYS_ID =3431173 AND PRODCODE='AE-21-0122'
+================================================
+
+================================================
+Title: 
+Message: QUERY INSERT ITEM DEL
+StackTrace: INSERT INTO OT_INVOICE_ITEM_DEL(INVID_SYS_ID,INVID_INVI_SYS_ID,INVID_DEL_DT,INVID_DEL_QTY,INVID_DEL_QTY_LS,INVID_DEL_QTY_BU,INVID_CR_DT,INVID_CR_UID)VALUES(27923862,15956653,to_date(sysdate,'DD-MM-YY'),1,0,1,to_date(sysdate,'DD-MM-YY'),'ESHACK1')
+================================================
+
+================================================
+Title: 
+Message: QUERY Payment Insertion
+StackTrace: Payment Type 1: CASH
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Completed Time:
+StackTrace: 19-09-2014 11:55:52.019000
+================================================
+
+================================================
+Title: 
+Message: Transaction Ends Here
+StackTrace: ENDING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: End Time:
+StackTrace: 19-09-2014 11:55:53.318000
+================================================
+
+================================================
+Title: 
+Message: Direct Invoice Report Query
+StackTrace:  select rownum,b.invh_no ,to_char( b.invh_dt,'DD/MM/YYYY') as InvoiceDate,  d.ADDR_LINE_1 as locn_name, d.ADDR_LINE_2|| ' ' || d.ADDR_LINE_3 as Location_Address, d.addr_tel as Phone,d.addr_email as Email, (select cust_name from om_customer where cust_code = b.invh_cust_code) as CustName, b.invh_BILL_ADDR_LINE_1||' '||b.invh_BILL_ADDR_LINE_2||' '||b.invh_BILL_COUNTRY_CODE as billing_addr, b.INVH_BILL_TEL as billing_phone, b.invh_BILL_EMAIL as billing_email, b.invh_SHIP_ADDR_LINE_1||' '||b.invh_SHIP_ADDR_LINE_2||' '||b.invh_SHIP_COUNTRY_CODE as shipping_addr, a.INVI_ITEM_CODE as ItemCode,a.INVI_ITEM_DESC as ItemDesc, a.INVI_UOM_CODE as ItmUOM, a.INVI_PL_RATE as ItmPrice , a.INVI_QTY as ItmQty, a.INVI_FC_VAL as ItmAmt, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno, nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt  from  ot_invoice_head b,ot_invoice_item a,om_location c,om_address d where b.invh_no = 6190423 and b.invh_sys_id = a.invi_invh_sys_id and b.invh_locn_code = c.locn_code and c.locn_addr_code = d.addr_code and  INVH_TXN_CODE='POSINV'
+================================================
+
+================================================
+Title: Error
+Message: There is no row at position 0.
+StackTrace:    at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at POS.TransactionSlip.loadReportInvoice() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\TransactionSlip.vb:line 676
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 13:02:10.394000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 13:08:38.561000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 13:09:30.700000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190425
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-01-0302
+================================================
+
+================================================
+Title: Error
+Message: ORA-20001: FP-10089-Check Base currency is defined for the logged in company.ERR1: ERR2: ERR3: ERR4: ERR5: ERR6: ERR7: ERR8:
+ORA-06512: at "JNOVELTY107.RAISE_APPLICATION", line 34
+ORA-06512: at "JNOVELTY107.F_GET_BASE_INT_CON_CURR", line 27
+ORA-06512: at "JNOVELTY107.F_GET_BASE_CURR", line 8
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 147
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 446
+ORA-06512: at "JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM", line 15
+ORA-04088: error during execution of trigger 'JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM'
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5209
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 13:12:23.182000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 13:12:50.420000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190426
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-01-0302
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(15956669,28485006,'006','006','AE-01-0302',1,'AE BOX 40X30X25 SCYG-YGIBOXTR02','PCS','008','GPL',69,'Y',1,0,1,0,0,0,0,0,0,0,69,0,69,69,2,'N',0,0,'NA','NA',0,0,'ESHACK1',sysdate,'','N')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 13:24:06.139000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 13:24:59.312000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190427
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-01-0302
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(15956670,28485007,'006','006','AE-01-0302',1,'AE BOX 40X30X25 SCYG-YGIBOXTR02','PCS','006','GPL',69,'Y',1,0,1,0,0,0,0,0,0,0,69,0,69,69,2,'N',0,0,'NA','NA',0,0,'ESHACK1',sysdate,'','N')
+================================================
+
+================================================
+Title: Error
+Message: ORA-20001: FP-10089-Check Base currency is defined for the logged in company.ERR1: ERR2: ERR3: ERR4: ERR5: ERR6: ERR7: ERR8:
+ORA-06512: at "JNOVELTY107.RAISE_APPLICATION", line 34
+ORA-06512: at "JNOVELTY107.F_GET_BASE_INT_CON_CURR", line 27
+ORA-06512: at "JNOVELTY107.F_GET_BASE_CURR", line 8
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 147
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 446
+ORA-06512: at "JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM", line 15
+ORA-04088: error during execution of trigger 'JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM'
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5210
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 13:51:59.753000
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_LOCATION_SETUP(POLS_COMP_CODE,POLS_LOCN_CODE,POLS_KEY,POLS_VALUE,POLS_CR_UID,POLS_CR_DT)VALUES('001','002','A_BK_DATE',1,'ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_LOCATION_SETUP(POLS_COMP_CODE,POLS_LOCN_CODE,POLS_KEY,POLS_VALUE,POLS_CR_UID,POLS_CR_DT)VALUES('001','002','BUSINESS_HOUR_FROM',TO_CHAR(sysdate, 'DD/MM/YYYY') || ' 01:52:19 PM','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_LOCATION_SETUP(POLS_COMP_CODE,POLS_LOCN_CODE,POLS_KEY,POLS_VALUE,POLS_CR_UID,POLS_CR_DT)VALUES('001','002','BUSINESS_HOUR_TO',TO_CHAR(sysdate, 'DD/MM/YYYY') || ' 01:52:19 PM','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_LOCATION_SETUP(POLS_COMP_CODE,POLS_LOCN_CODE,POLS_KEY,POLS_VALUE,POLS_CR_UID,POLS_CR_DT)VALUES('001','002','SHIFT_ALERT_BEFORE','0','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_LOCATION_SETUP(POLS_COMP_CODE,POLS_LOCN_CODE,POLS_KEY,POLS_VALUE,POLS_CR_UID,POLS_CR_DT)VALUES('001','002','SHIFT_ALERT_INTERVAL','0','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '002' and  POLS_KEY='SHIFT_ALERT_BEFORE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '002' and  POLS_KEY='SHIFT_ALERT_INTERVAL'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '002' and  POLS_KEY='BUSINESS_HOUR_FROM'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '002' and  POLS_KEY='BUSINESS_HOUR_TO'
+================================================
+
+================================================
+Title: 
+Message: Rowid BackDate
+StackTrace: select POLS_VALUE from OM_POS_OPTIONS_LOCATION_SETUP where POLS_LOCN_CODE= '002' and  POLS_KEY='A_BK_DATE'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '001'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '001'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '002'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '003'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '001'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '003'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '003'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '003'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '003'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '002'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '002'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '002'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '005'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '005'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '005'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '005'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '005'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '005'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '005'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '006'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '006'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '006'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '008'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '008'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '008'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '009'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '009'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '009'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='CUST_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='PL_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='ADV_PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_WL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_WL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_TL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '001' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_TL_2'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '001'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_COUNTER locn
+StackTrace: select POSCNT_NO from OM_POS_COUNTER where poscnt_locn_code = '001'
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_COUNTER_SETUP(POCS_COMP_CODE,POCS_LOCN_CODE,POCS_COUNTER_CODE,POCS_KEY,POCS_VALUE,POCS_CR_UID,POCS_CR_DT)VALUES('001','001','01','CUST_CODE','SH006','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_COUNTER_SETUP(POCS_COMP_CODE,POCS_LOCN_CODE,POCS_COUNTER_CODE,POCS_KEY,POCS_VALUE,POCS_CR_UID,POCS_CR_DT)VALUES('001','001','01','PL_CODE','GPL','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_COUNTER_SETUP(POCS_COMP_CODE,POCS_LOCN_CODE,POCS_COUNTER_CODE,POCS_KEY,POCS_VALUE,POCS_CR_UID,POCS_CR_DT)VALUES('001','001','01','ADV_PAY_CODE','CASH','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: INSERT INTO OM_POS_OPTIONS_COUNTER_SETUP(POCS_COMP_CODE,POCS_LOCN_CODE,POCS_COUNTER_CODE,POCS_KEY,POCS_VALUE,POCS_CR_UID,POCS_CR_DT)VALUES('001','001','01','PAY_CODE','CASH','ESHACK1',to_date(sysdate,'DD-MM-YY'))
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_SHIFT
+StackTrace: INSERT INTO OM_POS_SHIFT (SHIFT_CODE,SHIFT_DESC,SHIFT_LOCN_CODE,SHIFT_FROM_TIME,SHIFT_TO_TIME,SHIFT_FRZ_FLAG_NUM,SHIFT_CR_DT,SHIFT_CR_UID) VALUES ('Perf_Test','Testing Purpose','006',to_date(to_char(sysdate || ' ' || '2:00:59 PM'),'DD-MM-YY HH12:MI:SS AM'),to_date(to_char(sysdate || ' ' || '2:00:59 PM'),'DD-MM-YY HH12:MI:SS AM'),2,to_date(sysdate,'DD-MM-YY'),'ESHACK1')
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: SELECT SHIFT_CODE,SHIFT_DESC,SHIFT_LOCN_CODE,LOCN_NAME,SHIFT_FROM_TIME,SHIFT_TO_TIME,SHIFT_FRZ_FLAG_NUM FROM OM_POS_SHIFT a,OM_LOCATION b WHERE SHIFT_CODE = 'Perf_Test' AND SHIFT_LOCN_CODE = '006'  AND a.SHIFT_LOCN_CODE = b.LOCN_CODE
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: SELECT SHIFT_CODE,SHIFT_DESC,SHIFT_LOCN_CODE,LOCN_NAME,SHIFT_FROM_TIME,SHIFT_TO_TIME,SHIFT_FRZ_FLAG_NUM FROM OM_POS_SHIFT a,OM_LOCATION b WHERE SHIFT_CODE = 'Perf_Test' AND SHIFT_LOCN_CODE = '006'  AND a.SHIFT_LOCN_CODE = b.LOCN_CODE
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_SHIFT
+StackTrace: UPDATE OM_POS_SHIFT SET SHIFT_DESC='Testing Purposee',SHIFT_FROM_TIME=to_date(to_char(sysdate || ' ' || '2:00:59 PM'),'DD-MM-YY HH12:MI:SS AM'),SHIFT_TO_TIME=to_date(to_char(sysdate || ' ' || '2:00:59 PM'),'DD-MM-YY HH12:MI:SS AM'),SHIFT_FRZ_FLAG_NUM=2,SHIFT_UPD_UID='ESHACK1',SHIFT_UPD_DT=to_date(sysdate,'DD-MM-YY') WHERE SHIFT_CODE='Perf_Test' AND SHIFT_LOCN_CODE='006'
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_COUNTER
+StackTrace: INSERT INTO OM_POS_COUNTER(POSCNT_NO,POSCNT_NAME,POSCNT_LOCN_CODE,POSCNT_FRZ_FLAG_NUM,POSCNT_IP_ADDRESS,POSCNT_COMPUTER_NAME,POSCNT_CR_DT,POSCNT_CR_UID)VALUES('0P0E0R0F','Perf_Test','006',2,'','Perf_TEST',to_date(sysdate,'DD-MM-YY'),'ESHACK1')
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: Select POSCNT_NO,POSCNT_NAME,POSCNT_LOCN_CODE,LOCN_NAME,POSCNT_FRZ_FLAG_NUM,POSCNT_IP_ADDRESS,POSCNT_COMPUTER_NAME from OM_POS_COUNTER a,OM_LOCATION b where POSCNT_NO='0P0E0R0F' and POSCNT_LOCN_CODE='006' and a.POSCNT_LOCN_CODE = b.LOCN_CODE
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: Select POSCNT_NO,POSCNT_NAME,POSCNT_LOCN_CODE,LOCN_NAME,POSCNT_FRZ_FLAG_NUM,POSCNT_IP_ADDRESS,POSCNT_COMPUTER_NAME from OM_POS_COUNTER a,OM_LOCATION b where POSCNT_NO='0P0E0R0F' and POSCNT_LOCN_CODE='006' and a.POSCNT_LOCN_CODE = b.LOCN_CODE
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_SHIFT
+StackTrace: UPDATE OM_POS_COUNTER SET POSCNT_NAME='Perf_Test',POSCNT_FRZ_FLAG_NUM=2,POSCNT_IP_ADDRESS='',POSCNT_COMPUTER_NAME='Perf_TESTtt',POSCNT_UP_DT=to_date(sysdate,'DD-MM-YY'),POSCNT_UP_UID='ESHACK1' WHERE POSCNT_LOCN_CODE='006' and POSCNT_NO='0P0E0R0F'
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_SALESMAN
+StackTrace: INSERT INTO OM_SALESMAN (SM_CODE,SM_NAME,SM_SHORT_NAME,SM_MIN_MARKUP_PERC,SM_MAX_VARIANCE_PERC,SM_FRZ_FLAG_NUM,SM_BL_NAME,SM_BL_SHORT_NAME,SM_CR_DT,SM_CR_UID) VALUES ('NAN','NAN','NAN',0,0,2,'','',to_date(sysdate,'DD-MM-YY'),'ESHACK1')
+================================================
+
+================================================
+Title: 
+Message: Select OM_POS_SALESMAN_COUNTER
+StackTrace: select SMC_LOCN_CODE,LOCN_NAME,SMC_COUNT_CODE,POSCNT_NAME, SMC_FRZ_FLAG_NUM from OM_POS_SALESMAN_COUNTER,OM_LOCATION,OM_POS_COUNTER where SMC_COUNT_CODE=POSCNT_NO and SMC_LOCN_CODE=LOCN_CODE and SMC_LOCN_CODE=POSCNT_LOCN_CODE and SMC_CODE='NAN'
+================================================
+
+================================================
+Title: 
+Message: Select OM_POS_SALESMAN_COUNTER
+StackTrace: select SMS_LOCN_CODE,LOCN_NAME,SMS_SHIFT_CODE,SHIFT_DESC, SMS_FRZ_FLAG_NUM from OM_POS_SALESMAN_SHIFT,OM_LOCATION,OM_POS_SHIFT where SMS_SHIFT_CODE= SHIFT_CODE and SMS_LOCN_CODE=LOCN_CODE and SMS_LOCN_CODE= SHIFT_LOCN_CODE and SMS_CODE='NAN'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_SALESMAN
+StackTrace: UPDATE OM_SALESMAN SET SM_NAME='NAN',SM_SHORT_NAME='NANd',SM_FRZ_FLAG_NUM='2',SM_MIN_MARKUP_PERC='0',SM_MAX_VARIANCE_PERC='0',SM_BL_NAME='',SM_BL_SHORT_NAME='',SM_UPD_DT=to_date(sysdate,'DD-MM-YY'),SM_UPD_UID='ESHACK1' WHERE SM_CODE='NAN' 
+================================================
+
+================================================
+Title: 
+Message: delQuery_Shift
+StackTrace: delete from OM_POS_SALESMAN_SHIFT where SMS_CODE='NAN'
+================================================
+
+================================================
+Title: 
+Message: delQuery_Counter
+StackTrace: delete from OM_POS_SALESMAN_COUNTER where SMC_CODE='NAN'
+================================================
+
+================================================
+Title: 
+Message: delQuery_Company
+StackTrace: delete from OM_SALESMAN_COMP where SMC_CODE='NAN'
+================================================
+
+================================================
+Title: 
+Message: delQuery_SM
+StackTrace: delete from OM_SALESMAN where SM_CODE='NAN'
+================================================
+
+================================================
+Title: 
+Message: Insert Query OM_POS_COUNTER
+StackTrace: INSERT INTO OM_POS_DENOMINATION (POSDENO_CODE,POSDENO_CURR_CODE,POSDENO_NOTE_COIN_FLAG,POSDENO_PMT_TYPE,POSDENO_CR_DT,POSDENO_CR_UID) VALUES ('RUPEE_PERF','AED','C','CASH',to_date(sysdate,'DD-MM-YY'),'ESHACK1')
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: Select POSDENO_CODE,POSDENO_CURR_CODE,POSDENO_NOTE_COIN_FLAG,POSDENO_PMT_TYPE,CURR_NAME from OM_POS_DENOMINATION a, FM_CURRENCY b where POSDENO_CODE='RUPEE_PERF' and POSDENO_CURR_CODE='AED' and upper(POSDENO_NOTE_COIN_FLAG)='C' and b.CURR_CODE=a.POSDENO_CURR_CODE
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: Select POSDENO_CODE,POSDENO_CURR_CODE,POSDENO_NOTE_COIN_FLAG,POSDENO_PMT_TYPE,CURR_NAME from OM_POS_DENOMINATION a, FM_CURRENCY b where POSDENO_CODE='RUPEE_PERF' and POSDENO_CURR_CODE='AED' and b.CURR_CODE=a.POSDENO_CURR_CODE
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_DENOMINATION
+StackTrace: UPDATE OM_POS_DENOMINATION SET POSDENO_PMT_TYPE='CASH', POSDENO_UPD_DT=to_date(sysdate,'DD-MM-YY'),POSDENO_UPD_UID='ESHACK1' WHERE POSDENO_CODE='RUPEE_PERF' and POSDENO_CURR_CODE='AED' and upper(POSDENO_NOTE_COIN_FLAG)='COINSS'
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: SELECT PPD_CODE,PPD_NAME,PPD_SHORT_NAME,PPD_MAIN_ACNT_CODE,PPD_SUB_ACNT_CODE,PPD_DIVN_CODE,PPD_DEPT_CODE,PPD_TYPE,PPD_FRZ_FLAG_NUM,PPD_DESC_REQ_NUM from OM_POS_PAYMENT_DET where PPD_CODE= 'CASH'
+================================================
+
+================================================
+Title: 
+Message: Address Details Query
+StackTrace: select ADDR_LINE_1,ADDR_LINE_2,ADDR_LINE_3,ADDR_LINE_4,ADDR_LINE_5,ADDR_EMAIL,ADDR_MOBILE,ADDR_CONTACT,ADDR_CITY_CODE,ADDR_COUNTY_CODE,ADDR_STATE_CODE,ADDR_ZIP_POSTAL_CODE,ADDR_PROVINCE_CODE,ADDR_COUNTRY_CODE,ADDR_FAX,ADDR_TEL from OM_ADDRESS where ADDR_CODE='CAHD003'
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION insert Query
+StackTrace: insert into om_location(LOCN_CODE,LOCN_TYPE,LOCN_NAME,LOCN_SHORT_NAME,LOCN_STOCK_YN,LOCN_SALE_YN,LOCN_DOC_SOURCE_YN,LOCN_GROUP_CODE,LOCN_COSTING_GROUP,LOCN_CLOSING_GROUP,LOCN_ADDR_CODE,LOCN_FRZ_FLAG_NUM,LOCN_FLEX_01,LOCN_FLEX_02,LOCN_CR_UID,LOCN_CR_DT)values('Perf_123','SHR','Testing _Location','sss','N','Y','N','STK-GRP','CST-GRP','STK-GRP','CAHD003',2,'fff','0','ESHACK1',sysdate)
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: select LOCN_CODE,LT_CODE || '  -  ' || LT_DESC,LOCN_NAME,LOCN_SHORT_NAME,LOCN_STOCK_YN,LOCN_SALE_YN,LOCN_DOC_SOURCE_YN,(SELECT LGD_CODE || '  -  ' || LGD_NAME FROM OM_LOCN_GROUP_DEFN where LGD_CODE=LOCN_GROUP_CODE) as LOCNGRPCODE,(SELECT LGD_CODE || '  -  ' || LGD_NAME FROM OM_LOCN_GROUP_DEFN where LGD_CODE=LOCN_COSTING_GROUP) as LOCNCOSTGRPCODE,(SELECT LGD_CODE || '  -  ' || LGD_NAME FROM OM_LOCN_GROUP_DEFN where LGD_CODE=LOCN_CLOSING_GROUP) as LOCNCLOSEGRPCODE,ADDR_CODE || '  -  ' || ADDR_NAME,LOCN_FRZ_FLAG_NUM,LOCN_FLEX_01,LOCN_FLEX_02 from om_location,om_locn_type,om_address where LOCN_CODE='Perf_123' and LOCN_TYPE=LT_CODE and LOCN_ADDR_CODE=ADDR_CODE
+================================================
+
+================================================
+Title: 
+Message: Address Details Query
+StackTrace: select ADDR_LINE_1,ADDR_LINE_2,ADDR_LINE_3,ADDR_LINE_4,ADDR_LINE_5,ADDR_EMAIL,ADDR_MOBILE,ADDR_CONTACT,ADDR_CITY_CODE,ADDR_COUNTY_CODE,ADDR_STATE_CODE,ADDR_ZIP_POSTAL_CODE,ADDR_PROVINCE_CODE,ADDR_COUNTRY_CODE,ADDR_FAX,ADDR_TEL from OM_ADDRESS where ADDR_CODE='CAHD003'
+================================================
+
+================================================
+Title: Error
+Message: Unable to cast object of type 'System.Windows.Forms.Button' to type 'System.Windows.Forms.ComboBox'.
+StackTrace:    at POS.SettingsLocationMaster.cmbLocnAddrEdit_SelectedValueChanged(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\SettingsLocationMaster.vb:line 900
+================================================
+
+================================================
+Title: 
+Message: Update OM_LOCATION
+StackTrace: update om_location set LOCN_NAME='Testing _Location',LOCN_SHORT_NAME='sss',LOCN_GROUP_CODE='STK-GRP',LOCN_STOCK_YN='N',LOCN_SALE_YN='Y',LOCN_DOC_SOURCE_YN='N',LOCN_ADDR_CODE='CAHD003',LOCN_FRZ_FLAG_NUM=2,LOCN_COSTING_GROUP='CST-GRP',LOCN_CLOSING_GROUP='CST-GRP',LOCN_TYPE='SHR',LOCN_FLEX_01='fff',LOCN_FLEX_02='0',LOCN_UPD_UID='ESHACK1',LOCN_UPD_DT=sysdate where LOCN_CODE='Perf_123'
+================================================
+
+================================================
+Title: 
+Message: Query
+StackTrace: select LOCN_CODE,LT_CODE || '  -  ' || LT_DESC,LOCN_NAME,LOCN_SHORT_NAME,LOCN_STOCK_YN,LOCN_SALE_YN,LOCN_DOC_SOURCE_YN,(SELECT LGD_CODE || '  -  ' || LGD_NAME FROM OM_LOCN_GROUP_DEFN where LGD_CODE=LOCN_GROUP_CODE) as LOCNGRPCODE,(SELECT LGD_CODE || '  -  ' || LGD_NAME FROM OM_LOCN_GROUP_DEFN where LGD_CODE=LOCN_COSTING_GROUP) as LOCNCOSTGRPCODE,(SELECT LGD_CODE || '  -  ' || LGD_NAME FROM OM_LOCN_GROUP_DEFN where LGD_CODE=LOCN_CLOSING_GROUP) as LOCNCLOSEGRPCODE,ADDR_CODE || '  -  ' || ADDR_NAME,LOCN_FRZ_FLAG_NUM,LOCN_FLEX_01,LOCN_FLEX_02 from om_location,om_locn_type,om_address where LOCN_CODE='Perf_123' and LOCN_TYPE=LT_CODE and LOCN_ADDR_CODE=ADDR_CODE
+================================================
+
+================================================
+Title: 
+Message: Address Details Query
+StackTrace: select ADDR_LINE_1,ADDR_LINE_2,ADDR_LINE_3,ADDR_LINE_4,ADDR_LINE_5,ADDR_EMAIL,ADDR_MOBILE,ADDR_CONTACT,ADDR_CITY_CODE,ADDR_COUNTY_CODE,ADDR_STATE_CODE,ADDR_ZIP_POSTAL_CODE,ADDR_PROVINCE_CODE,ADDR_COUNTRY_CODE,ADDR_FAX,ADDR_TEL from OM_ADDRESS where ADDR_CODE='CAHD003'
+================================================
+
+================================================
+Title: Error
+Message: Unable to cast object of type 'System.Windows.Forms.Button' to type 'System.Windows.Forms.ComboBox'.
+StackTrace:    at POS.SettingsLocationMaster.cmbLocnAddrEdit_SelectedValueChanged(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\SettingsLocationMaster.vb:line 900
+================================================
+
+================================================
+Title: OM_SALESMAN
+Message: SELECT SM_CODE as salemancode, SM_CODE  FROM OM_SALESMAN WHERE SM_FRZ_FLAG_NUM = 2 AND SM_CODE IN (SELECT SMC_CODE FROM OM_SALESMAN_COMP WHERE SMC_COMP_CODE = '001' AND SMC_FRZ_FLAG_NUM = 2) AND SM_CODE IN (SELECT SMC_CODE FROM OM_POS_SALESMAN_COUNTER WHERE SMC_LOCN_CODE = '001'  AND SMC_FRZ_FLAG_NUM = 2) ORDER BY SM_CODE
+StackTrace: 
+================================================
+
+================================================
+Title: OM_SALESMAN
+Message: SELECT SM_CODE as salemancode, SM_CODE  FROM OM_SALESMAN WHERE SM_FRZ_FLAG_NUM = 2 AND SM_CODE IN (SELECT SMC_CODE FROM OM_SALESMAN_COMP WHERE SMC_COMP_CODE = '001' AND SMC_FRZ_FLAG_NUM = 2) AND SM_CODE IN (SELECT SMC_CODE FROM OM_POS_SALESMAN_COUNTER WHERE SMC_LOCN_CODE = '006'  AND SMC_FRZ_FLAG_NUM = 2) ORDER BY SM_CODE
+StackTrace: 
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 14:14:02.438000
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 14:14:25.919000
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 15:38:12.465000
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='006' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GMADINATPC' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1' and '006' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '006'
+================================================
+
+================================================
+Title: 
+Message: New Transaction Begins
+StackTrace: STARTING POINT OF TRANSACTION
+================================================
+
+================================================
+Title: 
+Message: Begin Time:
+StackTrace: 19-09-2014 15:55:32.835000
+================================================
+
+================================================
+Title: 
+Message: Stock Query
+StackTrace: SELECT om_item.item_code Item_Code, lcs_grade_code_1 GradeCode_1, om_item.item_name Item_Description, A.item_bar_code Item_Bar_Code, A.item_price_type_1 AS PRICE1, A.item_price_type_2  AS PRICE2, ( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) - ( lcs_issd_qty_bu + lcs_hold_qty_bu + lcs_reject_qty_bu +  lcs_overres_qty_bu + lcs_pick_qty_bu + lcs_pack_qty_bu)) AS Avail_Stock_Qty FROM   os_locn_curr_stk, om_item, om_pos_item A,  om_location WHERE  om_item.item_code = A.item_code  AND om_item.item_code = lcs_item_code  AND om_item.item_frz_flag_num = 2  AND lcs_comp_code = '001'  AND lcs_locn_code = locn_code   and lcs_locn_code = '006'   and om_item.item_code >= 'A'  and om_item.item_code <= 'Zzzzzzzz' GROUP  BY om_item.item_code,  om_item.item_name, A.item_bar_code,  locn_name,  om_item.item_uom_code,  lcs_grade_code_1,  lcs_grade_code_2,  A.item_pli_pl_code,  A.item_price_type_1,  A.item_price_type_2,  lcs_stk_qty_bu,  lcs_rcvd_qty_bu,  lcs_issd_qty_bu,  lcs_hold_qty_bu,  lcs_reject_qty_bu,  lcs_overres_qty_bu,  lcs_pick_qty_bu,  lcs_pack_qty_bu,  lcs_resv_qty_bu,  om_item.item_anly_code_01,  om_item.item_anly_code_02 HAVING SUM(( ( lcs_stk_qty_bu + lcs_rcvd_qty_bu ) -  ( lcs_issd_qty_bu + lcs_hold_qty_bu  + lcs_reject_qty_bu +  lcs_overres_qty_bu  + lcs_pick_qty_bu +  lcs_pack_qty_bu )  - lcs_resv_qty_bu )) > 0 ORDER  BY locn_name,item_code
+================================================
+
+================================================
+Title: 
+Message: Transaction Insertion Started Time:
+StackTrace: 19-09-2014 16:45:47.088000
+================================================
+
+================================================
+Title: 
+Message: INSERT QUERY HEAD
+StackTrace: Invoice No: 6190428
+================================================
+
+================================================
+Title: 
+Message: INVOICE ITEM QUERY
+StackTrace: Item 1: AE-01-0302
+================================================
+
+================================================
+Title: 
+Message: Invoice Item QueryMy
+StackTrace: insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values(15956688,28485025,'006','006','AE-01-0302',1,'AE BOX 40X30X25 SCYG-YGIBOXTR02','PCS','006','GPL',69,'Y',1,0,1,0,0,0,0,0,0,0,69,0,69,69,2,'N',0,0,'NA','NA',0,0,'ESHACK1',sysdate,'','N')
+================================================
+
+================================================
+Title: Error
+Message: ORA-20001: FP-10089-Check Base currency is defined for the logged in company.ERR1: ERR2: ERR3: ERR4: ERR5: ERR6: ERR7: ERR8:
+ORA-06512: at "JNOVELTY107.RAISE_APPLICATION", line 34
+ORA-06512: at "JNOVELTY107.F_GET_BASE_INT_CON_CURR", line 27
+ORA-06512: at "JNOVELTY107.F_GET_BASE_CURR", line 8
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 147
+ORA-06512: at "JNOVELTY107.ORNDBPKG_ITEM_LOCN_SUMMARY", line 446
+ORA-06512: at "JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM", line 15
+ORA-04088: error during execution of trigger 'JNOVELTY107.ODBTRG_INS_UPD_SUMMARY_INVITEM'
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleCommand.ExecuteNonQuery()
+   at POS.Transactions.DirectInvoiceDone() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\Transactions.vb:line 5210
+================================================
+

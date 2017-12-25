@@ -1,0 +1,7 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='094' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GATANAPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 15/10/2017 12:11:41 PM
+================================================
+

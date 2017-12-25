@@ -1,0 +1,79 @@
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.exe.config
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.exe.manifest
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.application
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.exe
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\Microsoft.Office.Interop.Excel.dll
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\PdfSharp.dll
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\System.Data.SQLite.dll
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\office.dll
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\Microsoft.Vbe.Interop.dll
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\Microsoft.Office.Interop.Excel.xml
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\office.xml
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.vbprojResolveAssemblyReference.cache
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.AdminSettings.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.CustomMsgBox.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Form1.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsLocationMaster.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.CounterSettings.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.DailyTransReport.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.frmEndofthedayrep.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.frmGVRep.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.frmStockReport.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Patientfrm.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.ReferalReport.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.RoyaltyReport.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsPaymentMaster.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsDenominationMaster.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsSalesmanMaster.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.LoginForm.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsCounterMaster.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsShiftMaster.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SubHomeForm.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Transactions.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Home.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Resources.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.TransactionSlip.resources
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.vbproj.GenerateResource.Cache
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.exe.manifest
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.application
+C:\Sources_ORIGINAL_Workingone\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.exe
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.exe.config
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.exe
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.exe.manifest
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.application
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\POS.exe
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\Microsoft.Office.Interop.Excel.dll
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\Oracle.DataAccess.dll
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\PdfSharp.dll
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\System.Data.SQLite.dll
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\office.dll
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\Microsoft.Vbe.Interop.dll
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\Microsoft.Office.Interop.Excel.xml
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\bin\x86\Release\office.xml
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.vbprojResolveAssemblyReference.cache
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.AdminSettings.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.CustomMsgBox.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Form1.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsLocationMaster.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.CounterSettings.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.DailyTransReport.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.frmEndofthedayrep.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.frmGVRep.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.frmStockReport.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Patientfrm.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.ReferalReport.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.RoyaltyReport.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsPaymentMaster.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsDenominationMaster.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsSalesmanMaster.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.LoginForm.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsCounterMaster.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SettingsShiftMaster.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.SubHomeForm.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Transactions.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Home.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.Resources.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.TransactionSlip.resources
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.vbproj.GenerateResource.Cache
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.exe.manifest
+F:\Aljaber Projects\POS_NOVELTY_v4.2.3\POS_NOVELTY\Screen Resolution Project\obj\x86\Release\POS.application

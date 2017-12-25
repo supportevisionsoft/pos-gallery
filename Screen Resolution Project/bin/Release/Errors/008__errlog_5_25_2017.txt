@@ -1,0 +1,92 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 9:31:42 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 9:40:15 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 9:45:35 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 9:47:18 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 10:00:26 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:00:47 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.butLogin_Click(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 488
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:00:47 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 10:00:47 PM
+================================================
+
+================================================
+Title: Error
+Message: ORA-12170: TNS:Connect timeout occurred
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\DBConnection.vb:line 159
+Date/Time: 5/25/2017 10:01:09 PM
+================================================
+
+================================================
+Title:    at POS.LoginForm.butLogin_Click(Object sender, EventArgs e) in C:\Users\S2NSYSTEMS\Desktop\POS_NOVELTY_18Feb2017\POS_NOVELTY\POS_NOVELTY_06May2017_12PM\Screen Resolution Project\LoginForm.vb:line 488
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+Date/Time: 5/25/2017 10:01:09 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 10:01:09 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 10:03:29 PM
+================================================
+

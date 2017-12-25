@@ -1,0 +1,510 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '008' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '008'
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '008'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='CUST_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='PL_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='ADV_PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_WL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_WL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_TL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01' and POCS_KEY='LINE_DISP_TL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET  POCS_VALUE ='SH008' where POCS_KEY='CUST_CODE' AND POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '01'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'GPL' where POCS_KEY ='PL_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '01'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='ADV_PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '01'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '01'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = ' ' where POCS_KEY ='LINE_DISP_WL_1' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '01'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = ' ' where POCS_KEY ='LINE_DISP_WL_2' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '01'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = ' ' where POCS_KEY ='LINE_DISP_TL_1' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '01'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = ' ' where POCS_KEY ='LINE_DISP_TL_2' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '01'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='CUST_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PL_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='ADV_PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET  POCS_VALUE ='SH008' where POCS_KEY='CUST_CODE' AND POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'GPL' where POCS_KEY ='PL_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='ADV_PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = '' where POCS_KEY ='LINE_DISP_WL_1' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '008' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '008'
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '008'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='CUST_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PL_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='ADV_PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET  POCS_VALUE ='SH008' where POCS_KEY='CUST_CODE' AND POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'GPL' where POCS_KEY ='PL_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='ADV_PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = '' where POCS_KEY ='LINE_DISP_WL_1' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '008' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+================================================
+
+================================================
+Title: 
+Message: USER_MENU_ACCESS
+StackTrace: SELECT  POS_REPORT_HEAD_ID ,POS_REPORT_HEAD_TITLE FROM  POS_REPORT_HEAD A, USER_MENU_ACCESS B WHERE UMA_UG_ID = (SELECT USER_GROUP_ID FROM MENU_USER WHERE USER_ID = 'ESHACK1') AND B.UMA_REPORT_ID = A.POS_REPORT_HEAD_ID AND B.UMA_PRIV_YN='Y'
+================================================
+
+================================================
+Title: 
+Message: OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: SELECT  POLS_KEY, POLS_VALUE FROM OM_POS_OPTIONS_LOCATION_SETUP WHERE POLS_COMP_CODE = '001' AND  POLS_LOCN_CODE = '008'
+================================================
+
+================================================
+Title: 
+Message: OM_LOCATION LOGO
+StackTrace: SELECT  LOCN_FLEX_19,LOCN_FLEX_20 FROM OM_LOCATION WHERE LOCN_CODE = '008'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='CUST_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PL_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='ADV_PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET  POCS_VALUE ='SH008' where POCS_KEY='CUST_CODE' AND POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'GPL' where POCS_KEY ='PL_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='ADV_PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'CASH' where POCS_KEY ='PAY_CODE' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = ' ' where POCS_KEY ='LINE_DISP_WL_1' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'AL JABER GALLERY' where POCS_KEY ='LINE_DISP_WL_2' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'DUBAI' where POCS_KEY ='LINE_DISP_TL_1' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Update Query OM_POS_OPTIONS_LOCATION_SETUP
+StackTrace: UPDATE OM_POS_OPTIONS_COUNTER_SETUP SET POCS_VALUE = 'UAE' where POCS_KEY ='LINE_DISP_TL_2' AND POCS_LOCN_CODE = '008'  AND POCS_COUNTER_CODE = '03'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='CUST_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PL_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='ADV_PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='PAY_CODE'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_WL_2'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_1'
+================================================
+
+================================================
+Title: 
+Message: Rowid
+StackTrace: select POCS_VALUE from OM_POS_OPTIONS_COUNTER_SETUP where POCS_LOCN_CODE= '008' and  POCS_COUNTER_CODE= '03' and POCS_KEY='LINE_DISP_TL_2'
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='TESTSERVER' or POSCNT_IP_ADDRESS= '')
+================================================
+

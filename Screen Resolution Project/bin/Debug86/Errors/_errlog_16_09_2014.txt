@@ -1,0 +1,352 @@
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.cmbCompanyCode_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 266
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.DBConnection.GetConnectionString(String strConnection) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 18
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 100
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.DBConnection.GetConnectionString(String strConnection) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 18
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 100
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.DBConnection.GetConnectionString(String strConnection) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 18
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 100
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.cmbCompanyCode_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 266
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.DBConnection.GetConnectionString(String strConnection) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 18
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 100
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.DBConnection.GetConnectionString(String strConnection) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 18
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 100
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.DBConnection.GetConnectionString(String strConnection) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 18
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 100
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.cmbCompanyCode_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 266
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: Arithmetic operation resulted in an overflow.
+StackTrace:    at System.Data.Odbc.OdbcStatementHandle.RowCount(SQLLEN& rowCount)
+   at System.Data.Odbc.OdbcDataReader.GetRowCount()
+   at System.Data.Odbc.OdbcDataReader.FirstResult()
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Odbc.OdbcCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 133
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: Arithmetic operation resulted in an overflow.
+StackTrace:    at System.Data.Odbc.OdbcStatementHandle.RowCount(SQLLEN& rowCount)
+   at System.Data.Odbc.OdbcDataReader.GetRowCount()
+   at System.Data.Odbc.OdbcDataReader.FirstResult()
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Odbc.OdbcCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 133
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: Arithmetic operation resulted in an overflow.
+StackTrace:    at System.Data.Odbc.OdbcStatementHandle.RowCount(SQLLEN& rowCount)
+   at System.Data.Odbc.OdbcDataReader.GetRowCount()
+   at System.Data.Odbc.OdbcDataReader.FirstResult()
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Odbc.OdbcCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 133
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: Arithmetic operation resulted in an overflow.
+StackTrace:    at System.Data.Odbc.OdbcStatementHandle.RowCount(SQLLEN& rowCount)
+   at System.Data.Odbc.OdbcDataReader.GetRowCount()
+   at System.Data.Odbc.OdbcDataReader.FirstResult()
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Odbc.OdbcCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 133
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: Arithmetic operation resulted in an overflow.
+StackTrace:    at System.Data.Odbc.OdbcStatementHandle.RowCount(SQLLEN& rowCount)
+   at System.Data.Odbc.OdbcDataReader.GetRowCount()
+   at System.Data.Odbc.OdbcDataReader.FirstResult()
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Odbc.OdbcCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 133
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtPassword_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 210
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: Arithmetic operation resulted in an overflow.
+StackTrace:    at System.Data.Odbc.OdbcStatementHandle.RowCount(SQLLEN& rowCount)
+   at System.Data.Odbc.OdbcDataReader.GetRowCount()
+   at System.Data.Odbc.OdbcDataReader.FirstResult()
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader, Object[] methodArguments, SQL_API odbcApiMethod)
+   at System.Data.Odbc.OdbcCommand.ExecuteReaderObject(CommandBehavior behavior, String method, Boolean needReader)
+   at System.Data.Odbc.OdbcCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Odbc.OdbcCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 133
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtPassword_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 210
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 137
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 158
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
+================================================
+Title: Error
+Message: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionOpen..ctor(OdbcConnection outerConnection, OdbcConnectionString connectionOptions)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 137
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 158
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in C:\TEST\POS_NOVELTY\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 159
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+

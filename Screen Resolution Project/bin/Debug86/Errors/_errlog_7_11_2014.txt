@@ -1,0 +1,48 @@
+================================================
+Title: Error
+Message: ERROR [HY000] [Oracle][ODBC][Ora]ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+
+ERROR [IM006] [Microsoft][ODBC Driver Manager] Driver's SQLSetConnectAttr failed
+ERROR [HY000] [Oracle][ODBC][Ora]ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in D:\TestPOS Backups\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in D:\TestPOS Backups\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in D:\TestPOS Backups\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 92
+================================================
+
+================================================
+Title: Error
+Message: ERROR [HY000] [Oracle][ODBC][Ora]ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+
+ERROR [IM006] [Microsoft][ODBC Driver Manager] Driver's SQLSetConnectAttr failed
+ERROR [HY000] [Oracle][ODBC][Ora]ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+
+StackTrace:    at System.Data.Odbc.OdbcConnection.HandleError(OdbcHandle hrHandle, RetCode retcode)
+   at System.Data.Odbc.OdbcConnectionHandle..ctor(OdbcConnection connection, OdbcConnectionString constr, OdbcEnvironmentHandle environmentHandle)
+   at System.Data.Odbc.OdbcConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.Odbc.OdbcConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in D:\TestPOS Backups\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 101
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in D:\TestPOS Backups\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 122
+================================================
+
+================================================
+Title:    at POS.LoginForm.txtUserName_LostFocus(Object sender, EventArgs e) in D:\TestPOS Backups\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 160
+Message: Error
+StackTrace: Object reference not set to an instance of an object.
+================================================
+

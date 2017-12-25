@@ -1,0 +1,42 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='005' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='MUSEUMPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 9:30:37 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '005' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/25/2017 9:30:37 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='005' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='MUSEUMPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 9:30:38 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '005' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/25/2017 9:30:38 PM
+================================================
+
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='005' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='MUSEUMPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/25/2017 9:30:43 PM
+================================================
+
+================================================
+Title: 
+Message: Location Privileges
+StackTrace: select USER_ID from menu_user where USER_ID ='ESHACK1' and USER_FIELD_05 = 'ESHACK1234' and '005' in (SELECT ula_locn_code from user_location_access where ula_u_id = 'ESHACK1' and ULA_PRIV_YN = 'Y')
+Date/Time: 5/25/2017 9:30:43 PM
+================================================
+

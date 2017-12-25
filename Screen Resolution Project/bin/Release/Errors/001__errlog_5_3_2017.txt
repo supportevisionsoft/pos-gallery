@@ -1,0 +1,7 @@
+================================================
+Title: 
+Message: LOGIN
+StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='001' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GDUBAIPARKPC' or POSCNT_IP_ADDRESS= '')
+Date/Time: 5/3/2017 4:59:25 PM
+================================================
+

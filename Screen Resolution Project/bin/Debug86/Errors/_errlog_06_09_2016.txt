@@ -1,0 +1,16 @@
+================================================
+Title: Error
+Message: ORA-01017: invalid username/password; logon denied
+StackTrace:    at Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck, Int32 isRecoverable)
+   at Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   at Oracle.DataAccess.Client.OracleConnection.Open()
+   at POS.DBConnection.GetODBCConnection() in C:\Sources_24Sept2014\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 138
+   at POS.DBConnection.SelectFromTableODBC(String queryString) in C:\Sources_24Sept2014\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\DBConnection.vb:line 159
+================================================
+
+================================================
+Title: Error
+Message: Object reference not set to an instance of an object.
+StackTrace:    at POS.LoginForm.LoginForm_Load(Object sender, EventArgs e) in C:\Sources_24Sept2014\POS_Novelty_Final\POS_NOVELTY\Screen Resolution Project\LoginForm.vb:line 91
+================================================
+
