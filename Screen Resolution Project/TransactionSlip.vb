@@ -29,6 +29,7 @@ Public Class TransactionSlip
     Private rptCustomerEmail As String = ""
     Private rptCustomerSONo As String = ""
     Private rptTotalDiscount As String = ""
+    Private rptTotalTax As String = ""
 
     Private CurrentY As Integer
     Private CurrentX As Integer
@@ -137,6 +138,8 @@ Public Class TransactionSlip
     Private lblINVExpTotal_VALUE As New List(Of Label)
     Private lblINVDisTotal_KEY As New List(Of Label)
     Private lblINVDisTotal_VALUE As New List(Of Label)
+    Private lblINVTAX_KEY As New List(Of Label)
+    Private lblINVTAX_VALUE As New List(Of Label)
 
     Private lblRptSNOHeader As New List(Of Label)
     Private lblRptItemCodeHeader As New List(Of Label)
@@ -170,6 +173,7 @@ Public Class TransactionSlip
 
     Dim totalDiscountamt As Double = 0
     Dim totalExpenseamt As Double = 0
+    Dim totalTaxAmount As Double = 0
     Dim subtotalamt As Double = 0
     Dim totheaddiscamtval As Double
 
@@ -690,7 +694,8 @@ Public Class TransactionSlip
             stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno,"
-            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress "
+            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress, "
+            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt "
             stQuery = stQuery + " from "
             stQuery = stQuery + " ot_invoice_head b,ot_invoice_item a,om_location c,om_address d"
             stQuery = stQuery + " where b.invh_no = " & TXN_NO & " and"
@@ -888,6 +893,7 @@ Public Class TransactionSlip
                 totalDiscountamt = totalDiscountamt + Convert.ToDouble(row.Item(18).ToString)
                 totalExpenseamt = totalExpenseamt + Convert.ToDouble(row.Item(19).ToString)
                 subtotalamt = subtotalamt + Convert.ToDouble(row.Item(17).ToString)
+                totalTaxAmount = totalTaxAmount + Convert.ToDouble(row.Item(26).ToString)
 
                 itemlines = itemlines + 1
                 rowcount = rowcount - 1
@@ -902,6 +908,9 @@ Public Class TransactionSlip
                 lblDTamt.Visible = False
                 lblTotalamt.Text = (subtotalamt - Convert.ToDouble(rptTotalDiscount)).ToString("0.00")
             End If
+
+            lblTotalTaxAmt.Text = totalTaxAmount.ToString("0.00")
+
             'Me.Controls.Find("lblINVDisTotal_VALUE" & currentPageNumber, True)(0).Text = Round(totalDiscountamt + totheaddiscamtval, 3).ToString("0.000")
             'Me.Controls.Find("lblINVExpTotal_VALUE" & currentPageNumber, True)(0).Text = Round(totalExpenseamt, 3).ToString("0.000")
             'Me.Controls.Find("lblINVSubTotal_VALUE" & currentPageNumber, True)(0).Text = Round(subtotalamt, 3).ToString("0.000")

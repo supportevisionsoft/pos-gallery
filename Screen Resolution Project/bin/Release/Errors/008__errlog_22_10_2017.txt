@@ -1,7 +1,0 @@
-================================================
-Title: 
-Message: LOGIN
-StackTrace: select POSCNT_NO,OM_POS_COUNTER.ROWID from om_pos_counter where poscnt_locn_code='008' and poscnt_frz_flag_num = 2  and (POSCNT_COMPUTER_NAME='GALLERYEMALLPC3' or POSCNT_IP_ADDRESS= '')
-Date/Time: 22/10/2017 11:24:16 AM
-================================================
-

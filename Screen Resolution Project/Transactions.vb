@@ -5282,6 +5282,18 @@ Public Class Transactions
                     dsAll = db.SelectFromTableODBC(stQuery)
                     Dim countval = dsAll.Tables("Table").Rows.Count
 
+                    'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
+                    Dim taxImpl As New TaxImpl(db)
+                    Dim itemWiseTaxCalculatedTotal As Double = 0
+
+                    Dim totAmount As Double = Convert.ToDouble(txtTotalAmount.Text)
+                    Dim totDiscAmtval As Double = 0
+                    For i = 0 To lstviewTotalDiscounts.Items.Count - 1
+                        If Not lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text = "" Then
+                            totDiscAmtval = totDiscAmtval + Convert.ToDouble(lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text)
+                        End If
+                    Next
+
                     i = 0
                     While countval > 0
                         Dim rowItem(24) As String
@@ -5332,7 +5344,14 @@ Public Class Transactions
                             looseQtyVal = rowItem(3).ToString.Split(".")(1)
                         End If
 
-
+                        'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
+                        Dim itemCodeForTaxEntry As String = ""
+                        Dim itemPriceForTaxEntry As Double = rowItem(8)
+                        Dim itemValuePercentageInTotalAmount As Double = 0
+                        itemValuePercentageInTotalAmount = itemPriceForTaxEntry / (totAmount + totDiscAmtval)
+                        itemPriceForTaxEntry = Round(itemPriceForTaxEntry - (itemValuePercentageInTotalAmount * totDiscAmtval), 3)
+                        itemWiseTaxCalculatedTotal = itemWiseTaxCalculatedTotal + itemPriceForTaxEntry
+                        itemCodeForTaxEntry = rowItem(1).ToString
 
                         stQuery = "insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values("
                         stQuery = stQuery & maxSOI_SYS_ID & "," & maxSYS_ID & ",'" & Location_Code & "','" & Location_Code & "','" & rowItem(1).ToString & "',1,'" & rowItem(2).ToString.Replace("'", "''") & "','" & rowItem(10).ToString & "','" & txtSalesmanCode.Text & "','" & rowItem(14).ToString & "'," & Convert.ToDouble(rowItem(4).ToString) & ",'Y'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) & ",0,0,0,0,0,0,0," & Convert.ToDouble(rowItem(4).ToString) & "," & "0" & "," & Convert.ToDouble(rowItem(5).ToString) & "," & Convert.ToDouble(rowItem(5).ToString) & ",2,'N',0,0,'" & rowItem(12).ToString & "','" & rowItem(13).ToString & "',0," & "0" & ",'" & LogonUser & "',sysdate,'" & rowItem(7).ToString & "','N')"
@@ -5364,6 +5383,26 @@ Public Class Transactions
                         errLog.WriteToErrorLog("QUERY INSERT ITEM DEL", stQuery, "")
                         command.CommandText = stQuery
                         command.ExecuteNonQuery()
+
+                        'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
+                        Dim taxCode As String = taxImpl.getLocationTaxCodeForItem(Location_Code, itemCodeForTaxEntry)
+                        Dim taxPercentage As Double = taxImpl.getTaxPercentageofItem(itemCodeForTaxEntry, Location_Code, TXN_Code, taxCode)
+                        Dim taxValueOfItem As Double = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemPriceForTaxEntry, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
+
+                        If Not taxValueOfItem.Equals(0) Then
+                            stQuery = New String("")
+                            stQuery = "select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TAX'"
+                            Dim dsTED As DataSet = db.SelectFromTableODBC(stQuery)
+                            Dim TEDTAX_NUM As String = ""
+                            If dsTED.Tables("Table").Rows.Count > 0 Then
+                                TEDTAX_NUM = dsTED.Tables("Table").Rows.Item(0).Item(0).ToString
+                            End If
+                            stQuery = "INSERT INTO OT_INVOICE_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_I_SYS_ID ,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT)VALUES("
+                            stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxSOI_SYS_ID & ",'" & taxCode & "'," & TEDTAX_NUM & ",'2','R','" & Currency_Code & "','" & Currency_Code & "'," & taxPercentage & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & ",'" & LogonUser & "',sysdate)"
+                            errLog.WriteToErrorLog("QUERY INSERT ITEM TAX", stQuery, "")
+                            command.CommandText = stQuery
+                            command.ExecuteNonQuery()
+                        End If
 
                         If Not rowItem(19).ToString = "" Then
                             stQuery = New String("")
@@ -5413,6 +5452,7 @@ Public Class Transactions
                         command.CommandText = stQuery
                         command.ExecuteNonQuery()
                     Next
+
 
                     Dim listPayment As New List(Of String())
                     i = 0

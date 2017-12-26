@@ -6,7 +6,72 @@ POS
 </name>
 </assembly>
 <members>
-<member name="F:POS.NativeMethods.DeviceCap.DRIVERVERSION">
+<member name="M:POS.SQLiteDatabase.#ctor">
+	<summary>
+     Default Constructor for SQLiteDatabase Class.
+ </summary>
+</member><member name="M:POS.SQLiteDatabase.#ctor(System.String)">
+	<summary>
+     Single Param Constructor for specifying the DB file.
+ </summary>
+	<param name="inputFile">The File containing the DB</param>
+</member><member name="M:POS.SQLiteDatabase.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+     Single Param Constructor for specifying advanced connection options.
+ </summary>
+	<param name="connectionOpts">A dictionary containing all desired options and their values</param>
+</member><member name="M:POS.SQLiteDatabase.GetDataTable(System.String)">
+	<summary>
+     Allows the programmer to run a query against the Database.
+ </summary>
+	<param name="sql">The SQL to run</param>
+	<returns>A DataTable containing the result set.</returns>
+</member><member name="M:POS.SQLiteDatabase.ExecuteNonQuery(System.String)">
+	<summary>
+     Allows the programmer to interact with the database for purposes other than a query.
+ </summary>
+	<param name="sql">The SQL to be run.</param>
+	<returns>An Integer containing the number of rows updated.</returns>
+</member><member name="M:POS.SQLiteDatabase.ExecuteScalar(System.String)">
+	<summary>
+     Allows the programmer to retrieve single items from the DB.
+ </summary>
+	<param name="sql">The query to run.</param>
+	<returns>A string.</returns>
+</member><member name="M:POS.SQLiteDatabase.Update(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+	<summary>
+     Allows the programmer to easily update rows in the DB.
+ </summary>
+	<param name="tableName">The table to update.</param>
+	<param name="data">A dictionary containing Column names and their new values.</param>
+	<param name="where">The where clause for the update statement.</param>
+	<returns>A boolean true or false to signify success or failure.</returns>
+</member><member name="M:POS.SQLiteDatabase.Delete(System.String,System.String)">
+	<summary>
+     Allows the programmer to easily delete rows from the DB.
+ </summary>
+	<param name="tableName">The table from which to delete.</param>
+	<param name="where">The where clause for the delete.</param>
+	<returns>A boolean true or false to signify success or failure.</returns>
+</member><member name="M:POS.SQLiteDatabase.Insert(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+	<summary>
+     Allows the programmer to easily insert into the DB
+ </summary>
+	<param name="tableName">The table into which we insert the data.</param>
+	<param name="data">A dictionary containing the column names and data for the insert.</param>
+	<returns>A boolean true or false to signify success or failure.</returns>
+</member><member name="M:POS.SQLiteDatabase.ClearDB">
+	<summary>
+     Allows the programmer to easily delete all data from the DB.
+ </summary>
+	<returns>A boolean true or false to signify success or failure.</returns>
+</member><member name="M:POS.SQLiteDatabase.ClearTable(System.String)">
+	<summary>
+     Allows the user to easily clear all data from a specific table.
+ </summary>
+	<param name="table">The name of the table to clear.</param>
+	<returns>A boolean true or false to signify success or failure.</returns>
+</member><member name="F:POS.NativeMethods.DeviceCap.DRIVERVERSION">
 	<summary>
  Device driver version
  </summary>
@@ -310,6 +375,54 @@ POS
 </member><member name="T:POS.NativeMethods.DOC_INFO_1">
 	<summary>
  The DOC_INFO_1 structure describes a document that will be printed.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.Nul">
+	<summary>
+ Usually indicates the end of a string.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.FormFeed">
+	<summary>
+ Meant to be used for printers. When receiving this code the 
+ printer moves to the next sheet of paper.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.Escape">
+	<summary>
+ Starts an extended sequence of control codes.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.Newline">
+	<summary>
+ Advances to the next line.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.GroupSeparator">
+	<summary>
+ Defined to separate tables or different sets of data in a serial
+ data storage system.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.HorizontalTab">
+	<summary>
+ A horizontal tab.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.CarriageReturn">
+	<summary>
+ Returns the carriage to the start of the line.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.Cancel">
+	<summary>
+ Cancels the operation.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.DataLinkEscape">
+	<summary>
+ Indicates that control characters present in the stream should
+ be passed through as transmitted and not interpreted as control
+ characters.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.EndOfTransmission">
+	<summary>
+ Signals the end of a transmission.
+ </summary>
+</member><member name="F:POS.AsciiControlChars.FileSeparator">
+	<summary>
+ In serial storage, signals the separation of two files.
  </summary>
 </member><member name="P:POS.My.Resources.Resources.ResourceManager">
 	<summary>
@@ -616,119 +729,6 @@ POS
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="F:POS.AsciiControlChars.Nul">
-	<summary>
- Usually indicates the end of a string.
- </summary>
-</member><member name="F:POS.AsciiControlChars.FormFeed">
-	<summary>
- Meant to be used for printers. When receiving this code the 
- printer moves to the next sheet of paper.
- </summary>
-</member><member name="F:POS.AsciiControlChars.Escape">
-	<summary>
- Starts an extended sequence of control codes.
- </summary>
-</member><member name="F:POS.AsciiControlChars.Newline">
-	<summary>
- Advances to the next line.
- </summary>
-</member><member name="F:POS.AsciiControlChars.GroupSeparator">
-	<summary>
- Defined to separate tables or different sets of data in a serial
- data storage system.
- </summary>
-</member><member name="F:POS.AsciiControlChars.HorizontalTab">
-	<summary>
- A horizontal tab.
- </summary>
-</member><member name="F:POS.AsciiControlChars.CarriageReturn">
-	<summary>
- Returns the carriage to the start of the line.
- </summary>
-</member><member name="F:POS.AsciiControlChars.Cancel">
-	<summary>
- Cancels the operation.
- </summary>
-</member><member name="F:POS.AsciiControlChars.DataLinkEscape">
-	<summary>
- Indicates that control characters present in the stream should
- be passed through as transmitted and not interpreted as control
- characters.
- </summary>
-</member><member name="F:POS.AsciiControlChars.EndOfTransmission">
-	<summary>
- Signals the end of a transmission.
- </summary>
-</member><member name="F:POS.AsciiControlChars.FileSeparator">
-	<summary>
- In serial storage, signals the separation of two files.
- </summary>
-</member><member name="M:POS.SQLiteDatabase.#ctor">
-	<summary>
-     Default Constructor for SQLiteDatabase Class.
- </summary>
-</member><member name="M:POS.SQLiteDatabase.#ctor(System.String)">
-	<summary>
-     Single Param Constructor for specifying the DB file.
- </summary>
-	<param name="inputFile">The File containing the DB</param>
-</member><member name="M:POS.SQLiteDatabase.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
-	<summary>
-     Single Param Constructor for specifying advanced connection options.
- </summary>
-	<param name="connectionOpts">A dictionary containing all desired options and their values</param>
-</member><member name="M:POS.SQLiteDatabase.GetDataTable(System.String)">
-	<summary>
-     Allows the programmer to run a query against the Database.
- </summary>
-	<param name="sql">The SQL to run</param>
-	<returns>A DataTable containing the result set.</returns>
-</member><member name="M:POS.SQLiteDatabase.ExecuteNonQuery(System.String)">
-	<summary>
-     Allows the programmer to interact with the database for purposes other than a query.
- </summary>
-	<param name="sql">The SQL to be run.</param>
-	<returns>An Integer containing the number of rows updated.</returns>
-</member><member name="M:POS.SQLiteDatabase.ExecuteScalar(System.String)">
-	<summary>
-     Allows the programmer to retrieve single items from the DB.
- </summary>
-	<param name="sql">The query to run.</param>
-	<returns>A string.</returns>
-</member><member name="M:POS.SQLiteDatabase.Update(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
-	<summary>
-     Allows the programmer to easily update rows in the DB.
- </summary>
-	<param name="tableName">The table to update.</param>
-	<param name="data">A dictionary containing Column names and their new values.</param>
-	<param name="where">The where clause for the update statement.</param>
-	<returns>A boolean true or false to signify success or failure.</returns>
-</member><member name="M:POS.SQLiteDatabase.Delete(System.String,System.String)">
-	<summary>
-     Allows the programmer to easily delete rows from the DB.
- </summary>
-	<param name="tableName">The table from which to delete.</param>
-	<param name="where">The where clause for the delete.</param>
-	<returns>A boolean true or false to signify success or failure.</returns>
-</member><member name="M:POS.SQLiteDatabase.Insert(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
-	<summary>
-     Allows the programmer to easily insert into the DB
- </summary>
-	<param name="tableName">The table into which we insert the data.</param>
-	<param name="data">A dictionary containing the column names and data for the insert.</param>
-	<returns>A boolean true or false to signify success or failure.</returns>
-</member><member name="M:POS.SQLiteDatabase.ClearDB">
-	<summary>
-     Allows the programmer to easily delete all data from the DB.
- </summary>
-	<returns>A boolean true or false to signify success or failure.</returns>
-</member><member name="M:POS.SQLiteDatabase.ClearTable(System.String)">
-	<summary>
-     Allows the user to easily clear all data from a specific table.
- </summary>
-	<param name="table">The name of the table to clear.</param>
-	<returns>A boolean true or false to signify success or failure.</returns>
 </member>
 </members>
 </doc>

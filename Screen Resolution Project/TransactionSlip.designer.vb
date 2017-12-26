@@ -82,6 +82,8 @@ Partial Class TransactionSlip
         Me.lblItemHeaders = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblTotalTaxAmt = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.pnlOuterContainer.SuspendLayout()
         Me.pnlRPTPANEL.SuspendLayout()
         Me.pnlFooterDetails.SuspendLayout()
@@ -180,6 +182,8 @@ Partial Class TransactionSlip
         '
         'pnlFooterDetails
         '
+        Me.pnlFooterDetails.Controls.Add(Me.Label14)
+        Me.pnlFooterDetails.Controls.Add(Me.lblTotalTaxAmt)
         Me.pnlFooterDetails.Controls.Add(Me.Label11)
         Me.pnlFooterDetails.Controls.Add(Me.Label10)
         Me.pnlFooterDetails.Controls.Add(Me.Label7)
@@ -242,7 +246,7 @@ Partial Class TransactionSlip
         'lblTotalamt
         '
         Me.lblTotalamt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalamt.Location = New System.Drawing.Point(188, 30)
+        Me.lblTotalamt.Location = New System.Drawing.Point(186, 68)
         Me.lblTotalamt.Name = "lblTotalamt"
         Me.lblTotalamt.Size = New System.Drawing.Size(78, 15)
         Me.lblTotalamt.TabIndex = 30
@@ -282,7 +286,7 @@ Partial Class TransactionSlip
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(5, 31)
+        Me.Label9.Location = New System.Drawing.Point(3, 69)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(80, 14)
         Me.Label9.TabIndex = 28
@@ -730,6 +734,26 @@ Partial Class TransactionSlip
         Me.Panel5.Size = New System.Drawing.Size(573, 541)
         Me.Panel5.TabIndex = 102
         '
+        'lblTotalTaxAmt
+        '
+        Me.lblTotalTaxAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalTaxAmt.Location = New System.Drawing.Point(188, 30)
+        Me.lblTotalTaxAmt.Name = "lblTotalTaxAmt"
+        Me.lblTotalTaxAmt.Size = New System.Drawing.Size(78, 15)
+        Me.lblTotalTaxAmt.TabIndex = 34
+        Me.lblTotalTaxAmt.Text = "-"
+        Me.lblTotalTaxAmt.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(5, 31)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(72, 14)
+        Me.Label14.TabIndex = 35
+        Me.Label14.Text = "Tax Amount"
+        '
         'TransactionSlip
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -829,4 +853,6 @@ Partial Class TransactionSlip
     Friend WithEvents lblItemHeaders As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
+    Friend WithEvents lblTotalTaxAmt As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
 End Class
