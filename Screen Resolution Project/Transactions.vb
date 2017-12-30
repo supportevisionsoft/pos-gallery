@@ -4699,7 +4699,12 @@ Public Class Transactions
                     count = ds.Tables("Table").Rows.Count
                     If count > 0 Then
 
+                        Dim taxImpl As New TaxImpl(db)
+
                         row = ds.Tables("Table").Rows.Item(0)
+                        Dim invhSysId As String = ""
+                        invhSysId = row.Item(0)
+
                         stQuery = "INSERT INTO OT_CUST_SALE_RET_HEAD (CSRH_SYS_ID,CSRH_COMP_CODE,CSRH_TXN_CODE,CSRH_NO,CSRH_DT,CSRH_ACNT_YEAR,CSRH_CAL_YEAR,CSRH_CAL_PERIOD,CSRH_DOC_SRC_LOCN_CODE,CSRH_REF_FROM,CSRH_REF_FROM_NUM,CSRH_REF_TXN_CODE,CSRH_REF_NO,CSRH_REF_SYS_ID,CSRH_LOCN_CODE,CSRH_DEL_LOCN_CODE,CSRH_CUST_CODE,CSRH_CURR_CODE,CSRH_SHIP_TO_ADDR_CODE,CSRH_BILL_TO_ADDR_CODE,CSRH_EXGE_RATE,CSRH_DISC_PERC,CSRH_FC_DISC_VAL,CSRH_SM_CODE,CSRH_STATUS,CSRH_PRINT_STATUS,CSRH_APPR_STATUS,CSRH_APPR_UID,CSRH_COS_FIN_STATUS,CSRH_ANNOTATION,CSRH_FLEX_10,CSRH_FLEX_14,CSRH_FLEX_15,CSRH_FLEX_16,CSRH_FLEX_17,CSRH_FLEX_18,CSRH_FLEX_19,CSRH_FLEX_20,CSRH_CUST_NAME,CSRH_BILL_ADDR_LINE_1,CSRH_BILL_ADDR_LINE_2,CSRH_BILL_ADDR_LINE_3,CSRH_BILL_ADDR_LINE_4, CSRH_BILL_ADDR_LINE_5,CSRH_BILL_CITY_CODE,CSRH_BILL_COUNTY_CODE,CSRH_BILL_STATE_CODE,CSRH_BILL_POSTAL_CODE,CSRH_BILL_COUNTRY_CODE,CSRH_BILL_CONTACT ,CSRH_BILL_EMAIL,CSRH_BILL_FAX,CSRH_BILL_TEL,CSRH_BILL_MOBILE,CSRH_CR_UID,CSRH_CR_DT,CSRH_FLEX_03,CSRH_FLEX_04) VALUES("
                         stQuery = stQuery & maxSYS_ID & ",'" & CompanyCode & "','" & TXN_Code & "'," & maxInv & ",'" & dtpick.Value.ToString("dd-MMM-yy") & "'," & PC_Account_Year & "," & PC_CAL_Year & "," & PC_CAL_Period & ",'" & Location_Code & "','IN',15,'POSINV'," & txtSRTransNo.Text & "," & row.Item(0).ToString & ",'" & Location_Code & "','" & Location_Code & "','" & row.Item(1).ToString & "','" & Currency_Code & "','" & row.Item(2).ToString & "','" & row.Item(3).ToString & "'," & Exchange_Rate & ",0,0,'" & txtSalesmanCode.Text & "','',1,0,'" & LogonUser & "','','','N','N','','','','','" & sms_shift_Code & "','" & POSCounterNumber & "','" & row.Item(4).ToString & "','" & row.Item(5).ToString & "','" & row.Item(6).ToString & "','" & row.Item(7).ToString & "','" & row.Item(8).ToString & "','" & row.Item(9).ToString & "','" & row.Item(10).ToString & "','" & row.Item(11).ToString & "','" & row.Item(12).ToString & "','" & row.Item(13).ToString & "','" & row.Item(14).ToString & "','" & row.Item(15).ToString & "','" & row.Item(16).ToString & "','" & row.Item(17).ToString & "','" & row.Item(18).ToString & "','" & row.Item(19).ToString & "','" & LogonUser & "',to_date(sysdate,'DD-MM-YY'),'" & row.Item(20).ToString & "','" & row.Item(21).ToString & "')"
                         errLog.WriteToErrorLog("INSERT QUERY OT_CUST_SALE_RET_HEAD", stQuery, "")
@@ -4721,8 +4726,15 @@ Public Class Transactions
                         command.CommandText = stQuery
                         command.ExecuteNonQuery()
 
+                        Dim totAmount As Double = Convert.ToDouble(txtTotalAmount.Text)
+                        Dim totDiscAmtval As Double = 0
+                        For i = 0 To lstviewTotalDiscounts.Items.Count - 1
+                            If Not lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text = "" Then
+                                totDiscAmtval = totDiscAmtval + Convert.ToDouble(lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text)
+                            End If
+                        Next
 
-                        stQuery = "SELECT ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS,ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '" + CompanyCode + "' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = " + txtSRTransNo.Text
+                        stQuery = "SELECT ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS,ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT, ITED_SYS_ID FROM OT_INVOICE_HEAD A,OT_INVOICE_ITEM_TED B WHERE A.INVH_SYS_ID=B.ITED_H_SYS_ID AND ITED_TED_HEAD_ITEM_NUM=1 AND ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS') AND INVH_COMP_CODE = '" + CompanyCode + "' AND INVH_TXN_CODE = 'POSINV' AND INVH_NO = " + txtSRTransNo.Text
                         'errLog.WriteToErrorLog("SARTN TEDHEADDIS", stQuery, "")
                         Dim dsTEDHEAD As DataSet
                         dsTEDHEAD = db.SelectFromTableODBC(stQuery)
@@ -4738,8 +4750,8 @@ Public Class Transactions
                         i = 0
                         While count > 0
                             row = dsTEDHEAD.Tables("Table").Rows.Item(i)
-                            stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT)VALUES("
-                            stQuery = stQuery & "ITED_SYS_ID.NEXTVAL," & maxSYS_ID & ",'" & row.Item(0).ToString & "'," & row.Item(1).ToString & "," & row.Item(2).ToString & ",'" & row.Item(3).ToString & "','" & row.Item(4).ToString & "','" & row.Item(5).ToString & "'," & row.Item(6).ToString & "," & netamt_total.ToString & "," & netamt_total.ToString & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & ",'" & LogonUser & "',sysdate)"
+                            stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT, ITED_INVH_SYS_ID, ITED_ITED_SYS_ID, ITED_TED_TYPE_CODE, ITED_TED_INCL_EXCL_FLAG, ITED_SET_OFF_PERC, ITED_SET_OFF_FC_AMT, ITED_SET_OFF_LC_AMT, ITED_UNROUND_FC_AMT, ITED_UNROUND_LC_AMT, ITED_UPDATED_YN_NUM, ITED_POST_TYPE_NUM, ITED_TED_EXCISE_YN_NUM, ITED_TED_MODVAT_YN)VALUES("
+                            stQuery = stQuery & "ITED_SYS_ID.NEXTVAL," & maxSYS_ID & ",'" & row.Item(0).ToString & "'," & row.Item(1).ToString & "," & row.Item(2).ToString & ",'" & row.Item(3).ToString & "','" & row.Item(4).ToString & "','" & row.Item(5).ToString & "'," & row.Item(6).ToString & "," & netamt_total.ToString & "," & netamt_total.ToString & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & "," & lstviewTotalDiscounts.Items(i).SubItems.Item(4).Text & ",'" & LogonUser & "',sysdate," & invhSysId & "," & row.Item(13) & ",'TEDDIS','E',0,0,0," & row.Item(11) & "," & row.Item(12) & ",1,1,2,'N')"
                             errLog.WriteToErrorLog("INSERT QUERY OT_CUST_SALE_RET_ITEM_TED HEADDIS", stQuery, "")
                             command.CommandText = stQuery
                             command.ExecuteNonQuery()
@@ -4799,9 +4811,27 @@ Public Class Transactions
                                     mainQtyval = ItmQtyFound(0).Text.ToString.Split(".")(0)
                                     looseQtyVal = ItmQtyFound(0).Text.ToString.Split(".")(1)
                                 End If
+
+                                 'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
+                                Dim itemCodeForTaxEntry As String = ""
+                                Dim itemPriceForTaxEntry As Double = (Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text)) - Convert.ToDouble(ItmDisamtFound(0).Text)
+                                itemCodeForTaxEntry = rowI.Item(2).ToString
+                                Dim itemValuePercentageInTotalAmount As Double = 0
+                                itemValuePercentageInTotalAmount = itemPriceForTaxEntry - ((itemPriceForTaxEntry / (totAmount + totDiscAmtval)) * totDiscAmtval)
+
+
+                                'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
+                                Dim taxCode As String = taxImpl.getLocationTaxCodeForItem(Location_Code, itemCodeForTaxEntry)
+                                Dim taxPercentage As Double = taxImpl.getTaxPercentageofItem(itemCodeForTaxEntry, Location_Code, TXN_Code, taxCode)
+                                Dim unroundtaxValueOfItem As Double = taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemPriceForTaxEntry, Location_Code, TXN_Code, taxCode, taxPercentage)
+                                Dim taxValueOfItem As Double = Round(unroundtaxValueOfItem, 3)
+                                'taxValueOfItem = taxValueOfItem
+                                Dim itemWiseTaxCalculatedTotal As Double = 0
+                                itemWiseTaxCalculatedTotal = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemValuePercentageInTotalAmount, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
+
                                 '& looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) &
-                                stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM (CSRI_SYS_ID,CSRI_CSRH_SYS_ID,CSRI_INVI_SYS_ID,CSRI_ITEM_CODE,CSRI_ITEM_STK_YN_NUM,CSRI_ITEM_DESC,CSRI_UOM_CODE,CSRI_QTY,CSRI_QTY_LS,CSRI_QTY_BU,CSRI_INVI_QTY_BU,CSRI_DNI_QTY_BU,CSRI_RATE,CSRI_DISC_PERC,CSRI_FC_DISC_VAL,CSRI_FC_VAL,CSRI_FC_VAL_AFT_H_DISC,CSRI_UPD_STK_YN,CSRI_LOCN_CODE,CSRI_DEL_LOCN_CODE,CSRI_SM_CODE,CSRI_GRADE_CODE_1,CSRI_GRADE_CODE_2,CSRI_FLEX_18,CSRI_FLEX_19,CSRI_FLEX_20,CSRI_CR_UID,CSRI_CR_DT) VALUES ("
-                                stQuery = stQuery & maxItemSYSID & "," & maxSYS_ID & "," & rowI.Item(0).ToString & ",'" & rowI.Item(2).ToString & "','" & dsIN.Tables("Table").Rows.Item(0).Item(0).ToString() & "','" & rowI.Item(4).ToString.Replace("'", "''") & "','" & rowI.Item(5).ToString & "'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(ItmQtyFound(0).Text.ToString) * maxlooseQty) & ",0,0," & rowI.Item(6).ToString & ",0,0," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) & "," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) & ",'Y','" & Location_Code & "','" & Location_Code & "','" & txtSalesmanCode.Text & "','" & rowI.Item(7).ToString & "','" & rowI.Item(8).ToString & "','" & rowI.Item(2).ToString & "','','','" & LogonUser & "',current_timestamp)"
+                                stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM (CSRI_SYS_ID,CSRI_CSRH_SYS_ID,CSRI_INVI_SYS_ID,CSRI_ITEM_CODE,CSRI_ITEM_STK_YN_NUM,CSRI_ITEM_DESC,CSRI_UOM_CODE,CSRI_QTY,CSRI_QTY_LS,CSRI_QTY_BU,CSRI_INVI_QTY_BU,CSRI_DNI_QTY_BU,CSRI_RATE,CSRI_DISC_PERC,CSRI_FC_DISC_VAL,CSRI_FC_VAL,CSRI_FC_VAL_AFT_H_DISC,CSRI_UPD_STK_YN,CSRI_LOCN_CODE,CSRI_DEL_LOCN_CODE,CSRI_SM_CODE,CSRI_GRADE_CODE_1,CSRI_GRADE_CODE_2,CSRI_FLEX_18,CSRI_FLEX_19,CSRI_FLEX_20,CSRI_CR_UID,CSRI_CR_DT, CSRI_FC_ACT_VAL) VALUES ("
+                                stQuery = stQuery & maxItemSYSID & "," & maxSYS_ID & "," & rowI.Item(0).ToString & ",'" & rowI.Item(2).ToString & "','" & dsIN.Tables("Table").Rows.Item(0).Item(0).ToString() & "','" & rowI.Item(4).ToString.Replace("'", "''") & "','" & rowI.Item(5).ToString & "'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(ItmQtyFound(0).Text.ToString) * maxlooseQty) & ",0,0," & rowI.Item(6).ToString & ",0," & ItmDisamtFound(0).Text & "," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) - Convert.ToDouble(ItmDisamtFound(0).Text) - (taxValueOfItem + itemWiseTaxCalculatedTotal) & "," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) & ",'Y','" & Location_Code & "','" & Location_Code & "','" & txtSalesmanCode.Text & "','" & rowI.Item(7).ToString & "','" & rowI.Item(8).ToString & "','" & rowI.Item(2).ToString & "','','','" & LogonUser & "',current_timestamp, " & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) - Convert.ToDouble(ItmDisamtFound(0).Text) - (taxValueOfItem + itemWiseTaxCalculatedTotal) & ")"
                                 'errLog.WriteToErrorLog("INSERT QUERY OT_CUST_SALE_RET_ITEM", stQuery, "")
                                 command.CommandText = stQuery
                                 command.ExecuteNonQuery()
@@ -4814,10 +4844,11 @@ Public Class Transactions
                                         TEDDIS_NUM = dsTED.Tables("Table").Rows.Item(0).Item(0).ToString
                                     End If
 
-                                    stQuery = "SELECT ITED_TED_RATE,ITED_TED_CODE from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=" & rowI.Item(0).ToString & " and ITED_H_SYS_ID=" & rowI.Item(1).ToString & " and ITED_TED_TYPE_NUM=" & TEDDIS_NUM
+                                    stQuery = "SELECT ITED_TED_RATE,ITED_TED_CODE, ITED_SYS_ID from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=" & rowI.Item(0).ToString & " and ITED_H_SYS_ID=" & rowI.Item(1).ToString & " and ITED_TED_TYPE_NUM=" & TEDDIS_NUM
                                     dsTED = db.SelectFromTableODBC(stQuery)
                                     Dim TEDRATE As String = "0"
                                     Dim TEDCODE As String = ""
+                                    Dim tedSysId As String = ""
                                     If dsTED.Tables("Table").Rows.Count > 0 Then
                                         If dsTED.Tables("Table").Rows.Item(0).Item(0).ToString = "" Then
                                             TEDRATE = "0"
@@ -4826,14 +4857,44 @@ Public Class Transactions
                                         End If
 
                                         TEDCODE = dsTED.Tables("Table").Rows.Item(0).Item(1).ToString
-                                        stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_I_SYS_ID ,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT)VALUES("
-                                        stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxItemSYSID & ",'" & TEDCODE & "'," + TEDDIS_NUM + ",'2','R','" + Currency_Code + "','" + Currency_Code + "'," + "0" + "," + rowI.Item(6).ToString + "," + rowI.Item(6).ToString + "," + ItmDisamtFound(0).Text + "," + ItmDisamtFound(0).Text + "," + ItmDisamtFound(0).Text + "," + ItmDisamtFound(0).Text + ",'" + LogonUser + "',sysdate)"
+                                        tedSysId = dsTED.Tables("Table").Rows.Item(0).Item(2).ToString
+                                        stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_I_SYS_ID ,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT, ITED_INVH_SYS_ID, ITED_INVI_SYS_ID, ITED_ITED_SYS_ID, ITED_TED_TYPE_CODE, ITED_TED_INCL_EXCL_FLAG, ITED_TXN_UOM, ITED_TXN_QTY, ITED_USER_QTY, ITED_SET_OFF_PERC, ITED_SET_OFF_FC_AMT, ITED_SET_OFF_LC_AMT, ITED_UNROUND_FC_AMT,ITED_UNROUND_LC_AMT, ITED_UPDATED_YN_NUM, ITED_POST_TYPE_NUM)VALUES("
+                                        stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxItemSYSID & ",'" & TEDCODE & "'," + TEDDIS_NUM + ",'2','R','" + Currency_Code + "','" + Currency_Code + "'," + "0" + "," + rowI.Item(6).ToString + "," + rowI.Item(6).ToString + "," + ItmDisamtFound(0).Text + "," + ItmDisamtFound(0).Text + "," + ItmDisamtFound(0).Text + "," + ItmDisamtFound(0).Text + ",'" + LogonUser + "',sysdate, " & rowI.Item(1) & "," & rowI.Item(0) & "," & tedSysId & ",'TEDDIS','E','" & rowI.Item(5) & "'," & rowI.Item(3) & "," & ItmQtyFound(0).Text & ",0,0,0," & ItmDisamtFound(0).Text & "," & ItmDisamtFound(0).Text & ",2,1 )"
                                         'errLog.WriteToErrorLog("QUERY INSERT ITEM TEDDIS", stQuery, "")
                                         command.CommandText = stQuery
                                         command.ExecuteNonQuery()
                                     End If
+                                End If
 
+                                If Not taxValueOfItem.Equals(0) Then
+                                    stQuery = New String("")
+                                    stQuery = "select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TAX'"
+                                    Dim dsTED As DataSet = db.SelectFromTableODBC(stQuery)
+                                    Dim TEDTAX_NUM As String = ""
+                                    If dsTED.Tables("Table").Rows.Count > 0 Then
+                                        TEDTAX_NUM = dsTED.Tables("Table").Rows.Item(0).Item(0).ToString
+                                    End If
 
+                                    stQuery = "SELECT ITED_TED_RATE,ITED_TED_CODE,ITED_SYS_ID from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=" & rowI.Item(0).ToString & " and ITED_H_SYS_ID=" & rowI.Item(1).ToString & " and ITED_TED_TYPE_NUM=" & TEDTAX_NUM
+                                    dsTED = db.SelectFromTableODBC(stQuery)
+                                    Dim TEDRATE As String = "0"
+                                    Dim TEDCODE As String = ""
+                                    Dim tedSysId As String = ""
+                                    If dsTED.Tables("Table").Rows.Count > 0 Then
+                                        If dsTED.Tables("Table").Rows.Item(0).Item(0).ToString = "" Then
+                                            TEDRATE = "0"
+                                        Else
+                                            TEDRATE = dsTED.Tables("Table").Rows.Item(0).Item(0).ToString
+                                        End If
+
+                                        TEDCODE = dsTED.Tables("Table").Rows.Item(0).Item(1).ToString
+                                        tedSysId = dsTED.Tables("Table").Rows.Item(0).Item(2).ToString
+                                        stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_I_SYS_ID ,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT, ITED_INVH_SYS_ID, ITED_INVI_SYS_ID, ITED_ITED_SYS_ID, ITED_TED_TYPE_CODE, ITED_TED_INCL_EXCL_FLAG, ITED_TXN_UOM, ITED_TXN_QTY, ITED_USER_QTY, ITED_SET_OFF_PERC, ITED_SET_OFF_FC_AMT, ITED_SET_OFF_LC_AMT, ITED_UNROUND_FC_AMT,ITED_UNROUND_LC_AMT, ITED_UPDATED_YN_NUM, ITED_POST_TYPE_NUM)VALUES("
+                                        stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxItemSYSID & ",'" & TEDCODE & "'," & TEDTAX_NUM & ",'2','R','" + Currency_Code + "','" + Currency_Code + "'," & TEDRATE & "," & itemPriceForTaxEntry - (taxValueOfItem + itemWiseTaxCalculatedTotal) & "," & itemPriceForTaxEntry - (taxValueOfItem + itemWiseTaxCalculatedTotal) & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & ",'" + LogonUser + "',sysdate," & rowI.Item(1) & "," & rowI.Item(0) & "," & dsTED.Tables("Table").Rows.Item(0).Item(2).ToString & ",'TAX','E','" & rowI.Item(5).ToString & "'," & rowI.Item(3) & "," & ItmQtyFound(0).Text & ",0,0,0," & unroundtaxValueOfItem & "," & unroundtaxValueOfItem & ",2,1)"
+                                        errLog.WriteToErrorLog("QUERY INSERT ITEM TED TAX", stQuery, "")
+                                        command.CommandText = stQuery
+                                        command.ExecuteNonQuery()
+                                    End If
                                 End If
 
                                 If Not ItmAddvalFound(0).Text = "" Or Not ItmAddvalFound(0).Text = "0" Then
@@ -5348,13 +5409,18 @@ Public Class Transactions
                         Dim itemCodeForTaxEntry As String = ""
                         Dim itemPriceForTaxEntry As Double = rowItem(8)
                         Dim itemValuePercentageInTotalAmount As Double = 0
-                        itemValuePercentageInTotalAmount = itemPriceForTaxEntry / (totAmount + totDiscAmtval)
-                        itemPriceForTaxEntry = Round(itemPriceForTaxEntry - (itemValuePercentageInTotalAmount * totDiscAmtval), 3)
-                        itemWiseTaxCalculatedTotal = itemWiseTaxCalculatedTotal + itemPriceForTaxEntry
+                        'itemValuePercentageInTotalAmount = itemPriceForTaxEntry - (itemPriceForTaxEntry / (totAmount + totDiscAmtval) * totDiscAmtval)
                         itemCodeForTaxEntry = rowItem(1).ToString
+                        itemValuePercentageInTotalAmount = itemPriceForTaxEntry - ((itemPriceForTaxEntry / (totAmount + totDiscAmtval)) * totDiscAmtval)
 
-                        stQuery = "insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN)values("
-                        stQuery = stQuery & maxSOI_SYS_ID & "," & maxSYS_ID & ",'" & Location_Code & "','" & Location_Code & "','" & rowItem(1).ToString & "',1,'" & rowItem(2).ToString.Replace("'", "''") & "','" & rowItem(10).ToString & "','" & txtSalesmanCode.Text & "','" & rowItem(14).ToString & "'," & Convert.ToDouble(rowItem(4).ToString) & ",'Y'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) & ",0,0,0,0,0,0,0," & Convert.ToDouble(rowItem(4).ToString) & "," & "0" & "," & Convert.ToDouble(rowItem(5).ToString) & "," & Convert.ToDouble(rowItem(5).ToString) & ",2,'N',0,0,'" & rowItem(12).ToString & "','" & rowItem(13).ToString & "',0," & "0" & ",'" & LogonUser & "',sysdate,'" & rowItem(7).ToString & "','N')"
+                        'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
+                        Dim taxCode As String = taxImpl.getLocationTaxCodeForItem(Location_Code, itemCodeForTaxEntry)
+                        Dim taxPercentage As Double = taxImpl.getTaxPercentageofItem(itemCodeForTaxEntry, Location_Code, TXN_Code, taxCode)
+                        Dim taxValueOfItem As Double = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemPriceForTaxEntry, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
+                        itemWiseTaxCalculatedTotal = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemValuePercentageInTotalAmount, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
+
+                        stQuery = "insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN, INVI_FC_ACT_VAL)values("
+                        stQuery = stQuery & maxSOI_SYS_ID & "," & maxSYS_ID & ",'" & Location_Code & "','" & Location_Code & "','" & rowItem(1).ToString & "',1,'" & rowItem(2).ToString.Replace("'", "''") & "','" & rowItem(10).ToString & "','" & txtSalesmanCode.Text & "','" & rowItem(14).ToString & "'," & Convert.ToDouble(rowItem(4).ToString) & ",'Y'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) & ",0,0,0,0,0,0,0," & Convert.ToDouble(rowItem(4).ToString) & "," & "0" & "," & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & "," & Convert.ToDouble(rowItem(5).ToString) & ",2,'N',0,0,'" & rowItem(12).ToString & "','" & rowItem(13).ToString & "',0," & Convert.ToDouble(rowItem(6).ToString) & ",'" & LogonUser & "',sysdate,'" & rowItem(7).ToString & "','N', " & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & ")"
                         errLog.WriteToErrorLog("INVOICE ITEM QUERY", "Item " & (i + 1) & ": " & rowItem(1).ToString, "")
                         errLog.WriteToErrorLog("Invoice Item QueryMy", stQuery, "")
                         command.CommandText = stQuery
@@ -5384,10 +5450,7 @@ Public Class Transactions
                         command.CommandText = stQuery
                         command.ExecuteNonQuery()
 
-                        'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
-                        Dim taxCode As String = taxImpl.getLocationTaxCodeForItem(Location_Code, itemCodeForTaxEntry)
-                        Dim taxPercentage As Double = taxImpl.getTaxPercentageofItem(itemCodeForTaxEntry, Location_Code, TXN_Code, taxCode)
-                        Dim taxValueOfItem As Double = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemPriceForTaxEntry, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
+                        
 
                         If Not taxValueOfItem.Equals(0) Then
                             stQuery = New String("")
@@ -5398,7 +5461,7 @@ Public Class Transactions
                                 TEDTAX_NUM = dsTED.Tables("Table").Rows.Item(0).Item(0).ToString
                             End If
                             stQuery = "INSERT INTO OT_INVOICE_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_I_SYS_ID ,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT)VALUES("
-                            stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxSOI_SYS_ID & ",'" & taxCode & "'," & TEDTAX_NUM & ",'2','R','" & Currency_Code & "','" & Currency_Code & "'," & taxPercentage & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & "," & taxValueOfItem & ",'" & LogonUser & "',sysdate)"
+                            stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxSOI_SYS_ID & ",'" & taxCode & "'," & TEDTAX_NUM & ",'2','R','" & Currency_Code & "','" & Currency_Code & "'," & taxPercentage & "," & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & "," & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & ",'" & LogonUser & "',sysdate)"
                             errLog.WriteToErrorLog("QUERY INSERT ITEM TAX", stQuery, "")
                             command.CommandText = stQuery
                             command.ExecuteNonQuery()
