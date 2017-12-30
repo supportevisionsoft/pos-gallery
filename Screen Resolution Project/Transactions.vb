@@ -4817,21 +4817,22 @@ Public Class Transactions
                                 Dim itemPriceForTaxEntry As Double = (Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text)) - Convert.ToDouble(ItmDisamtFound(0).Text)
                                 itemCodeForTaxEntry = rowI.Item(2).ToString
                                 Dim itemValuePercentageInTotalAmount As Double = 0
-                                itemValuePercentageInTotalAmount = itemPriceForTaxEntry - ((itemPriceForTaxEntry / (totAmount + totDiscAmtval)) * totDiscAmtval)
+                                itemValuePercentageInTotalAmount = ((itemPriceForTaxEntry / (totAmount + totDiscAmtval)) * totDiscAmtval)
 
 
                                 'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
                                 Dim taxCode As String = taxImpl.getLocationTaxCodeForItem(Location_Code, itemCodeForTaxEntry)
                                 Dim taxPercentage As Double = taxImpl.getTaxPercentageofItem(itemCodeForTaxEntry, Location_Code, TXN_Code, taxCode)
                                 Dim unroundtaxValueOfItem As Double = taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemPriceForTaxEntry, Location_Code, TXN_Code, taxCode, taxPercentage)
-                                Dim taxValueOfItem As Double = Round(unroundtaxValueOfItem, 3)
+                                Dim taxValueOfItem As Double = Round(unroundtaxValueOfItem, 2)
                                 'taxValueOfItem = taxValueOfItem
+                                Dim unroundItemWiseTaxCalculatedTotal As Double
                                 Dim itemWiseTaxCalculatedTotal As Double = 0
-                                itemWiseTaxCalculatedTotal = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemValuePercentageInTotalAmount, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
-
+                                unroundItemWiseTaxCalculatedTotal = taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemValuePercentageInTotalAmount, Location_Code, TXN_Code, taxCode, taxPercentage)
+                                itemWiseTaxCalculatedTotal = Round(itemWiseTaxCalculatedTotal, 2)
                                 '& looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) &
                                 stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM (CSRI_SYS_ID,CSRI_CSRH_SYS_ID,CSRI_INVI_SYS_ID,CSRI_ITEM_CODE,CSRI_ITEM_STK_YN_NUM,CSRI_ITEM_DESC,CSRI_UOM_CODE,CSRI_QTY,CSRI_QTY_LS,CSRI_QTY_BU,CSRI_INVI_QTY_BU,CSRI_DNI_QTY_BU,CSRI_RATE,CSRI_DISC_PERC,CSRI_FC_DISC_VAL,CSRI_FC_VAL,CSRI_FC_VAL_AFT_H_DISC,CSRI_UPD_STK_YN,CSRI_LOCN_CODE,CSRI_DEL_LOCN_CODE,CSRI_SM_CODE,CSRI_GRADE_CODE_1,CSRI_GRADE_CODE_2,CSRI_FLEX_18,CSRI_FLEX_19,CSRI_FLEX_20,CSRI_CR_UID,CSRI_CR_DT, CSRI_FC_ACT_VAL) VALUES ("
-                                stQuery = stQuery & maxItemSYSID & "," & maxSYS_ID & "," & rowI.Item(0).ToString & ",'" & rowI.Item(2).ToString & "','" & dsIN.Tables("Table").Rows.Item(0).Item(0).ToString() & "','" & rowI.Item(4).ToString.Replace("'", "''") & "','" & rowI.Item(5).ToString & "'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(ItmQtyFound(0).Text.ToString) * maxlooseQty) & ",0,0," & rowI.Item(6).ToString & ",0," & ItmDisamtFound(0).Text & "," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) - Convert.ToDouble(ItmDisamtFound(0).Text) - (taxValueOfItem + itemWiseTaxCalculatedTotal) & "," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) & ",'Y','" & Location_Code & "','" & Location_Code & "','" & txtSalesmanCode.Text & "','" & rowI.Item(7).ToString & "','" & rowI.Item(8).ToString & "','" & rowI.Item(2).ToString & "','','','" & LogonUser & "',current_timestamp, " & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) - Convert.ToDouble(ItmDisamtFound(0).Text) - (taxValueOfItem + itemWiseTaxCalculatedTotal) & ")"
+                                stQuery = stQuery & maxItemSYSID & "," & maxSYS_ID & "," & rowI.Item(0).ToString & ",'" & rowI.Item(2).ToString & "','" & dsIN.Tables("Table").Rows.Item(0).Item(0).ToString() & "','" & rowI.Item(4).ToString.Replace("'", "''") & "','" & rowI.Item(5).ToString & "'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(ItmQtyFound(0).Text.ToString) * maxlooseQty) & ",0,0," & rowI.Item(6).ToString & ",0," & ItmDisamtFound(0).Text & "," & ((Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text)) - (Convert.ToDouble(ItmDisamtFound(0).Text) + taxValueOfItem)) + itemWiseTaxCalculatedTotal & "," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) & ",'Y','" & Location_Code & "','" & Location_Code & "','" & txtSalesmanCode.Text & "','" & rowI.Item(7).ToString & "','" & rowI.Item(8).ToString & "','" & rowI.Item(2).ToString & "','','','" & LogonUser & "',current_timestamp, " & ((Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text)) - (Convert.ToDouble(ItmDisamtFound(0).Text) + taxValueOfItem)) + itemWiseTaxCalculatedTotal & ")"
                                 'errLog.WriteToErrorLog("INSERT QUERY OT_CUST_SALE_RET_ITEM", stQuery, "")
                                 command.CommandText = stQuery
                                 command.ExecuteNonQuery()
@@ -4890,7 +4891,7 @@ Public Class Transactions
                                         TEDCODE = dsTED.Tables("Table").Rows.Item(0).Item(1).ToString
                                         tedSysId = dsTED.Tables("Table").Rows.Item(0).Item(2).ToString
                                         stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_I_SYS_ID ,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT, ITED_INVH_SYS_ID, ITED_INVI_SYS_ID, ITED_ITED_SYS_ID, ITED_TED_TYPE_CODE, ITED_TED_INCL_EXCL_FLAG, ITED_TXN_UOM, ITED_TXN_QTY, ITED_USER_QTY, ITED_SET_OFF_PERC, ITED_SET_OFF_FC_AMT, ITED_SET_OFF_LC_AMT, ITED_UNROUND_FC_AMT,ITED_UNROUND_LC_AMT, ITED_UPDATED_YN_NUM, ITED_POST_TYPE_NUM)VALUES("
-                                        stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxItemSYSID & ",'" & TEDCODE & "'," & TEDTAX_NUM & ",'2','R','" + Currency_Code + "','" + Currency_Code + "'," & TEDRATE & "," & itemPriceForTaxEntry - (taxValueOfItem + itemWiseTaxCalculatedTotal) & "," & itemPriceForTaxEntry - (taxValueOfItem + itemWiseTaxCalculatedTotal) & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & "," & taxValueOfItem + itemWiseTaxCalculatedTotal & ",'" + LogonUser + "',sysdate," & rowI.Item(1) & "," & rowI.Item(0) & "," & dsTED.Tables("Table").Rows.Item(0).Item(2).ToString & ",'TAX','E','" & rowI.Item(5).ToString & "'," & rowI.Item(3) & "," & ItmQtyFound(0).Text & ",0,0,0," & unroundtaxValueOfItem & "," & unroundtaxValueOfItem & ",2,1)"
+                                        stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxItemSYSID & ",'" & TEDCODE & "'," & TEDTAX_NUM & ",'2','R','" + Currency_Code + "','" + Currency_Code + "'," & TEDRATE & "," & (itemPriceForTaxEntry - taxValueOfItem) + itemWiseTaxCalculatedTotal & "," & (itemPriceForTaxEntry - taxValueOfItem) + itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & ",'" + LogonUser + "',sysdate," & rowI.Item(1) & "," & rowI.Item(0) & "," & dsTED.Tables("Table").Rows.Item(0).Item(2).ToString & ",'TAX','E','" & rowI.Item(5).ToString & "'," & rowI.Item(3) & "," & ItmQtyFound(0).Text & ",0,0,0," & unroundtaxValueOfItem - unroundItemWiseTaxCalculatedTotal & "," & unroundtaxValueOfItem - unroundItemWiseTaxCalculatedTotal & ",2,1)"
                                         errLog.WriteToErrorLog("QUERY INSERT ITEM TED TAX", stQuery, "")
                                         command.CommandText = stQuery
                                         command.ExecuteNonQuery()
@@ -5411,16 +5412,16 @@ Public Class Transactions
                         Dim itemValuePercentageInTotalAmount As Double = 0
                         'itemValuePercentageInTotalAmount = itemPriceForTaxEntry - (itemPriceForTaxEntry / (totAmount + totDiscAmtval) * totDiscAmtval)
                         itemCodeForTaxEntry = rowItem(1).ToString
-                        itemValuePercentageInTotalAmount = itemPriceForTaxEntry - ((itemPriceForTaxEntry / (totAmount + totDiscAmtval)) * totDiscAmtval)
+                        itemValuePercentageInTotalAmount = ((itemPriceForTaxEntry / (totAmount + totDiscAmtval)) * totDiscAmtval)
 
                         'Added this code to implement tax in POS  - Ticket-https://evisionsoft.freshdesk.com/helpdesk/tickets/40 
                         Dim taxCode As String = taxImpl.getLocationTaxCodeForItem(Location_Code, itemCodeForTaxEntry)
                         Dim taxPercentage As Double = taxImpl.getTaxPercentageofItem(itemCodeForTaxEntry, Location_Code, TXN_Code, taxCode)
-                        Dim taxValueOfItem As Double = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemPriceForTaxEntry, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
-                        itemWiseTaxCalculatedTotal = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemValuePercentageInTotalAmount, Location_Code, TXN_Code, taxCode, taxPercentage), 3)
+                        Dim taxValueOfItem As Double = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemPriceForTaxEntry, Location_Code, TXN_Code, taxCode, taxPercentage), 2)
+                        itemWiseTaxCalculatedTotal = Round(taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemValuePercentageInTotalAmount, Location_Code, TXN_Code, taxCode, taxPercentage), 2)
 
                         stQuery = "insert  into  ot_invoice_item(INVI_SYS_ID,INVI_INVH_SYS_ID,INVI_LOCN_CODE,INVI_DEL_LOCN_CODE,INVI_ITEM_CODE,INVI_ITEM_STK_YN_NUM,INVI_ITEM_DESC,INVI_UOM_CODE,INVI_SM_CODE,INVI_PL_CODE,INVI_PL_RATE,INVI_UPD_STK_YN,INVI_QTY,INVI_QTY_LS,INVI_QTY_BU,INVI_RESV_QTY,INVI_RESV_QTY_LS,INVI_RESV_QTY_BU,INVI_PII_QTY_BU,INVI_PAI_QTY_BU,INVI_DNI_QTY_BU,INVI_CSRI_QTY_BU,INVI_RATE,INVI_DISC_PERC,INVI_FC_VAL,INVI_FC_VAL_AFT_H_DISC,INVI_FOC_YN_NUM,INVI_DUTY_PAID_YN,INVI_ASSESS_RATE,INVI_ASSESS_VAL,INVI_GRADE_CODE_1,INVI_GRADE_CODE_2,INVI_CENVAT_IND,INVI_FC_DISC_VAL,INVI_CR_UID,INVI_CR_DT,INVI_FLEX_18,INVI_FOC_YN, INVI_FC_ACT_VAL)values("
-                        stQuery = stQuery & maxSOI_SYS_ID & "," & maxSYS_ID & ",'" & Location_Code & "','" & Location_Code & "','" & rowItem(1).ToString & "',1,'" & rowItem(2).ToString.Replace("'", "''") & "','" & rowItem(10).ToString & "','" & txtSalesmanCode.Text & "','" & rowItem(14).ToString & "'," & Convert.ToDouble(rowItem(4).ToString) & ",'Y'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) & ",0,0,0,0,0,0,0," & Convert.ToDouble(rowItem(4).ToString) & "," & "0" & "," & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & "," & Convert.ToDouble(rowItem(5).ToString) & ",2,'N',0,0,'" & rowItem(12).ToString & "','" & rowItem(13).ToString & "',0," & Convert.ToDouble(rowItem(6).ToString) & ",'" & LogonUser & "',sysdate,'" & rowItem(7).ToString & "','N', " & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & ")"
+                        stQuery = stQuery & maxSOI_SYS_ID & "," & maxSYS_ID & ",'" & Location_Code & "','" & Location_Code & "','" & rowItem(1).ToString & "',1,'" & rowItem(2).ToString.Replace("'", "''") & "','" & rowItem(10).ToString & "','" & txtSalesmanCode.Text & "','" & rowItem(14).ToString & "'," & Convert.ToDouble(rowItem(4).ToString) & ",'Y'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) & ",0,0,0,0,0,0,0," & Convert.ToDouble(rowItem(4).ToString) & "," & "0" & "," & (itemPriceForTaxEntry - taxValueOfItem) + itemWiseTaxCalculatedTotal & "," & Convert.ToDouble(rowItem(5).ToString) & ",2,'N',0,0,'" & rowItem(12).ToString & "','" & rowItem(13).ToString & "',0," & Convert.ToDouble(rowItem(6).ToString) & ",'" & LogonUser & "',sysdate,'" & rowItem(7).ToString & "','N', " & (itemPriceForTaxEntry - taxValueOfItem) + itemWiseTaxCalculatedTotal & ")"
                         errLog.WriteToErrorLog("INVOICE ITEM QUERY", "Item " & (i + 1) & ": " & rowItem(1).ToString, "")
                         errLog.WriteToErrorLog("Invoice Item QueryMy", stQuery, "")
                         command.CommandText = stQuery
@@ -5461,7 +5462,7 @@ Public Class Transactions
                                 TEDTAX_NUM = dsTED.Tables("Table").Rows.Item(0).Item(0).ToString
                             End If
                             stQuery = "INSERT INTO OT_INVOICE_ITEM_TED (ITED_SYS_ID,ITED_H_SYS_ID,ITED_I_SYS_ID ,ITED_TED_CODE,ITED_TED_TYPE_NUM,ITED_TED_HEAD_ITEM_NUM,ITED_TED_BASIS, ITED_TED_CURR_CODE,ITED_TXN_CURR_CODE,ITED_TED_RATE,ITED_TAXABLE_FC_AMT, ITED_TAXABLE_LC_AMT,ITED_FC_AMT,ITED_LC_AMT,ITED_NET_FC_AMT,ITED_NET_LC_AMT,ITED_CR_UID,ITED_CR_DT)VALUES("
-                            stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxSOI_SYS_ID & ",'" & taxCode & "'," & TEDTAX_NUM & ",'2','R','" & Currency_Code & "','" & Currency_Code & "'," & taxPercentage & "," & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & "," & itemPriceForTaxEntry - (itemWiseTaxCalculatedTotal + taxValueOfItem) & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & "," & itemWiseTaxCalculatedTotal + taxValueOfItem & ",'" & LogonUser & "',sysdate)"
+                            stQuery = stQuery & "ITED_SYS_ID.NEXTVAL" & "," & maxSYS_ID & "," & maxSOI_SYS_ID & ",'" & taxCode & "'," & TEDTAX_NUM & ",'2','R','" & Currency_Code & "','" & Currency_Code & "'," & taxPercentage & "," & (itemPriceForTaxEntry - taxValueOfItem) + itemWiseTaxCalculatedTotal & "," & (itemPriceForTaxEntry - taxValueOfItem) + itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & "," & taxValueOfItem - itemWiseTaxCalculatedTotal & ",'" & LogonUser & "',sysdate)"
                             errLog.WriteToErrorLog("QUERY INSERT ITEM TAX", stQuery, "")
                             command.CommandText = stQuery
                             command.ExecuteNonQuery()
@@ -8513,10 +8514,13 @@ Public Class Transactions
             stQuery = stQuery + " a.CSRI_UOM_CODE as ItmUOM,"
             stQuery = stQuery + " a.CSRI_RATE as ItmPrice ,"
             stQuery = stQuery + " a.CSRI_QTY as ItmQty,"
-            stQuery = stQuery + " a.CSRI_FC_VAL as ItmAmt,"
+            'stQuery = stQuery + " a.CSRI_FC_VAL as ItmAmt,"
+            stQuery = stQuery & " a.CSRI_RATE * a.CSRI_QTY as ItmAmt, "
             stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery & " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,CSRH_SM_CODE as salesman,CSRH_FLEX_03 as pm_cust_no,"
-            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress"
+            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress, "
+            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
+            stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
             stQuery = stQuery + " OT_CUST_SALE_RET_HEAD b,OT_CUST_SALE_RET_ITEM a,om_location c,om_address d"
             stQuery = stQuery + " where b.CSRH_NO = " & srtn & " and"
@@ -8651,10 +8655,13 @@ Public Class Transactions
             stQuery = stQuery + " a.INVI_UOM_CODE as ItmUOM,"
             stQuery = stQuery + " a.INVI_PL_RATE as ItmPrice ,"
             stQuery = stQuery + " a.INVI_QTY||'.'||a.INVI_QTY_LS as ItmQty,"
-            stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
+            'stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
+            stQuery = stQuery & " a.INVI_PL_RATE * TO_NUMBER(a.INVI_QTY||'.'||a.INVI_QTY_LS) as ItmAmt, "
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno,"
-            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress  "
+            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress, "
+            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
+            stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
             stQuery = stQuery + " ot_invoice_head b,ot_invoice_item a,om_location c,om_address d"
             stQuery = stQuery + " where b.invh_no = " & invhnoarg & " and"
@@ -8741,10 +8748,13 @@ Public Class Transactions
             stQuery = stQuery + " a.INVI_UOM_CODE as ItmUOM,"
             stQuery = stQuery + " a.INVI_PL_RATE as ItmPrice ,"
             stQuery = stQuery + " a.INVI_QTY||'.'||a.INVI_QTY_LS as ItmQty,"
-            stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
+            stQuery = stQuery & " a.INVI_PL_RATE * TO_NUMBER(a.INVI_QTY||'.'||a.INVI_QTY_LS) as ItmAmt, "
+            'stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno,"
-            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress  "
+            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress,  "
+            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
+            stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
             stQuery = stQuery + " ot_invoice_head b,ot_invoice_item a,om_location c,om_address d"
             stQuery = stQuery + " where b.invh_no = " & INVHNO & " and"
@@ -8753,7 +8763,7 @@ Public Class Transactions
             'errLog.WriteToErrorLog("Direct Invoice Report Query", stQuery, "")
             ds = db.SelectFromTableODBC(stQuery)
             printdataset = ds
-            If printdataset.Tables("Table").Rows.Count < 28 Then
+            If printdataset.Tables("Table").Rows.Count < 27 Then
                 PrintDocument1.Print()
             Else
                 Print(PrintDocument1.PrinterSettings.PrinterName, GetDocument())
@@ -12562,7 +12572,7 @@ Public Class Transactions
         Dim pnlHead As New Panel
         With pnlHead
             '.Name = "pnlItemHold" & n11.ToString
-            .Size = New Size(513, 152)
+            .Size = New Size(513, 188)
 
             '.BackColor = Color.DarkCyan
 
@@ -12572,6 +12582,7 @@ Public Class Transactions
         Dim lblHead2 As New Label
         Dim lblHead3 As New Label
         Dim lblHead4 As New Label
+        Dim lblHead5 As New Label
         arabicVal = printdataset.Tables("Table").Rows.Item(0).Item(24).ToString.Trim
         With lblHead1
             .Size = New Size(506, 34)
@@ -12608,10 +12619,20 @@ Public Class Transactions
             .Location = New Point(3, 113)
             .TextAlign = ContentAlignment.TopCenter
         End With
+        arabicVal = "ضريبة\TRN: " + printdataset.Tables("Table").Rows.Item(0).Item(27).ToString
+        With lblHead5
+            .Size = New Size(506, 34)
+            .Text = arabicVal
+            .Font = New Drawing.Font("Comic Sans MS", _
+                           18, FontStyle.Regular)
+            .Location = New Point(3, 148)
+            .TextAlign = ContentAlignment.TopCenter
+        End With
         pnlHead.Controls.Add(lblHead1)
         pnlHead.Controls.Add(lblHead2)
         pnlHead.Controls.Add(lblHead3)
         pnlHead.Controls.Add(lblHead4)
+        pnlHead.Controls.Add(lblHead5)
 
         Dim pnl As New Panel
         With pnl
@@ -12799,6 +12820,7 @@ Public Class Transactions
             arabicVal = "تاريخ \ Date       : " & printdataset.Tables("Table").Rows.Item(0).Item(2).ToString
             lblHead4.Text = arabicVal
             lblHead4.TextAlign = ContentAlignment.TopLeft
+            lblHead5.Text = ""
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
             'TransactionSlip.lblHeaders1.TextAlign = ContentAlignment.TopCenter
@@ -12846,6 +12868,7 @@ Public Class Transactions
             Dim totDiscountamt As Double = 0
             Dim totExpenseamt As Double = 0
             Dim subValtotalamt As Double = 0
+            Dim totTax As Double = 0
             While count > 0
                 row = printdataset.Tables("Table").Rows.Item(i)
                 FieldValue = row.Item(12)
@@ -12871,6 +12894,7 @@ Public Class Transactions
                 totDiscountamt = totDiscountamt + Convert.ToDouble(row.Item(18).ToString)
                 totExpenseamt = totExpenseamt + Convert.ToDouble(row.Item(19).ToString)
                 subValtotalamt = subValtotalamt + Convert.ToDouble(row.Item(17).ToString)
+                totTax = totTax + Convert.ToDouble(row.Item(26).ToString)
 
                 bw.Write(AsciiControlChars.Newline)
 
@@ -12936,17 +12960,25 @@ Public Class Transactions
                            18, FontStyle.Bold)
             Dim totDiscAmt As Double = totDiscountamt + Convert.ToDouble(printdataset.Tables("Table").Rows.Item(0).Item(22))
             FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(totDiscAmt).ToString("0.00"))
-            lblHead2.Text = "إجمالي الخصم\Total Discount :   " & FieldValue.PadLeft(8, " ")
+            lblHead2.Text = "إجمالي الخصم\Total Discount :   " & FieldValue.PadLeft(9, " ")
             lblHead2.TextAlign = ContentAlignment.TopLeft
             lblHead2.Font = New Drawing.Font("Comic Sans MS", _
                            18, FontStyle.Bold)
             FieldValue = String.Format("{0:0.00}", (subValtotalamt - totDiscAmt).ToString("0.00"))
-            lblHead3.Text = "مجموع الأجور\Total To Pay :    " & FieldValue.PadLeft(9, " ")
+            lblHead3.Text = "مجموع الأجور\Net Pay :   " & FieldValue.PadLeft(15, " ")
             lblHead3.TextAlign = ContentAlignment.TopLeft
             lblHead3.Font = New Drawing.Font("Comic Sans MS", _
                            18, FontStyle.Bold)
             lblHead4.Text = ""
             lblHead4.TextAlign = ContentAlignment.TopLeft
+
+            FieldValue = String.Format("{0:0.00}", totTax.ToString("0.00"))
+            lblHead5.Text = "ضريبة\Tax :    " & FieldValue.PadLeft(42, " ")
+            lblHead5.TextAlign = ContentAlignment.TopLeft
+            lblHead5.Font = New Drawing.Font("Comic Sans MS", _
+                           18, FontStyle.Regular)
+            lblHead5.Visible = True
+
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
 
@@ -13071,6 +13103,7 @@ Public Class Transactions
             lblHead4.TextAlign = ContentAlignment.TopCenter
             lblHead1.Font = New Drawing.Font("Comic Sans MS", _
                            18, FontStyle.Bold)
+            lblHead5.Text = ""
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
             bw.Write(AsciiControlChars.Escape)
             'bw.Write("*"c)
@@ -13111,13 +13144,14 @@ Public Class Transactions
                     Dim i As Integer
                     Dim pnlHead As New Panel
                     With pnlHead
-                        .Size = New Size(513, 152)
+                        .Size = New Size(513, 188)
                     End With
                     Transactions.Controls.Add(pnlHead)
                     Dim lblHead1 As New Label
                     Dim lblHead2 As New Label
                     Dim lblHead3 As New Label
                     Dim lblHead4 As New Label
+                    Dim lblHead5 As New Label
                     arabicVal = printdataset.Tables("Table").Rows.Item(0).Item(24).ToString.Trim
                     With lblHead1
                         .Size = New Size(506, 34)
@@ -13154,10 +13188,20 @@ Public Class Transactions
                         .Location = New Point(3, 113)
                         .TextAlign = ContentAlignment.TopCenter
                     End With
+                    arabicVal = "ضريبة\TRN : " + printdataset.Tables("Table").Rows.Item(0).Item(27).ToString
+                    With lblHead5
+                        .Size = New Size(506, 34)
+                        .Text = arabicVal
+                        .Font = New Drawing.Font("Comic Sans MS", _
+                                       18, FontStyle.Regular)
+                        .Location = New Point(3, 148)
+                        .TextAlign = ContentAlignment.TopCenter
+                    End With
                     pnlHead.Controls.Add(lblHead1)
                     pnlHead.Controls.Add(lblHead2)
                     pnlHead.Controls.Add(lblHead3)
                     pnlHead.Controls.Add(lblHead4)
+                    pnlHead.Controls.Add(lblHead5)
 
                     Dim pnl As New Panel
                     With pnl
@@ -13216,6 +13260,7 @@ Public Class Transactions
                         arabicVal = "تاريخ \ Date       : " & printdataset.Tables("Table").Rows.Item(0).Item(2).ToString
                         lblHead4.Text = arabicVal
                         lblHead4.TextAlign = ContentAlignment.TopLeft
+                        lblHead5.Text = ""
                         DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
 
@@ -13267,13 +13312,14 @@ Public Class Transactions
                 Dim i As Integer
                 Dim pnlHead As New Panel
                 With pnlHead
-                    .Size = New Size(513, 152)
+                    .Size = New Size(513, 177)
                 End With
                 TransactionSlip.Controls.Add(pnlHead)
                 Dim lblHead1 As New Label
                 Dim lblHead2 As New Label
                 Dim lblHead3 As New Label
                 Dim lblHead4 As New Label
+                Dim lblHead5 As New Label
                 arabicVal = printdataset.Tables("Table").Rows.Item(0).Item(24).ToString.Trim
                 With lblHead1
                     .Size = New Size(506, 34)
@@ -13310,10 +13356,21 @@ Public Class Transactions
                     .Location = New Point(3, 113)
                     .TextAlign = ContentAlignment.TopCenter
                 End With
+                arabicVal = "TRN : " + printdataset.Tables("Table").Rows.Item(0).Item(27).ToString
+                With lblHead5
+                    .Size = New Size(506, 34)
+                    .Text = arabicVal
+                    .Font = New Drawing.Font("Comic Sans MS", _
+                                   18, FontStyle.Regular)
+                    .Location = New Point(3, 148)
+                    .TextAlign = ContentAlignment.TopCenter
+                End With
+
                 pnlHead.Controls.Add(lblHead1)
                 pnlHead.Controls.Add(lblHead2)
                 pnlHead.Controls.Add(lblHead3)
                 pnlHead.Controls.Add(lblHead4)
+                pnlHead.Controls.Add(lblHead5)
 
                 Dim pnl As New Panel
                 With pnl
@@ -13372,6 +13429,7 @@ Public Class Transactions
                     arabicVal = "تاريخ \ Date       : " & printdataset.Tables("Table").Rows.Item(0).Item(2).ToString
                     lblHead4.Text = arabicVal
                     lblHead4.TextAlign = ContentAlignment.TopLeft
+                    lblHead5.Text = ""
                     DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
 
@@ -14334,7 +14392,7 @@ Public Class Transactions
             InvoiceWidth = Convert.ToInt32(e.MarginBounds.Width)
             InvoiceHeight = Convert.ToInt32(e.MarginBounds.Height)
 
-
+            totheaddiscamtval = Convert.ToDouble(printdataset.Tables("Table").Rows.Item(0).Item(22).ToString)
 
             Print(PrintDocument1.PrinterSettings.PrinterName, GetDocumentImageDirectPrint())
 
@@ -14405,6 +14463,7 @@ Public Class Transactions
             totalDiscountamt = 0
             totalExpenseamt = 0
             subtotalamt = 0
+            Dim totTax As Double = 0
 
             While count > 0
                 row = printdataset.Tables("Table").Rows.Item(i)
@@ -14436,6 +14495,7 @@ Public Class Transactions
                 totalDiscountamt = totalDiscountamt + Convert.ToDouble(row.Item(18).ToString)
                 totalExpenseamt = totalExpenseamt + Convert.ToDouble(row.Item(19).ToString)
                 subtotalamt = subtotalamt + Convert.ToDouble(row.Item(17).ToString)
+                totTax = totTax + Convert.ToDouble(row.Item(26).ToString)
 
                 CurrentY = CurrentY + InvoiceFontHeight + 3
                 count = count - 1
@@ -14510,6 +14570,8 @@ Public Class Transactions
             discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
 
+            totheaddiscamtval = totheaddiscamtval + totalDiscountamt
+
             If Not totheaddiscamtval = 0 Then
                 CurrentX = leftMargin - 100
                 CurrentY = CurrentY + InvoiceFontHeight + 3
@@ -14522,18 +14584,26 @@ Public Class Transactions
 
             CurrentX = leftMargin - 100
             CurrentY = CurrentY + InvoiceFontHeight + 3
-            FieldValue = "مجموع الأجور\Total To Pay: "
+            FieldValue = "مجموع الأجور\Net Pay: "
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
             '()
-            If rptTotalDiscount.Trim.ToString.Equals("") Then
-                rptTotalDiscount = "0"
-            End If
-            FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(subtotalamt - Convert.ToDouble(rptTotalDiscount)))
+            'If rptTotalDiscount.Trim.ToString.Equals("") Then
+            '    rptTotalDiscount = "0"
+            'End If
+            FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(subtotalamt - totheaddiscamtval))
             discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
             discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
 
+            CurrentX = leftMargin - 100
+            CurrentY = CurrentY + InvoiceFontHeight + 23
+            FieldValue = "مجموع الأجور\Tax: "
+            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
 
+            FieldValue = String.Format("{0:0.00}", totTax)
+            discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
+            discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
+            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
 
             CurrentX = leftMargin
             InvSubTitle2 = thankyou1

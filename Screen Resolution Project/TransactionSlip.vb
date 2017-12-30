@@ -30,6 +30,7 @@ Public Class TransactionSlip
     Private rptCustomerSONo As String = ""
     Private rptTotalDiscount As String = ""
     Private rptTotalTax As String = ""
+    Private rptTRN As String = ""
 
     Private CurrentY As Integer
     Private CurrentX As Integer
@@ -452,10 +453,13 @@ Public Class TransactionSlip
             stQuery = stQuery + " a.CSRI_UOM_CODE as ItmUOM,"
             stQuery = stQuery + " a.CSRI_RATE as ItmPrice ,"
             stQuery = stQuery + " a.CSRI_QTY as ItmQty,"
-            stQuery = stQuery + " a.CSRI_FC_VAL as ItmAmt,"
+            'stQuery = stQuery + " a.CSRI_FC_VAL as ItmAmt,"
+            stQuery = stQuery & " a.CSRI_RATE * a.CSRI_QTY  as ItmAmt, "
             stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery & " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,CSRH_SM_CODE as salesman,CSRH_FLEX_03 as pm_cust_no,"
-            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress "
+            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress, "
+            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
+            stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
             stQuery = stQuery + " OT_CUST_SALE_RET_HEAD b,OT_CUST_SALE_RET_ITEM a,om_location c,om_address d"
             stQuery = stQuery + " where b.CSRH_NO = " + TXN_NO.ToString + " and"
@@ -480,6 +484,7 @@ Public Class TransactionSlip
             rptLocationPhone = ds.Tables("Table").Rows.Item(0).Item(5).ToString
             rptLocationEmail = ds.Tables("Table").Rows.Item(0).Item(6).ToString
             rptTotalDiscount = ds.Tables("Table").Rows.Item(0).Item(22).ToString
+            rptTRN = ds.Tables("Table").Rows.Item(0).Item(27).ToString
 
             Dim stSalesQuery As String = ""
             stSalesQuery = "Select SM_NAME from om_salesman where SM_CODE='" & ds.Tables("Table").Rows.Item(0).Item(20).ToString & "'"
@@ -503,6 +508,7 @@ Public Class TransactionSlip
                 'End If
             End If
             totheaddiscamtval = Convert.ToDouble(ds.Tables("Table").Rows.Item(0).Item(22).ToString)
+            Dim totTax As Double = 0
 
             'lblRptLocationName.Text = rptLocationName
             lblRptLocationAddress.Text = rptLocationAddr
@@ -647,12 +653,13 @@ Public Class TransactionSlip
                 totalDiscountamt = totalDiscountamt + Convert.ToDouble(row.Item(18).ToString)
                 totalExpenseamt = totalExpenseamt + Convert.ToDouble(row.Item(19).ToString)
                 subtotalamt = subtotalamt + Convert.ToDouble(row.Item(17).ToString)
+                totTax = totTax + Convert.ToDouble(row.Item(26).ToString)
 
                 itemlines = itemlines + 1
                 rowcount = rowcount - 1
                 i = i + 1
             End While
-
+            rptTotalDiscount = rptTotalDiscount + totalDiscountamt
             If Not rptTotalDiscount = 0 Then
                 lblDTamt.Text = Convert.ToDouble(rptTotalDiscount).ToString("0.00")
                 lblTotalamt.Text = (subtotalamt - Convert.ToDouble(rptTotalDiscount)).ToString("0.00")
@@ -661,6 +668,7 @@ Public Class TransactionSlip
                 Label8.Visible = False
                 lblDTamt.Visible = False
             End If
+            lblTotalTaxAmt = totTax.ToString("0.00")
             'Me.Controls.Find("lblINVDisTotal_VALUE" & currentPageNumber, True)(0).Text = Round(totalDiscountamt + totheaddiscamtval, 3).ToString("0.000")
             'Me.Controls.Find("lblINVExpTotal_VALUE" & currentPageNumber, True)(0).Text = Round(totalExpenseamt, 3).ToString("0.000")
             'Me.Controls.Find("lblINVSubTotal_VALUE" & currentPageNumber, True)(0).Text = Round(subtotalamt, 3).ToString("0.000")
@@ -691,11 +699,13 @@ Public Class TransactionSlip
             stQuery = stQuery + " a.INVI_UOM_CODE as ItmUOM,"
             stQuery = stQuery + " a.INVI_PL_RATE as ItmPrice ,"
             stQuery = stQuery + " a.INVI_QTY as ItmQty,"
-            stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
+            'stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
+            stQuery = stQuery & " a.INVI_PL_RATE * a.INVI_QTY as ItmAmt, "
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress, "
-            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt "
+            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
+            stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
             stQuery = stQuery + " ot_invoice_head b,ot_invoice_item a,om_location c,om_address d"
             stQuery = stQuery + " where b.invh_no = " & TXN_NO & " and"
@@ -717,6 +727,7 @@ Public Class TransactionSlip
             rptLocationPhone = ds.Tables("Table").Rows.Item(0).Item(5).ToString
             rptLocationEmail = ds.Tables("Table").Rows.Item(0).Item(6).ToString
             rptTotalDiscount = ds.Tables("Table").Rows.Item(0).Item(22).ToString
+            rptTRN = ds.Tables("Table").Rows.Item(0).Item(27).ToString
 
             Dim stSalesQuery As String = ""
             stSalesQuery = "Select SM_NAME from om_salesman where SM_CODE='" & ds.Tables("Table").Rows.Item(0).Item(20).ToString & "'"
@@ -899,7 +910,7 @@ Public Class TransactionSlip
                 rowcount = rowcount - 1
                 i = i + 1
             End While
-
+            rptTotalDiscount = rptTotalDiscount + totalDiscountamt
             If Not rptTotalDiscount = 0 Then
                 lblDTamt.Text = Convert.ToDouble(rptTotalDiscount).ToString("0.00")
                 lblTotalamt.Text = (subtotalamt - Convert.ToDouble(rptTotalDiscount)).ToString("0.00")
@@ -1984,6 +1995,7 @@ Public Class TransactionSlip
         totalDiscountamt = 0
         totalExpenseamt = 0
         subtotalamt = 0
+        Dim totTax As Double = 0
 
         While count > 0
             row = printds.Tables("Table").Rows.Item(i)
@@ -2015,6 +2027,7 @@ Public Class TransactionSlip
             totalDiscountamt = totalDiscountamt + Convert.ToDouble(row.Item(18).ToString)
             totalExpenseamt = totalExpenseamt + Convert.ToDouble(row.Item(19).ToString)
             subtotalamt = subtotalamt + Convert.ToDouble(row.Item(17).ToString)
+            totTax = totTax + Convert.ToDouble(row.Item(26).ToString)
 
             CurrentY = CurrentY + InvoiceFontHeight + 3
             count = count - 1
@@ -2095,13 +2108,13 @@ Public Class TransactionSlip
             FieldValue = "إجمالي الخصم\Total Discount:"
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
 
-            FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(totheaddiscamtval))
+            FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(rptTotalDiscount))
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
         End If
 
         CurrentX = leftMargin - 100
         CurrentY = CurrentY + InvoiceFontHeight + 3
-        FieldValue = "مجموع الأجور\Total To Pay: "
+        FieldValue = "مجموع الأجور\Net Pay: "
         e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
         '()
         If rptTotalDiscount.Trim.ToString.Equals("") Then
@@ -2112,13 +2125,21 @@ Public Class TransactionSlip
         discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
         e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
 
+        CurrentX = leftMargin - 100
+        CurrentY = CurrentY + InvoiceFontHeight + 23
+        FieldValue = "ضريبة\Tax : "
+        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
 
+        FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(totTax))
+        discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
+        discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
+        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
 
         CurrentX = leftMargin
         InvSubTitle2 = thankyou1
         lenInvSubTitle2 = Convert.ToInt32(e.Graphics.MeasureString(InvSubTitle2, InvSubTitleFont).Width)
         xInvSubTitle2 = CurrentX + (InvoiceWidth - lenInvSubTitle2) / 2
-        CurrentY = CurrentY + InvSubTitleHeight + 15
+        CurrentY = CurrentY + InvSubTitleHeight + 25
         e.Graphics.DrawString(InvSubTitle2, InvSubTitleFont, BlueBrush, xInvSubTitle2 - 10, CurrentY)
 
         InvSubTitle2 = thankyou2
