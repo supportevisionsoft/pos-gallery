@@ -668,7 +668,7 @@ Public Class TransactionSlip
                 Label8.Visible = False
                 lblDTamt.Visible = False
             End If
-            lblTotalTaxAmt = totTax.ToString("0.00")
+            lblTotalTaxAmt.Text = totTax.ToString("0.00")
             'Me.Controls.Find("lblINVDisTotal_VALUE" & currentPageNumber, True)(0).Text = Round(totalDiscountamt + totheaddiscamtval, 3).ToString("0.000")
             'Me.Controls.Find("lblINVExpTotal_VALUE" & currentPageNumber, True)(0).Text = Round(totalExpenseamt, 3).ToString("0.000")
             'Me.Controls.Find("lblINVSubTotal_VALUE" & currentPageNumber, True)(0).Text = Round(subtotalamt, 3).ToString("0.000")

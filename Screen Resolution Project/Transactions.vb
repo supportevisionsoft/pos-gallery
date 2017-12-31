@@ -1132,7 +1132,7 @@ Public Class Transactions
                     lstviewTotalDiscounts.Items(k).SubItems.Add(row.Item(0).ToString)
                     lstviewTotalDiscounts.Items(k).SubItems.Add(row.Item(1).ToString)
                     lstviewTotalDiscounts.Items(k).SubItems.Add(row.Item(2).ToString)
-                    lstviewTotalDiscounts.Items(k).SubItems.Add(((netamt_total + addval_total) * Convert.ToDouble(row.Item(4).ToString)) / 100)
+                    lstviewTotalDiscounts.Items(k).SubItems.Add(Convert.ToDouble(row.Item(3)))
                     lstviewTotalDiscounts.Items(k).SubItems.Add(row.Item(4).ToString)
                     k = k + 1
                     Count = Count - 1
@@ -4829,7 +4829,7 @@ Public Class Transactions
                                 Dim unroundItemWiseTaxCalculatedTotal As Double
                                 Dim itemWiseTaxCalculatedTotal As Double = 0
                                 unroundItemWiseTaxCalculatedTotal = taxImpl.calculateTaxValueofItem(itemCodeForTaxEntry, itemValuePercentageInTotalAmount, Location_Code, TXN_Code, taxCode, taxPercentage)
-                                itemWiseTaxCalculatedTotal = Round(itemWiseTaxCalculatedTotal, 2)
+                                itemWiseTaxCalculatedTotal = Round(unroundItemWiseTaxCalculatedTotal, 2)
                                 '& looseQtyVal & "," & (Convert.ToDouble(rowItem(3).ToString) * maxlooseQty) &
                                 stQuery = "INSERT INTO OT_CUST_SALE_RET_ITEM (CSRI_SYS_ID,CSRI_CSRH_SYS_ID,CSRI_INVI_SYS_ID,CSRI_ITEM_CODE,CSRI_ITEM_STK_YN_NUM,CSRI_ITEM_DESC,CSRI_UOM_CODE,CSRI_QTY,CSRI_QTY_LS,CSRI_QTY_BU,CSRI_INVI_QTY_BU,CSRI_DNI_QTY_BU,CSRI_RATE,CSRI_DISC_PERC,CSRI_FC_DISC_VAL,CSRI_FC_VAL,CSRI_FC_VAL_AFT_H_DISC,CSRI_UPD_STK_YN,CSRI_LOCN_CODE,CSRI_DEL_LOCN_CODE,CSRI_SM_CODE,CSRI_GRADE_CODE_1,CSRI_GRADE_CODE_2,CSRI_FLEX_18,CSRI_FLEX_19,CSRI_FLEX_20,CSRI_CR_UID,CSRI_CR_DT, CSRI_FC_ACT_VAL) VALUES ("
                                 stQuery = stQuery & maxItemSYSID & "," & maxSYS_ID & "," & rowI.Item(0).ToString & ",'" & rowI.Item(2).ToString & "','" & dsIN.Tables("Table").Rows.Item(0).Item(0).ToString() & "','" & rowI.Item(4).ToString.Replace("'", "''") & "','" & rowI.Item(5).ToString & "'," & mainQtyval & "," & looseQtyVal & "," & (Convert.ToDouble(ItmQtyFound(0).Text.ToString) * maxlooseQty) & ",0,0," & rowI.Item(6).ToString & ",0," & ItmDisamtFound(0).Text & "," & ((Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text)) - (Convert.ToDouble(ItmDisamtFound(0).Text) + taxValueOfItem)) + itemWiseTaxCalculatedTotal & "," & Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text) & ",'Y','" & Location_Code & "','" & Location_Code & "','" & txtSalesmanCode.Text & "','" & rowI.Item(7).ToString & "','" & rowI.Item(8).ToString & "','" & rowI.Item(2).ToString & "','','','" & LogonUser & "',current_timestamp, " & ((Convert.ToDouble(ItmQtyFound(0).Text) * Convert.ToDouble(ItmPriceFound(0).Text)) - (Convert.ToDouble(ItmDisamtFound(0).Text) + taxValueOfItem)) + itemWiseTaxCalculatedTotal & ")"
@@ -8585,10 +8585,13 @@ Public Class Transactions
             stQuery = stQuery + " a.CSRI_UOM_CODE as ItmUOM,"
             stQuery = stQuery + " a.CSRI_RATE as ItmPrice ,"
             stQuery = stQuery + " a.CSRI_QTY as ItmQty,"
-            stQuery = stQuery + " a.CSRI_FC_VAL as ItmAmt,"
+            'stQuery = stQuery + " a.CSRI_FC_VAL as ItmAmt,"
+            stQuery = stQuery & " a.CSRI_RATE * a.CSRI_QTY as ItmAmt, "
             stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery & " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,CSRH_SM_CODE as salesman,CSRH_FLEX_03 as pm_cust_no,"
-            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress"
+            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress, "
+            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
+            stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
             stQuery = stQuery + " OT_CUST_SALE_RET_HEAD b,OT_CUST_SALE_RET_ITEM a,om_location c,om_address d"
             stQuery = stQuery + " where b.CSRH_NO = " & lastSR.ToString & " and"
