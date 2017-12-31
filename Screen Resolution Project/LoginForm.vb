@@ -78,7 +78,7 @@ Public Class LoginForm
             End Select
 
             'Please find this code as hardcoded one. To run dynamically, please comment this line of code '''
-            POSCounterName = "GALLERYEMALLPC3"     '008
+            'POSCounterName = "GALLERYEMALLPC3"     '008
             'POSCounterName = "GDISCOVERPC"
             'POSCounterName = "GDUBAIPARKPC1"    099
             'POSCounterName = "ITTESTPC"
