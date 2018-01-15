@@ -30,6 +30,8 @@ Partial Class TransactionSlip
         Me.lblRptQtyHead = New System.Windows.Forms.Label()
         Me.lblRptItemCodeHead = New System.Windows.Forms.Label()
         Me.pnlFooterDetails = New System.Windows.Forms.Panel()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.lblTotalTaxAmt = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -82,8 +84,6 @@ Partial Class TransactionSlip
         Me.lblItemHeaders = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.lblTotalTaxAmt = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.pnlOuterContainer.SuspendLayout()
         Me.pnlRPTPANEL.SuspendLayout()
         Me.pnlFooterDetails.SuspendLayout()
@@ -197,6 +197,26 @@ Partial Class TransactionSlip
         Me.pnlFooterDetails.Name = "pnlFooterDetails"
         Me.pnlFooterDetails.Size = New System.Drawing.Size(270, 163)
         Me.pnlFooterDetails.TabIndex = 31
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(5, 31)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(72, 14)
+        Me.Label14.TabIndex = 35
+        Me.Label14.Text = "Tax Amount"
+        '
+        'lblTotalTaxAmt
+        '
+        Me.lblTotalTaxAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalTaxAmt.Location = New System.Drawing.Point(188, 30)
+        Me.lblTotalTaxAmt.Name = "lblTotalTaxAmt"
+        Me.lblTotalTaxAmt.Size = New System.Drawing.Size(78, 15)
+        Me.lblTotalTaxAmt.TabIndex = 34
+        Me.lblTotalTaxAmt.Text = "-"
+        Me.lblTotalTaxAmt.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label11
         '
@@ -321,7 +341,7 @@ Partial Class TransactionSlip
         Me.lblRptRptType.Name = "lblRptRptType"
         Me.lblRptRptType.Size = New System.Drawing.Size(225, 18)
         Me.lblRptRptType.TabIndex = 0
-        Me.lblRptRptType.Text = "INVOICE"
+        Me.lblRptRptType.Text = "TAX INVOICE"
         Me.lblRptRptType.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label19
@@ -733,26 +753,6 @@ Partial Class TransactionSlip
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(573, 541)
         Me.Panel5.TabIndex = 102
-        '
-        'lblTotalTaxAmt
-        '
-        Me.lblTotalTaxAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalTaxAmt.Location = New System.Drawing.Point(188, 30)
-        Me.lblTotalTaxAmt.Name = "lblTotalTaxAmt"
-        Me.lblTotalTaxAmt.Size = New System.Drawing.Size(78, 15)
-        Me.lblTotalTaxAmt.TabIndex = 34
-        Me.lblTotalTaxAmt.Text = "-"
-        Me.lblTotalTaxAmt.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(5, 31)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(72, 14)
-        Me.Label14.TabIndex = 35
-        Me.Label14.Text = "Tax Amount"
         '
         'TransactionSlip
         '

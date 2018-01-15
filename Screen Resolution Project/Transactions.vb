@@ -12165,7 +12165,7 @@ Public Class Transactions
         Dim pnlHead As New Panel
         With pnlHead
             '.Name = "pnlItemHold" & n11.ToString
-            .Size = New Size(513, 152)
+            .Size = New Size(513, 188)
 
             '.BackColor = Color.DarkCyan
 
@@ -12175,6 +12175,7 @@ Public Class Transactions
         Dim lblHead2 As New Label
         Dim lblHead3 As New Label
         Dim lblHead4 As New Label
+        Dim lblHead5 As New Label
         arabicVal = printdataset.Tables("Table").Rows.Item(0).Item(24).ToString.Trim
         With lblHead1
             .Size = New Size(506, 34)
@@ -12211,11 +12212,20 @@ Public Class Transactions
             .Location = New Point(3, 113)
             .TextAlign = ContentAlignment.TopCenter
         End With
+        arabicVal = "ضريبة\TRN: " + printdataset.Tables("Table").Rows.Item(0).Item(27).ToString
+        With lblHead4
+            .Size = New Size(506, 34)
+            .Text = arabicVal
+            .Font = New Drawing.Font("Comic Sans MS", _
+                           18, FontStyle.Regular)
+            .Location = New Point(3, 148)
+            .TextAlign = ContentAlignment.TopCenter
+        End With
         pnlHead.Controls.Add(lblHead1)
         pnlHead.Controls.Add(lblHead2)
         pnlHead.Controls.Add(lblHead3)
         pnlHead.Controls.Add(lblHead4)
-
+        pnlHead.Controls.Add(lblHead5)
         Dim pnl As New Panel
         With pnl
             '.Name = "pnlItemHold" & n11.ToString
@@ -12282,7 +12292,7 @@ Public Class Transactions
             If transtype = "Sales Return" Then
                 arabicVal = "SALES RETURN/مبيع إرجاع"
             Else
-                arabicVal = "INVOICE/فاتو" 'transtype
+                arabicVal = "TAX INVOICE/فاتو" 'transtype
             End If
             lblHead1.Text = arabicVal
             lblHead1.TextAlign = ContentAlignment.TopCenter
@@ -12294,6 +12304,7 @@ Public Class Transactions
             arabicVal = "تاريخ \ Date       : " & printdataset.Tables("Table").Rows.Item(0).Item(2).ToString
             lblHead4.Text = arabicVal
             lblHead4.TextAlign = ContentAlignment.TopLeft
+            lblHead5.Text = ""
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
             'TransactionSlip.lblHeaders1.TextAlign = ContentAlignment.TopCenter
@@ -12341,6 +12352,7 @@ Public Class Transactions
             Dim totDiscountamt As Double = 0
             Dim totExpenseamt As Double = 0
             Dim subValtotalamt As Double = 0
+            Dim totTax As Double = 0
             While count > 0
                 row = printdataset.Tables("Table").Rows.Item(i)
                 FieldValue = row.Item(12)
@@ -12366,6 +12378,7 @@ Public Class Transactions
                 totDiscountamt = totDiscountamt + Convert.ToDouble(row.Item(18).ToString)
                 totExpenseamt = totExpenseamt + Convert.ToDouble(row.Item(19).ToString)
                 subValtotalamt = subValtotalamt + Convert.ToDouble(row.Item(17).ToString)
+                totTax = totTax + Convert.ToDouble(row.Item(26).ToString)
 
                 bw.Write(AsciiControlChars.Newline)
 
@@ -12444,6 +12457,14 @@ Public Class Transactions
                            18, FontStyle.Bold)
             lblHead4.Text = ""
             lblHead4.TextAlign = ContentAlignment.TopLeft
+
+            FieldValue = String.Format("{0:0.00}", totTax.ToString("0.00"))
+            lblHead5.Text = "ضريبة\Tax :    " & FieldValue.PadLeft(42, " ")
+            lblHead5.TextAlign = ContentAlignment.TopLeft
+            lblHead5.Font = New Drawing.Font("Comic Sans MS", _
+                           18, FontStyle.Regular)
+            lblHead5.Visible = True
+
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
 
@@ -12811,7 +12832,7 @@ Public Class Transactions
             If transtype = "Sales Return" Then
                 arabicVal = "SALES RETURN/مبيع إرجاع"
             Else
-                arabicVal = "INVOICE/فاتو" 'transtype
+                arabicVal = "TAX INVOICE/فاتو" 'transtype
             End If
             lblHead1.Text = arabicVal
             lblHead1.TextAlign = ContentAlignment.TopCenter
@@ -13251,7 +13272,7 @@ Public Class Transactions
                         If transtype = "Sales Return" Then
                             arabicVal = "SALES RETURN/مبيع إرجاع"
                         Else
-                            arabicVal = "INVOICE/فاتو" 'transtype
+                            arabicVal = "TAX INVOICE/فاتو" 'transtype
                         End If
                         lblHead1.Text = arabicVal
                         lblHead1.TextAlign = ContentAlignment.TopCenter
@@ -13420,7 +13441,7 @@ Public Class Transactions
                     If transtype = "Sales Return" Then
                         arabicVal = "SALES RETURN/مبيع إرجاع"
                     Else
-                        arabicVal = "INVOICE/فاتو" 'transtype
+                        arabicVal = "TAX INVOICE/فاتو" 'transtype
                     End If
                     lblHead1.Text = arabicVal
                     lblHead1.TextAlign = ContentAlignment.TopCenter
