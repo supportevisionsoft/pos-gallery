@@ -2127,7 +2127,7 @@ Public Class TransactionSlip
 
         CurrentX = leftMargin - 100
         CurrentY = CurrentY + InvoiceFontHeight + 23
-        FieldValue = "ضريبة\Tax : "
+        FieldValue = "ضريبة\Tax 5% : "
         e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
 
         FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(totTax))
