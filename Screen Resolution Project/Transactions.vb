@@ -12459,7 +12459,7 @@ Public Class Transactions
             lblHead4.TextAlign = ContentAlignment.TopLeft
 
             FieldValue = String.Format("{0:0.00}", totTax.ToString("0.00"))
-            lblHead5.Text = "ضريبة\Tax 5% :    " & FieldValue.PadLeft(26, " ")
+            lblHead5.Text = "ضريبة\VAT 5% :    " & FieldValue.PadLeft(26, " ")
             lblHead5.TextAlign = ContentAlignment.TopLeft
             lblHead5.Font = New Drawing.Font("Comic Sans MS", _
                            18, FontStyle.Regular)
@@ -12988,20 +12988,26 @@ Public Class Transactions
             lblHead2.TextAlign = ContentAlignment.TopLeft
             lblHead2.Font = New Drawing.Font("Comic Sans MS", _
                            18, FontStyle.Bold)
-            FieldValue = String.Format("{0:0.00}", (subValtotalamt - totDiscAmt).ToString("0.00"))
-            lblHead3.Text = "مجموع الأجور\Net Pay :   " & FieldValue.PadLeft(15, " ")
+
+            FieldValue = String.Format("{0:0.00}", ((subValtotalamt - totDiscAmt) - totTax).ToString("0.00"))
+            lblHead3.Text = "Total Before VAT: " & FieldValue.PadLeft(26, " ")
             lblHead3.TextAlign = ContentAlignment.TopLeft
             lblHead3.Font = New Drawing.Font("Comic Sans MS", _
-                           18, FontStyle.Bold)
-            lblHead4.Text = ""
-            lblHead4.TextAlign = ContentAlignment.TopLeft
+                           18, FontStyle.Regular)
+            lblHead3.Visible = True
 
             FieldValue = String.Format("{0:0.00}", totTax.ToString("0.00"))
-            lblHead5.Text = "ضريبة\Tax 5% :    " & FieldValue.PadLeft(26, " ")
+            lblHead4.Text = "ضريبة\VAT 5% :    " & FieldValue.PadLeft(26, " ")
+            lblHead4.TextAlign = ContentAlignment.TopLeft
+            lblHead4.Font = New Drawing.Font("Comic Sans MS", _
+                           18, FontStyle.Regular)
+            lblHead4.Visible = True
+
+            FieldValue = String.Format("{0:0.00}", (subValtotalamt - totDiscAmt).ToString("0.00"))
+            lblHead5.Text = "مجموع الأجور\Net Pay :   " & FieldValue.PadLeft(15, " ")
             lblHead5.TextAlign = ContentAlignment.TopLeft
             lblHead5.Font = New Drawing.Font("Comic Sans MS", _
-                           18, FontStyle.Regular)
-            lblHead5.Visible = True
+                           18, FontStyle.Bold)
 
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
@@ -14621,7 +14627,7 @@ Public Class Transactions
 
             CurrentX = leftMargin - 100
             CurrentY = CurrentY + InvoiceFontHeight + 23
-            FieldValue = "مجموع الأجور\Tax 5% : "
+            FieldValue = "مجموع الأجور\VAT 5% : "
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
 
             FieldValue = String.Format("{0:0.00}", totTax)

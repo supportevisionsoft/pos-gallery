@@ -115,7 +115,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8ntXcoJIibjyJvH32SliVW9oo0nQ5OGRc1J8b3l1twA=</dsig:DigestValue>
+        <dsig:DigestValue>3QjuKSA0dByZ79hJHB8WLdB3x8bJSXW/CWX4t84f5u8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,7 +146,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>krWeehsz60uLm2bjyxJ36qrx+3cQmb6qIDXVHYomYGE=</dsig:DigestValue>
+      <dsig:DigestValue>Zzv8RG1HozW/guT+QQA9RotA9T4Gk8r8Gnu6browaLY=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
