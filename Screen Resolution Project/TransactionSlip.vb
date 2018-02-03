@@ -2114,6 +2114,29 @@ Public Class TransactionSlip
 
         CurrentX = leftMargin - 100
         CurrentY = CurrentY + InvoiceFontHeight + 3
+        FieldValue = "المجموع دون الضريبة\Total before VAT:"
+        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
+        '()
+        If rptTotalDiscount.Trim.ToString.Equals("") Then
+            rptTotalDiscount = "0"
+        End If
+        FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(subtotalamt - Convert.ToDouble(rptTotalDiscount)) - totTax)
+        discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
+        discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
+        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
+
+        CurrentX = leftMargin - 100
+        CurrentY = CurrentY + InvoiceFontHeight + 3
+        FieldValue = "ضريبة\VAT 5% : "
+        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
+
+        FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(totTax))
+        discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
+        discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
+        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
+
+        CurrentX = leftMargin - 100
+        CurrentY = CurrentY + InvoiceFontHeight + 3
         FieldValue = "مجموع الأجور\Net Pay: "
         e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
         '()
@@ -2121,16 +2144,6 @@ Public Class TransactionSlip
             rptTotalDiscount = "0"
         End If
         FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(subtotalamt - Convert.ToDouble(rptTotalDiscount)))
-        discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
-        discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
-        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
-
-        CurrentX = leftMargin - 100
-        CurrentY = CurrentY + InvoiceFontHeight + 23
-        FieldValue = "ضريبة\VAT 5% : "
-        e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
-
-        FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(totTax))
         discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
         discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
         e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)

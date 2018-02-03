@@ -12450,19 +12450,26 @@ Public Class Transactions
                 lblHead2.Font = New Drawing.Font("Comic Sans MS", _
                                18, FontStyle.Bold)
             End If
-            FieldValue = String.Format("{0:0.00}", (subValtotalamt - totDiscAmt).ToString("0.00"))
-            lblHead3.Text = "مجموع الأجور\Total To Pay :    " & FieldValue.PadLeft(9, " ")
+            
+            FieldValue = String.Format("{0:0.00}", ((subValtotalamt - totDiscAmt) - totTax).ToString("0.00"))
+            lblHead3.Text = "Total before VAT:    " & FieldValue.PadLeft(9, " ")
             lblHead3.TextAlign = ContentAlignment.TopLeft
             lblHead3.Font = New Drawing.Font("Comic Sans MS", _
-                           18, FontStyle.Bold)
-            lblHead4.Text = ""
-            lblHead4.TextAlign = ContentAlignment.TopLeft
+                           18, FontStyle.Regular)
+            lblHead3.Visible = True
 
             FieldValue = String.Format("{0:0.00}", totTax.ToString("0.00"))
-            lblHead5.Text = "ضريبة\VAT 5% :    " & FieldValue.PadLeft(26, " ")
+            lblHead4.Text = "ضريبة\VAT 5% :    " & FieldValue.PadLeft(26, " ")
+            lblHead4.TextAlign = ContentAlignment.TopLeft
+            lblHead4.Font = New Drawing.Font("Comic Sans MS", _
+                           18, FontStyle.Regular)
+            lblHead4.Visible = True
+
+            FieldValue = String.Format("{0:0.00}", (subValtotalamt - totDiscAmt).ToString("0.00"))
+            lblHead5.Text = "مجموع الأجور\Total To Pay :    " & FieldValue.PadLeft(9, " ")
             lblHead5.TextAlign = ContentAlignment.TopLeft
             lblHead5.Font = New Drawing.Font("Comic Sans MS", _
-                           18, FontStyle.Regular)
+                           18, FontStyle.Bold)
             lblHead5.Visible = True
 
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
@@ -13008,6 +13015,7 @@ Public Class Transactions
             lblHead5.TextAlign = ContentAlignment.TopLeft
             lblHead5.Font = New Drawing.Font("Comic Sans MS", _
                            18, FontStyle.Bold)
+            lblHead5.Visible = True
 
             DrawArabicItemName(GetBitmapDataofLabelForItemHeader(pnlHead), bw)
 
@@ -14614,6 +14622,26 @@ Public Class Transactions
 
             CurrentX = leftMargin - 100
             CurrentY = CurrentY + InvoiceFontHeight + 3
+            FieldValue = "المجموع دون الضريبة\Total before VAT : "
+            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
+
+            FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(subtotalamt - totheaddiscamtval) - totTax)
+            discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
+            discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
+            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
+
+            CurrentX = leftMargin - 100
+            CurrentY = CurrentY + InvoiceFontHeight + 3
+            FieldValue = "مجموع الأجور\VAT 5% : "
+            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
+
+            FieldValue = String.Format("{0:0.00}", totTax)
+            discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
+            discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
+            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
+
+            CurrentX = leftMargin - 100
+            CurrentY = CurrentY + InvoiceFontHeight + 3
             FieldValue = "مجموع الأجور\Net Pay: "
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
             '()
@@ -14621,16 +14649,6 @@ Public Class Transactions
             '    rptTotalDiscount = "0"
             'End If
             FieldValue = String.Format("{0:0.00}", Convert.ToDecimal(subtotalamt - totheaddiscamtval))
-            discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
-            discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
-            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
-
-            CurrentX = leftMargin - 100
-            CurrentY = CurrentY + InvoiceFontHeight + 23
-            FieldValue = "مجموع الأجور\VAT 5% : "
-            e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, CurrentX, CurrentY)
-
-            FieldValue = String.Format("{0:0.00}", totTax)
             discAmount = AmountPosition + Convert.ToInt32(e.Graphics.MeasureString("Price", InvoiceFont).Width)
             discAmount = discAmount - Convert.ToInt32(e.Graphics.MeasureString(FieldValue, InvoiceFont).Width)
             e.Graphics.DrawString(FieldValue, InvoiceFont, BlackBrush, discAmount, CurrentY)
