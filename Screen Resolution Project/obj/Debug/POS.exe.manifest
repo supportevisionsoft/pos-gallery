@@ -44,11 +44,6 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="Microsoft.PointOfService" version="1.12.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="stdole" version="7.0.3300.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
     </dependentAssembly>
   </dependency>
@@ -89,14 +84,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Oracle.DataAccess.dll" size="1019904">
-      <assemblyIdentity name="Oracle.DataAccess" version="4.112.1.2" publicKeyToken="89B483F429C47342" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Oracle.DataAccess.dll" size="1552384">
+      <assemblyIdentity name="Oracle.DataAccess" version="4.121.1.0" publicKeyToken="89B483F429C47342" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HYKWvTIl4JM+KIR1TmGEbpGeiVcDPRxilrXcRp+gYhI=</dsig:DigestValue>
+        <dsig:DigestValue>9yIz7IBNxPVa7dnWw77qUIsxgx8HBUEUlyK39hV0qvI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -113,14 +108,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="1893376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="1897472">
       <assemblyIdentity name="POS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>z3EUGg1Rx/hGfazL7oKO2GajV57o5MtczarUuCxP9/g=</dsig:DigestValue>
+        <dsig:DigestValue>wtRYDh/+ADEnW802XLrRXQnOeUS4T+qdtXY0zXwAbeQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -151,7 +146,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>krWeehsz60uLm2bjyxJ36qrx+3cQmb6qIDXVHYomYGE=</dsig:DigestValue>
+      <dsig:DigestValue>Zzv8RG1HozW/guT+QQA9RotA9T4Gk8r8Gnu6browaLY=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

@@ -20,6 +20,8 @@ Imports System.Text
 'JNOVELTY
 Public Class Transactions
 
+    Dim isSalesReturn As Boolean = False
+
     Public Shared printdataset As DataSet
 
     Dim lastitemSender As Object
@@ -6552,6 +6554,7 @@ Public Class Transactions
             Me.pnlItemDetails.Controls.Add(pic)
             AddHandler pic.Click, AddressOf Me.RemoveItemRowSR
 
+            isSalesReturn = True
             Calculate_TotalAmount()
             transtype = "Sales Return"
 
@@ -8518,7 +8521,7 @@ Public Class Transactions
             stQuery = stQuery & " a.CSRI_RATE * a.CSRI_QTY as ItmAmt, "
             stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery & " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,CSRH_SM_CODE as salesman,CSRH_FLEX_03 as pm_cust_no,"
-            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress, "
+            stQuery = stQuery + " nvl((SELECT sum(ITED_FC_AMT) from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress, "
             stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
             stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
@@ -8589,7 +8592,7 @@ Public Class Transactions
             stQuery = stQuery & " a.CSRI_RATE * a.CSRI_QTY as ItmAmt, "
             stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery & " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,CSRH_SM_CODE as salesman,CSRH_FLEX_03 as pm_cust_no,"
-            stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress, "
+            stQuery = stQuery + " nvl((SELECT sum(ITED_FC_AMT) from OT_CUST_SALE_RET_ITEM_TED where ITED_H_SYS_ID= b.CSRH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, nvl( (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.CSRI_ITEM_CODE), ' ') as arabicname, nvl(c.LOCN_BL_NAME, ' ') as locnArabicName, nvl(d.ADDR_LINE_4||' '||d.ADDR_LINE_5 , ' ') as locnArabicAddress, "
             stQuery = stQuery + " nvl((SELECT ITED_FC_AMT from OT_CUST_SALE_RET_ITEM_TED where ITED_I_SYS_ID= a.CSRI_SYS_ID and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM  from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
             stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
@@ -8662,7 +8665,7 @@ Public Class Transactions
             stQuery = stQuery & " a.INVI_PL_RATE * TO_NUMBER(a.INVI_QTY||'.'||a.INVI_QTY_LS) as ItmAmt, "
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno,"
-            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress, "
+            stQuery = stQuery + " nvl((select sum(ITED_FC_AMT) from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress, "
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
             stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "
@@ -8755,7 +8758,7 @@ Public Class Transactions
             'stQuery = stQuery + " a.INVI_FC_VAL as ItmAmt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as disamt,"
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDEXP')),0) as expamt,INVH_SM_CODE as salesman,INVH_FLEX_03 as pmcustno,"
-            stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress,  "
+            stQuery = stQuery + " nvl((select sum(ITED_FC_AMT) from OT_INVOICE_ITEM_TED where ITED_H_SYS_ID=INVH_SYS_ID and ITED_TED_HEAD_ITEM_NUM=1 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TEDDIS')),0) as totdisamt, (select ITEM_BL_LONG_NAME_1 from om_item where ITEM_CODE = a.INVI_ITEM_CODE) as arabicname, c.LOCN_BL_NAME as locnArabicName, d.ADDR_LINE_4||' '||d.ADDR_LINE_5 as locnArabicAddress,  "
             stQuery = stQuery + " nvl((select ITED_FC_AMT from OT_INVOICE_ITEM_TED where ITED_I_SYS_ID=INVI_SYS_ID and ITED_TED_HEAD_ITEM_NUM=2 and ITED_TED_TYPE_NUM=(select TED_TAX_DISC_EXP_NUM from OM_TED_TYPE where TED_TYPE_CODE='TAX')),0) as taxamt, "
             stQuery = stQuery & " c.LOCN_FLEX_11 as taxTRN "
             stQuery = stQuery + " from "

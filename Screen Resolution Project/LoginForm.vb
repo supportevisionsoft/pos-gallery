@@ -64,23 +64,24 @@ Public Class LoginForm
             'End If
 
 
-            Select Case Environment.GetEnvironmentVariable("SessionName").ToUpper.Substring(0, 3)
-                Case "ICA"
-                    'MsgBox(System.Environment.GetEnvironmentVariable("CLIENTNAME", EnvironmentVariableTarget.Process))
-                    POSCounterName = System.Environment.GetEnvironmentVariable("CLIENTNAME", EnvironmentVariableTarget.Process)
-                    POSCounterIPAddress = ""
-                Case "RDP"
-                    POSCounterName = Environment.MachineName
-                    POSCounterIPAddress = GetIPAddress()
-                Case "CON"
-                    POSCounterName = Environment.MachineName
-                    POSCounterIPAddress = GetIPAddress()
-            End Select
+            'Select Case Environment.GetEnvironmentVariable("SessionName").ToUpper.Substring(0, 3)
+            '    Case "ICA"
+            '        'MsgBox(System.Environment.GetEnvironmentVariable("CLIENTNAME", EnvironmentVariableTarget.Process))
+            '        POSCounterName = System.Environment.GetEnvironmentVariable("CLIENTNAME", EnvironmentVariableTarget.Process)
+            '        POSCounterIPAddress = ""
+            '    Case "RDP"
+            '        POSCounterName = Environment.MachineName
+            '        POSCounterIPAddress = GetIPAddress()
+            '    Case "CON"
+            '        POSCounterName = Environment.MachineName
+            '        POSCounterIPAddress = GetIPAddress()
+            'End Select
 
             'Please find this code as hardcoded one. To run dynamically, please comment this line of code '''
+            POSCounterName = "SSGMETROPC"
             'POSCounterName = "GALLERYEMALLPC3"     '008
             'POSCounterName = "GDISCOVERPC"
-            'POSCounterName = "GDUBAIPARKPC1"    099
+            'POSCounterName = "GDUBAIPARKPC1"    '099
             'POSCounterName = "ITTESTPC"
             'POSCounterName = "GDUBAIPARKPC"
             'POSCounterName = "GMJSOUKPC"
@@ -530,7 +531,7 @@ Public Class LoginForm
                 ds = db.SelectFromTableODBC(stQuery)
                 If Not ds.Tables("Table").Rows.Count > 0 Then
                     MsgBox("User does not have privilege to access this location!")
-                    Exit Sub
+                    'Exit Sub
                 End If
 
 
